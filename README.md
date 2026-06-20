@@ -3,7 +3,7 @@
 A complete, self-contained, parameter-free model that derives physics, consciousness, metaphysics, philosophy, and pure mathematics from exactly two foundational axioms.
 
 ## View Online
-👉 [https://YOUR-USERNAME.github.io/Unified-Phi-Theory/](https://fissehatamire.github.io/Unified-Phi-Theory/)
+👉 [https://fissehatamire.github.io/Unified-Phi-Theory/]
 
 ## Content
 - Physics: Master Φ-Scaling Equation, dark energy, graphene conductivity, black-hole entropy
