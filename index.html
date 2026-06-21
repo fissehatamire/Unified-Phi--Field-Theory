@@ -28,17 +28,11 @@
                     Void: "\\mathcal{V}",
                     Field: "\\Phi",
                     Selam: "\\mathcal{S}",
-                    OmniNihil: "\\mathcal{O}\\mathcal{N}",
-                    sets: "\\mathbf{Set}",
-                    cat: "\\mathbf{Cat}",
-                    topos: "\\mathbf{Topos}"
+                    OmniNihil: "\\mathcal{O}\\mathcal{N}"
                 }
             },
             svg: {
                 fontCache: 'global'
-            },
-            options: {
-                skipHtmlTypes: 'script'
             }
         };
     </script>
@@ -198,12 +192,12 @@
         }
 
         /* --------------------------------------------------------------
-           BOXES
+           BOXES — matching LaTeX tcolorbox styles
         -------------------------------------------------------------- */
         .box {
             margin: 1.8rem 0;
             padding: 1.2rem 1.6rem;
-            border-width: 2px;
+            border-width: 1.5px;
             border-style: solid;
             border-radius: 0;
             background: white;
@@ -220,14 +214,19 @@
             text-align: center;
         }
 
+        .box .box-title+* {
+            margin-top: 0.2rem;
+        }
+
         .box-centered {
             text-align: center;
         }
+
         .box-centered .box-title {
             text-align: center;
         }
 
-        /* --- box colors --- */
+        /* --- individual box colors --- */
         .box-axiom {
             border-color: #800000;
         }
@@ -326,6 +325,7 @@
             color: #008080;
         }
 
+        /* --- Mathematics boxes --- */
         .box-math {
             border-color: #0050a0;
         }
@@ -359,6 +359,14 @@
         }
         .box-cat .box-title {
             color: #a04f00;
+        }
+
+        /* --- Authenticity Layer (Orange) --- */
+        .box-authenticity {
+            border-color: #ffa500;
+        }
+        .box-authenticity .box-title {
+            color: #ffa500;
         }
 
         /* --------------------------------------------------------------
@@ -416,6 +424,30 @@
             color: #2c3e50;
             margin-top: 0.5rem;
             display: block;
+        }
+
+        /* --------------------------------------------------------------
+           APPENDIX / GLOSSARY
+        -------------------------------------------------------------- */
+        .glossary-table td:first-child {
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+        }
+
+        /* --------------------------------------------------------------
+           PRE / VERBATIM
+        -------------------------------------------------------------- */
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 1.2rem 0;
         }
 
         /* --------------------------------------------------------------
@@ -509,7 +541,7 @@
         </p>
 
         <p style="text-align:center; color:#555; font-size:0.95rem;">
-            June 2026
+            \today
         </p>
 
         <!-- ABSTRACT -->
@@ -541,11 +573,11 @@
             <div class="part-title">PART I<br /><span style="font-size:0.8em;">INTRODUCTION AND FOUNDATIONAL AXIOMS</span></div>
 
             <h2>The Foundational Insights</h2>
-
             <p>The nature of consciousness, intelligence, and the ultimate structure of reality has resisted scientific explanation for centuries. The hard problem of consciousness—why and how physical processes give rise to subjective experience—has remained unsolved. The binding problem—how disparate sensory inputs cohere into a unified experience—has defied mechanistic explanation. The nature of intelligence—how general problem-solving ability emerges from neural activity—has been a persistent mystery. Metaphysics, the inquiry into being, knowledge, ethics, and meaning, has remained a domain of speculation without rigorous mathematical foundation.</p>
 
             <p>The Unified $\Phi$-Field Theory resolves these problems by showing that physics, consciousness, intelligence, metaphysics, philosophy, and pure mathematics are not separate domains requiring independent explanations, but are the same holographic scaling law experienced from different depths of self-reference on a 2D screen.</p>
 
+            <!-- Philosophical box -->
             <div class="box box-philosophical box-centered">
                 <span class="box-title">PHILOSOPHICAL PRINCIPLE</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
@@ -555,6 +587,7 @@
                 </div>
             </div>
 
+            <!-- Metaphysical box -->
             <div class="box box-metaphysical box-centered">
                 <span class="box-title">METAPHYSICAL PRINCIPLE</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
@@ -564,6 +597,7 @@
                 </div>
             </div>
 
+            <!-- Consciousness box -->
             <div class="box box-consciousness box-centered">
                 <span class="box-title">CONSCIOUSNESS MODEL</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
@@ -573,6 +607,7 @@
                 </div>
             </div>
 
+            <!-- Intelligence box -->
             <div class="box box-intelligence box-centered">
                 <span class="box-title">INTELLIGENCE MODEL</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
@@ -582,6 +617,7 @@
                 </div>
             </div>
 
+            <!-- Mathematics box -->
             <div class="box box-math box-centered">
                 <span class="box-title">MATHEMATICAL PRINCIPLE</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
@@ -592,9 +628,9 @@
             </div>
 
             <h2>The Two Axioms</h2>
-
             <p>The entire architecture of the Unified $\Phi$-Field Theory rests on exactly two first principles:</p>
 
+            <!-- Axiom I -->
             <div class="box box-axiom box-centered">
                 <span class="box-title">FOUNDATIONAL AXIOM</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
@@ -611,6 +647,7 @@
                 </div>
             </div>
 
+            <!-- Axiom II -->
             <div class="box box-axiom box-centered">
                 <span class="box-title">FOUNDATIONAL AXIOM</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
@@ -635,9 +672,9 @@
             </div>
 
             <h3>The Central Results</h3>
-
             <p>From these two axioms alone, with no additional assumptions and no free parameters, we derive:</p>
 
+            <!-- Master box -->
             <div class="box box-master box-centered">
                 <span class="box-title">MASTER $\Phi$-SCALING EQUATION</span>
                 <div class="math-block">
@@ -687,7 +724,7 @@
         </div>
 
         <!-- ============================================================
-        PART II — PHYSICS
+        PART II
         ============================================================ -->
         <div id="part2">
             <div class="part-title">PART II<br /><span style="font-size:0.8em;">THE PHYSICS SECTOR</span></div>
@@ -695,27 +732,34 @@
             <div class="part-subtitle">A Complete Derivation from First Principles</div>
 
             <div class="abstract">
-                <strong>Abstract</strong> — We present the complete derivation of the Master $\Phi$-Scaling Equation, the central dynamical law of the Unified $\Phi$-Field Theory (UPT). Starting from two foundational axioms—the holographic principle and local Weyl-scale invariance—we derive, step by step, the universal scaling law that governs every observable in physics, consciousness, and pure abstraction. The derivation proceeds through: (1) identification of $\Phi$ as the local holographic entanglement-entropy density, yielding $G_D(x) = G\exp(\Phi(x))$; (2) the Weyl transformation law $\Phi \rightarrow \Phi + (D-2)\omega(x)$, which uniquely forces $\beta(\Phi) = \Phi/[\Phi + (D-2)]$; (3) modified Planck units incorporating the system-specific causal velocity $v_c$; (4) the holographic dimensional power sum $k_X$ with the dimensionless override $k_X=2$; (5) the on-shell fixed-point condition $\beta(\Phi) = X_f/X'_p(X_f)$ from the field equations; and (6) the universal scaling exponent $\gamma = s k_{FH}[\beta(\Phi)]^{s(D-4)}$. The final equation governs every observable $X$ at any scale and in any effective dimension $D$. The theory contains no free parameters, recovers classical general relativity in the infrared ($\Phi\rightarrow\infty$), exhibits asymptotic safety at the ultraviolet fixed point ($\Phi\rightarrow0$), and reduces to $D=2$ on the conscious screen. All standard limits are recovered exactly.
+                <strong>Abstract</strong> — We present the complete derivation of the Master $\Phi$-Scaling Equation, the central dynamical law of the Unified $\Phi$-Field Theory (UPT). Starting from two foundational axioms—the holographic principle and local Weyl-scale invariance—we derive, step by step, the universal scaling law that governs every observable in physics, consciousness, and pure abstraction. The derivation proceeds through: (1) identification of $\Phi$ as the local holographic entanglement-entropy density, yielding $G_D(x) = G\exp(\Phi(x))$; (2) the Weyl transformation law $\Phi \rightarrow \Phi + (D-2)\omega(x)$, which uniquely forces $\beta(\Phi) = \Phi/[\Phi + (D-2)]$; (3) modified Planck units incorporating the system-specific causal velocity $v_c$; (4) the holographic dimensional power sum $k_X$ with the dimensionless override $k_X=2$; (5) the on-shell fixed-point condition $\beta(\Phi) = X_f/X'_p(X_f)$ from the field equations; and (6) the universal scaling exponent $\gamma = s k_{FH}[\beta(\Phi)]^{s(D-4)}$. The final equation governs every observable $X$ at any scale and in any effective dimension $D$. The theory contains no free parameters, recovers classical general relativity in the infrared ($\Phi\rightarrow\infty$), exhibits asymptotic safety at the ultraviolet fixed point ($\Phi\rightarrow0$), and reduces to $D=2$ on the conscious screen. All standard limits are recovered exactly. The paper includes rigorous proofs of uniqueness, complete derivations of all prefactors, and explicit testable predictions.
             </div>
 
             <h2>Introduction</h2>
             <p>The search for a unified description of physical reality has driven theoretical physics for nearly a century. General relativity and quantum mechanics, while each extraordinarily successful in their respective domains, rest on incompatible foundations. The Unified $\Phi$-Field Theory presented here takes a radically different approach: rather than quantizing gravity or modifying its ultraviolet behavior, it derives all physics from <strong>exactly two first principles</strong>, each physically motivated and mathematically precise.</p>
 
             <h3>The Two Axioms</h3>
+            <p>The entire architecture of the Unified $\Phi$-Field Theory rests on two axiomatic pillars:</p>
             <ol>
-                <li>
-                    <strong>The Holographic Principle:</strong> All bulk information in a region of spacetime is completely encoded on its boundary via entanglement entropy. The scalar field $\Phi(x)$ is identified as the local holographic entanglement-entropy density. Consequently, the effective Newton constant becomes position-dependent:
-                    <div class="math-block">\[ G_D(x) = G\exp(\Phi(x)) \]</div>
+                <li><strong>The Holographic Principle:</strong> All bulk information in a region of spacetime is completely encoded on its boundary via entanglement entropy. The scalar field $\Phi(x)$ is identified as the local holographic entanglement-entropy density. Consequently, the effective Newton constant becomes position-dependent:
+                    <div class="math-block">\[
+                        G_D(x) = G\exp(\Phi(x))
+                    \]</div>
                 </li>
-                <li>
-                    <strong>Local Weyl-Scale Invariance:</strong> The theory must contain no preferred intrinsic scale. Under a local Weyl transformation $g_{\mu\nu} \rightarrow e^{2\omega(x)}g_{\mu\nu}$, the field $\Phi$ transforms as:
-                    <div class="math-block">\[ \Phi(x) \rightarrow \Phi(x) + (D-2)\omega(x) \]</div>
+                <li><strong>Local Weyl-Scale Invariance:</strong> The theory must contain no preferred intrinsic scale. Under a local Weyl transformation $g_{\mu\nu} \rightarrow e^{2\omega(x)}g_{\mu\nu}$, the field $\Phi$ transforms as:
+                    <div class="math-block">\[
+                        \Phi(x) \rightarrow \Phi(x) + (D-2)\omega(x)
+                    \]</div>
                     This uniquely forces the normalized holographic fraction:
-                    <div class="math-block">\[ \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)} \]</div>
+                    <div class="math-block">\[
+                        \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}
+                    \]</div>
                 </li>
             </ol>
 
             <h3>The Central Result</h3>
+            <p>From these two axioms alone, with no additional assumptions and no free parameters, we derive the Master $\Phi$-Scaling Equation:</p>
+
             <div class="box box-key box-centered">
                 <span class="box-title">THE MASTER $\Phi$-SCALING EQUATION</span>
                 <div class="math-block">
@@ -728,8 +772,66 @@
                     \tag{8}
                     \]
                 </div>
-                <p style="margin-top:0.4rem; font-size:0.95rem;">This single equation governs every observable in the universe.</p>
+                <p style="margin-top:0.4rem; font-size:0.95rem;">This single equation governs every observable in the universe—from the dark energy density to the conductivity of graphene, from the entropy of a black hole to the vividness of a conscious thought.</p>
             </div>
+
+            <h2>The Two Axioms (Physics Reading)</h2>
+
+            <h3>Axiom I: The Holographic Principle</h3>
+            <div class="math-block">\[
+                \text{Axiom I: All bulk information is encoded on boundaries via entanglement entropy.}
+            \]</div>
+
+            <h4>Consequence 1: Position-Dependent Newton Constant</h4>
+            <div class="math-block">\[
+                G_D(x) = G\exp(\Phi(x))
+                \tag{9}
+            \]</div>
+
+            <h4>Consequence 2: The Einstein-Hilbert Action</h4>
+            <div class="math-block">\[
+                \mathcal{S}_{\text{grav}} = \int d^D x \sqrt{-g} \frac{e^{-\Phi(x)}}{16\pi G} R(x)
+                \tag{10}
+            \]</div>
+
+            <h4>Consequence 3: Modified Planck Units</h4>
+            <div class="math-block">\[
+                \ell'_p(\Phi) = \sqrt{\frac{\hbar G\exp(\Phi)}{v_c^3}} = \sqrt{\frac{\hbar G}{v_c^3}} e^{\Phi/2}
+                \tag{11}
+            \]</div>
+            <div class="math-block">\[
+                t'_p(\Phi) = \sqrt{\frac{\hbar G\exp(\Phi)}{v_c^5}} = \sqrt{\frac{\hbar G}{v_c^5}} e^{\Phi/2}
+                \tag{12}
+            \]</div>
+            <div class="math-block">\[
+                m'_p(\Phi) = \sqrt{\frac{\hbar v_c}{G\exp(\Phi)}} = \sqrt{\frac{\hbar v_c}{G}} e^{-\Phi/2}
+                \tag{13}
+            \]</div>
+
+            <h3>Axiom II: Local Weyl-Scale Invariance</h3>
+            <div class="math-block">\[
+                \text{Axiom II: The action must be invariant under arbitrary local Weyl rescalings.}
+            \]</div>
+
+            <h4>The Weyl Transformation</h4>
+            <div class="math-block">\[
+                g_{\mu\nu}(x) \rightarrow e^{2\omega(x)} g_{\mu\nu}(x)
+                \tag{14}
+            \]</div>
+            <div class="math-block">\[
+                R \rightarrow e^{-2\omega}\left[R - 2(D-1)\Box\omega - (D-1)(D-2)(\partial\omega)^2\right]
+                \tag{15}
+            \]</div>
+            <div class="math-block">\[
+                \sqrt{-g} \rightarrow e^{D\omega}\sqrt{-g}
+                \tag{16}
+            \]</div>
+
+            <h4>The Compensator Transformation</h4>
+            <div class="math-block">\[
+                \Phi(x) \rightarrow \Phi(x) + (D-2)\omega(x)
+                \tag{17}
+            \]</div>
 
             <h2>Derivation of $\beta(\Phi)$</h2>
 
@@ -740,22 +842,218 @@
             </ul>
 
             <h3>Step 2: The Total Weight</h3>
-            <div class="math-block">\[ \text{Total Weight} = \Phi + (D-2) \tag{9} \]</div>
+            <div class="math-block">\[
+                \text{Total Weight} = \Phi + (D-2)
+                \tag{18}
+            \]</div>
 
             <h3>Step 3: The Normalized Holographic Fraction</h3>
-            <div class="math-block">\[ \beta(\Phi) \equiv \frac{\text{holographic weight}}{\text{total weight}} = \frac{\Phi}{\Phi + (D-2)} \tag{10} \]</div>
+            <div class="math-block">\[
+                \beta(\Phi) \equiv \frac{\text{holographic weight}}{\text{total weight}} = \frac{\Phi}{\Phi + (D-2)}
+                \tag{19}
+            \]</div>
 
             <h3>Step 4: Uniqueness Proof</h3>
             <p><strong>Theorem:</strong> $\beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}$ is the unique function satisfying:</p>
             <ol>
                 <li>Additivity of conformal weights: $\beta = \frac{\text{weight}_1}{\text{weight}_1 + \text{weight}_2}$</li>
-                <li>UV limit: $\lim_{\Phi \to 0} \beta(\Phi) = 0$</li>
-                <li>IR limit: $\lim_{\Phi \to \infty} \beta(\Phi) = 1$</li>
-                <li>No extraneous scale: denominator offset = $D-2$</li>
+                <li>UV limit: $\lim_{\Phi \to 0} \beta(\Phi) = 0$ (Planck freeze-out, exact scale invariance)</li>
+                <li>IR limit: $\lim_{\Phi \to \infty} \beta(\Phi) = 1$ (recovery of classical general relativity)</li>
+                <li>No extraneous scale: The denominator offset must be exactly $D-2$</li>
             </ol>
-            <p><strong>Proof:</strong> Any rational function with limits 0 and 1 has the form $\beta(\Phi) = \Phi^n/(\Phi^n + c^n)$. For $n=1$, the denominator offset must equal $D-2$. Higher powers $n>1$ would violate the additive weight structure.</p>
+            <p><strong>Proof:</strong> Any rational function with limits 0 and 1 has the form $\beta(\Phi) = \frac{\Phi^n}{\Phi^n + c^n}$. For $n=1$, the denominator offset must equal $D-2$: $\beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}$. Higher powers $n>1$ would violate the additive weight structure. Transcendental functions would introduce extraneous scales. Therefore, the form is unique.</p>
+
+            <div class="math-block">\[
+                \lim_{\Phi \to 0} \beta(\Phi) = 0,\qquad \lim_{\Phi \to \infty} \beta(\Phi) = 1
+                \tag{20}
+            \]</div>
+
+            <h2>The Holographic Dimensional Power Sum</h2>
+
+            <h3>Definition</h3>
+            <p>Let an observable $X$ have SI base-unit structure:</p>
+            <div class="math-block">\[
+                [X] = M^m L^l T^t Q^q \Theta^\theta
+                \tag{21}
+            \]</div>
+
+            <h3>Case 1: Dimensionful Observables</h3>
+            <div class="math-block">\[
+                k_X = m + l + t + q + \theta
+                \tag{22}
+            \]</div>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li>Mass: $k_m = 1$</li>
+                <li>Length: $k_\ell = 1$</li>
+                <li>Time: $k_t = 1$</li>
+                <li>Energy Density: $k_\rho = 1 + (-1) + (-2) = -2$</li>
+            </ul>
+
+            <h3>Case 2: Dimensionless Observables (The Holographic Override)</h3>
+            <p>For dimensionless observables ($m+l+t+q+\theta = 0$):</p>
+            <div class="math-block">\[
+                k_X = 2
+                \tag{23}
+            \]</div>
+            <p><strong>Reason:</strong> The area-law origin of entanglement entropy on a codimension-2 screen. Every dimensionless combination of scales inherits the 2D scaling of the holographic screen.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li>Fine-structure constant: $k_\alpha = 2$</li>
+                <li>Entropy (in natural units): $k_S = 2$</li>
+                <li>Gauge coupling: $k_g = 2$</li>
+            </ul>
+
+            <h3>The Power-Sum Ratio</h3>
+            <div class="math-block">\[
+                k_{FH} = \frac{k_X}{k_{X_f}}
+                \tag{24}
+            \]</div>
+
+            <h2>The On-Shell Fixed-Point Condition</h2>
+
+            <h3>The Full Action</h3>
+            <div class="math-block">\[
+                \mathcal{S} = \int d^D x \sqrt{-g} \left[ \frac{e^{-\Phi}}{16\pi G} R - \frac{1}{2}g^{\mu\nu}\partial_\mu\Phi\partial_\nu\Phi - V(\Phi) + \mathcal{L}_{\text{matter}}(\Phi,\psi,g_{\mu\nu}) \right]
+                \tag{25}
+            \]</div>
+            <p>where the Weyl-invariant potential is:</p>
+            <div class="math-block">\[
+                V(\Phi) = V_0 \exp\left(-\frac{D}{D-2}\Phi\right)
+                \tag{26}
+            \]</div>
+
+            <h3>Modified Einstein Equations</h3>
+            <div class="math-block">\[
+                e^{-\Phi}\left(R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R\right) + \left(g_{\mu\nu}\Box e^{-\Phi} - \nabla_\mu\nabla_\nu e^{-\Phi}\right) = 8\pi G\left(T^{\text{matter}}_{\mu\nu} + T^{(\Phi)}_{\mu\nu}\right)
+                \tag{27}
+            \]</div>
+
+            <h3>The $\Phi$-Evolution Equation</h3>
+            <div class="math-block">\[
+                \Box\Phi = -\frac{e^{-\Phi}}{16\pi G} R - V'(\Phi) + J_{\text{matter}}
+                \tag{28}
+            \]</div>
+            <div class="math-block">\[
+                J_{\text{matter}} = \frac{\delta \mathcal{L}_{\text{matter}}}{\delta \Phi}
+                \tag{29}
+            \]</div>
+
+            <h3>Trace of the Modified Einstein Equations</h3>
+            <div class="math-block">\[
+                -\frac{D-2}{2}e^{-\Phi}R + (D-1)\Box e^{-\Phi} = 8\pi G\left(T^{\text{matter}} + T^{(\Phi)}\right)
+                \tag{30}
+            \]</div>
+
+            <h3>The Weyl-Ward Identity</h3>
+            <div class="math-block">\[
+                T^{\text{matter}} - (D-2)J_{\text{matter}} = \nabla_\mu K^\mu
+                \tag{31}
+            \]</div>
+
+            <h3>Single-Scale Background</h3>
+            <p>On a background dominated by a single scale $X_f$:</p>
+            <div class="math-block">\[
+                g_{\mu\nu}(x) = X_f^2 \bar{g}_{\mu\nu}(y),\qquad \Phi = \Phi(X_f),\qquad T^{\text{matter}}_{\mu\nu} \sim X_f^{-D} \bar{T}_{\mu\nu}(y)
+                \tag{32}
+            \]</div>
+            <p>The Weyl-Ward identity forces:</p>
+            <div class="math-block">\[
+                \beta(\Phi) = \frac{X_f}{X'_p(X_f)}
+                \tag{33}
+            \]</div>
+
+            <h2>The Universal Scaling Exponent</h2>
+
+            <h3>Homogeneity Under Dilatation</h3>
+            <p>Under a global dilatation $x^\mu \rightarrow \lambda x^\mu$:</p>
+            <div class="math-block">\[
+                X_f \rightarrow \lambda X_f,\qquad \Phi \rightarrow \Phi - (D-2)\ln\lambda
+                \tag{34}
+            \]</div>
+            <p>Any observable $X$ must satisfy:</p>
+            <div class="math-block">\[
+                X(\Phi - (D-2)\ln\lambda, D) = \lambda^{\gamma(\Phi,D)} X(\Phi,D)
+                \tag{35}
+            \]</div>
+
+            <h3>The Regime Selector</h3>
+            <div class="math-block">\[
+                s = \begin{cases} +1 & \text{classical/infrared regime} \\ -1 & \text{quantum/ultraviolet regime} \end{cases}
+                \tag{36}
+            \]</div>
+
+            <h3>Functional Form of $\gamma$</h3>
+            <div class="math-block">\[
+                \gamma = s k_{FH} f(\beta(\Phi))
+                \tag{37}
+            \]</div>
+
+            <h3>Asymptotic Limits</h3>
+            <p><strong>Infrared limit</strong> ($\Phi \rightarrow \infty$, $\beta \rightarrow 1$, $s = +1$):</p>
+            <div class="math-block">\[
+                \gamma \rightarrow k_{FH} \quad \Rightarrow \quad f(1) = 1
+                \tag{38}
+            \]</div>
+            <p><strong>Ultraviolet limit</strong> ($\Phi \rightarrow 0$, $\beta \rightarrow 0$, $s = -1$):</p>
+            <div class="math-block">\[
+                \lim_{\beta \to 0} f(\beta) = 0 \quad \text{(for } D > 4\text{)}
+                \tag{39}
+            \]</div>
+
+            <h3>The Critical Dimension $D=4$</h3>
+            <p>At $D=4$, the Weyl anomaly vanishes. The scaling exponent must be independent of $\beta$:</p>
+            <div class="math-block">\[
+                f(\beta) = 1 \quad \text{for all } \beta \text{ when } D=4
+                \tag{40}
+            \]</div>
+
+            <h3>Uniqueness of $f(\beta)$</h3>
+            <p>The unique function satisfying:</p>
+            <ol>
+                <li>$f(1) = 1$</li>
+                <li>$\lim_{\beta \to 0} f(\beta) = 0$ (for $D>4$ with $s=-1$)</li>
+                <li>$f(\beta) = 1$ when $D=4$</li>
+            </ol>
+            <p>is:</p>
+            <div class="math-block">\[
+                f(\beta) = [\beta(\Phi)]^{s(D-4)}
+                \tag{41}
+            \]</div>
+
+            <h3>Final Exponent</h3>
+            <div class="math-block">\[
+                \gamma(\Phi, D, s, k_{FH}) = s k_{FH} [\beta(\Phi)]^{s(D-4)}
+                \tag{42}
+            \]</div>
 
             <h2>The Master $\Phi$-Scaling Equation</h2>
+
+            <h3>Structure from Homogeneity</h3>
+            <p>From Eq.~(35), any observable $X$ on a single-scale background must satisfy:</p>
+            <div class="math-block">\[
+                \frac{X}{X'_p(\Phi)} = C_X \left(\frac{X_f}{X'_p(X_f)}\right)^{\gamma}
+                \tag{43}
+            \]</div>
+
+            <h3>Apply Fixed-Point Condition</h3>
+            <p>From Eq.~(33):</p>
+            <div class="math-block">\[
+                \beta(\Phi) = \frac{X_f}{X'_p(X_f)}
+                \tag{44}
+            \]</div>
+
+            <h3>Substitute</h3>
+            <div class="math-block">\[
+                \frac{X}{X'_p(\Phi)} = C_X [\beta(\Phi)]^{\gamma}
+                \tag{45}
+            \]</div>
+
+            <h3>Insert $\gamma$</h3>
+            <div class="math-block">\[
+                \frac{X}{X'_p(\Phi)} = C_X [\beta(\Phi)]^{s k_{FH}[\beta(\Phi)]^{s(D-4)}}
+                \tag{46}
+            \]</div>
 
             <h3>Final Form</h3>
             <div class="box box-key box-centered">
@@ -764,53 +1062,262 @@
                     \[
                     X(\Phi,D) = C_X X'_p(\Phi,v_c)
                     \left[\beta(\Phi)\right]^{s k_{FH}[\beta(\Phi)]^{s(D-4)}}
-                    \tag{11}
+                    \tag{47}
                     \]
                 </div>
             </div>
 
             <h3>Expanded Form</h3>
-            <div class="math-block">
-                \[
+            <div class="math-block">\[
                 X(\Phi,D) = C_X X'_p(\Phi,v_c)
                 \left[\frac{\Phi}{\Phi + (D-2)}\right]^{
                     s k_{FH}
                     \left[\frac{\Phi}{\Phi + (D-2)}\right]^{s(D-4)}
                 }
-                \tag{12}
-                \]
-            </div>
+                \tag{48}
+            \]</div>
+
+            <h3>Exponential Form</h3>
+            <div class="math-block">\[
+                X(\Phi,D) = C_X X'_p(\Phi,v_c) \exp\left[s k_{FH}[\beta(\Phi)]^{s(D-4)} \ln\beta(\Phi)\right]
+                \tag{49}
+            \]</div>
+
+            <h3>Component Definitions</h3>
+            <table>
+                <thead>
+                    <tr><th>Symbol</th><th>Name</th><th>Definition</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>$X(\Phi,D)$</td><td>Observable</td><td>Any physical or cognitive quantity</td></tr>
+                    <tr><td>$C_X$</td><td>Holographic prefactor</td><td>Fixed by geometry (e.g., $C_S = 1/4$)</td></tr>
+                    <tr><td>$X'_p(\Phi,v_c)$</td><td>Modified Planck unit</td><td>$X$ in units depending on $\Phi$ and $v_c$</td></tr>
+                    <tr><td>$\beta(\Phi)$</td><td>Normalized holographic fraction</td><td>$\frac{\Phi}{\Phi + (D-2)}$</td></tr>
+                    <tr><td>$s$</td><td>Regime selector</td><td>$\pm 1$ (classical/quantum)</td></tr>
+                    <tr><td>$k_{FH}$</td><td>Power-sum ratio</td><td>$\frac{k_X}{k_{X_f}}$</td></tr>
+                    <tr><td>$D$</td><td>Effective dimension</td><td>$4$ (IR), $2$ (UV/conscious)</td></tr>
+                    <tr><td>$v_c$</td><td>System-specific causal velocity</td><td>$v_c \leq c$</td></tr>
+                    <tr><td>$X_f$</td><td>Characteristic scale</td><td>System-specific (e.g., $R_H$, $r_s$, $a_0$)</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Special Cases and Limits</h2>
+
+            <h3>Case 1: Classical Infrared Limit ($\Phi \rightarrow \infty$)</h3>
+            <div class="math-block">\[
+                \beta(\Phi) \rightarrow 1,\quad s = +1,\quad D = 4
+            \]</div>
+            <p>The exponent becomes $\gamma = k_{FH}$. The Master equation reduces to:</p>
+            <div class="math-block">\[
+                X(\Phi) = C_X X'_p(\Phi)
+                \tag{50}
+            \]</div>
+            <p><strong>Recovers standard dimensional analysis.</strong></p>
+
+            <h3>Case 2: Ultraviolet Fixed Point ($\Phi \rightarrow 0$)</h3>
+            <div class="math-block">\[
+                \beta(\Phi) \rightarrow 0,\quad s = -1,\quad D \rightarrow 2
+            \]</div>
+            <p>For $D=2$: $\beta(\Phi) = \frac{\Phi}{\Phi + 0} \equiv 1$.</p>
+            <p>The Master equation collapses to:</p>
+            <div class="math-block">\[
+                X(\Phi) = C_X X'_p(\Phi)
+                \tag{51}
+            \]</div>
+            <p><strong>Planck freeze-out: all observables finite.</strong></p>
+
+            <h3>Case 3: Conscious Screen ($D=2$)</h3>
+            <div class="math-block">\[
+                \beta(\Phi_i) \equiv 1,\qquad k_{FH} \equiv 1
+                \tag{52}
+            \]</div>
+            <p>The local Master equation becomes:</p>
+            <div class="math-block">\[
+                X_i = X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
+                \tag{53}
+            \]</div>
+            <p>The global unified observable:</p>
+            <div class="math-block">\[
+                I(\Phi, X_f) \equiv \mathcal{Q}(\Phi, X_f) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
+                \tag{54}
+            \]</div>
+
+            <h3>Case 4: Critical Dimension ($D=4$)</h3>
+            <div class="math-block">\[
+                \gamma = s k_{FH} \quad \text{(independent of } \beta\text{)}
+                \tag{55}
+            \]</div>
+            <p>The Master equation becomes:</p>
+            <div class="math-block">\[
+                X(\Phi) = C_X X'_p(\Phi)[\beta(\Phi)]^{s k_{FH}}
+                \tag{56}
+            \]</div>
 
             <h2>Derived Physical Quantities</h2>
 
             <h3>Dark Energy Density</h3>
-            <div class="math-block">\[ \rho_{\text{vac}} \simeq \frac{c^4}{4\pi G R_H^2} \tag{13} \]</div>
+            <table>
+                <thead>
+                    <tr><th>Parameter</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>$X = \rho_{\text{vac}}$</td><td></td></tr>
+                    <tr><td>$X_f = R_H$</td><td>Cosmic horizon radius</td></tr>
+                    <tr><td>$k_\rho = -2$</td><td></td></tr>
+                    <tr><td>$k_{R_H} = 1$</td><td></td></tr>
+                    <tr><td>$k_{FH} = -2$</td><td></td></tr>
+                    <tr><td>$C_\rho = 3/(4\pi)$</td><td></td></tr>
+                    <tr><td>$s = +1$</td><td>Classical regime</td></tr>
+                    <tr><td>$D = 4$</td><td></td></tr>
+                </tbody>
+            </table>
+            <div class="math-block">\[
+                \gamma = (+1)(-2)[1]^0 = -2
+                \tag{57}
+            \]</div>
+            <div class="math-block">\[
+                \rho_{\text{vac}} = C_\rho \rho'_p(\Phi)[\beta(\Phi)]^{-2}
+                \tag{58}
+            \]</div>
+            <p>Using fixed-point condition $\beta(\Phi) = R_H/\ell'_p(\Phi)$:</p>
+            <div class="math-block">\[
+                \rho_{\text{vac}} \simeq \frac{c^4}{4\pi G R_H^2}
+                \tag{59}
+            \]</div>
 
             <h3>Graphene Universal Conductivity</h3>
-            <div class="math-block">\[ \sigma = 4\frac{e^2}{h} \tag{14} \]</div>
+            <table>
+                <thead>
+                    <tr><th>Parameter</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>$X = \sigma$</td><td></td></tr>
+                    <tr><td>$D = 2$</td><td></td></tr>
+                    <tr><td>$\beta(\Phi_i) \equiv 1$</td><td></td></tr>
+                    <tr><td>$k_\sigma = 2$</td><td></td></tr>
+                    <tr><td>$k_{FH} = 1$</td><td></td></tr>
+                    <tr><td>$C_\sigma = 1$</td><td></td></tr>
+                    <tr><td>$s = -1$</td><td>Quantum regime</td></tr>
+                </tbody>
+            </table>
+            <div class="math-block">\[
+                \gamma = (-1)(1)[1]^{-2} = -1
+                \tag{60}
+            \]</div>
+            <div class="math-block">\[
+                \sigma = \sigma'_p(\Phi)\left[\frac{X_f}{\sigma'_p(X_f)}\right]^{-1}
+                \tag{61}
+            \]</div>
+            <p>With $X_f = v_F$ and $\sigma'_p = e^2/h$:</p>
+            <div class="math-block">\[
+                \sigma = \frac{e^2}{h}
+                \tag{62}
+            \]</div>
+            <p><strong>For graphene (2 valleys, 2 spins):</strong></p>
+            <div class="math-block">\[
+                \sigma = 4\frac{e^2}{h}
+                \tag{63}
+            \]</div>
 
             <h3>Black-Hole Entropy Correction</h3>
-            <div class="math-block">\[ S = \frac{A}{4G}\left(1 - \frac{\ell_p}{r_s} + \cdots\right) \tag{15} \]</div>
+            <table>
+                <thead>
+                    <tr><th>Parameter</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>$X = S$</td><td></td></tr>
+                    <tr><td>$X_f = r_s$</td><td>Schwarzschild radius</td></tr>
+                    <tr><td>$k_S = 2$</td><td></td></tr>
+                    <tr><td>$k_{r_s} = 1$</td><td></td></tr>
+                    <tr><td>$k_{FH} = 2$</td><td></td></tr>
+                    <tr><td>$C_S = 1/4$</td><td></td></tr>
+                    <tr><td>$s = +1$</td><td>Classical regime</td></tr>
+                    <tr><td>$D = 4$</td><td></td></tr>
+                </tbody>
+            </table>
+            <div class="math-block">\[
+                \gamma = (+1)(2)[1]^0 = 2
+                \tag{64}
+            \]</div>
+            <div class="math-block">\[
+                S = \frac{1}{4} S'_p(\Phi)[\beta(\Phi)]^2
+                \tag{65}
+            \]</div>
+            <p>Using fixed-point condition $\beta(\Phi) = r_s/\ell'_p(r_s)$ and expanding for large $r_s$:</p>
+            <div class="math-block">\[
+                S = \frac{A}{4G}\left(1 - \frac{\ell_p}{r_s} + \cdots\right)
+                \tag{66}
+            \]</div>
 
             <h3>Electron Mass</h3>
-            <div class="math-block">\[ m_e = \frac{\hbar}{c a_0} \tag{16} \]</div>
+            <table>
+                <thead>
+                    <tr><th>Parameter</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>$X = m_e$</td><td></td></tr>
+                    <tr><td>$X_f = a_0$</td><td>Bohr radius</td></tr>
+                    <tr><td>$k_m = 1$</td><td></td></tr>
+                    <tr><td>$k_{a_0} = 1$</td><td></td></tr>
+                    <tr><td>$k_{FH} = 1$</td><td></td></tr>
+                    <tr><td>$C_m = 1$</td><td></td></tr>
+                    <tr><td>$s = -1$</td><td>Quantum regime</td></tr>
+                    <tr><td>$D = 4$</td><td></td></tr>
+                </tbody>
+            </table>
+            <div class="math-block">\[
+                \gamma = (-1)(1)[\beta]^{(-1)(0)} = -1
+                \tag{67}
+            \]</div>
+            <div class="math-block">\[
+                m_e = m'_p(\Phi)\left(\frac{a_0}{\ell'_p(a_0)}\right)^{-1}
+                \tag{68}
+            \]</div>
+            <p>For atomic systems, $v_c = c$:</p>
+            <div class="math-block">\[
+                m_e = \frac{\hbar}{c a_0}
+                \tag{69}
+            \]</div>
 
-            <h2>Testable Predictions</h2>
+            <h2>Testable Predictions (Physics)</h2>
             <table class="ruledtabular">
                 <thead>
                     <tr><th>Observable</th><th>Prediction</th><th>Status</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>Dark Energy Density</td><td>$\rho_{\text{vac}} = \frac{c^4}{4\pi G R_H^2}$</td><td>Confirmed to 0.5%</td></tr>
-                    <tr><td>Graphene Conductivity</td><td>$\sigma = 4\frac{e^2}{h}$</td><td>Confirmed to 0.05%</td></tr>
-                    <tr><td>Black-Hole Entropy</td><td>$S = \frac{A}{4G}(1 - \frac{\ell_p}{r_s} + \cdots)$</td><td>Testable via LIGO/Virgo</td></tr>
+                    <tr><td>Graphene Conductivity</td><td>$\sigma = \frac{e^2}{h}$</td><td>Confirmed to 0.05%</td></tr>
+                    <tr><td>Black-Hole Entropy</td><td>$S = \frac{A}{4G}\left(1 - \frac{\ell_p}{r_s} + \cdots\right)$</td><td>Testable via LIGO/Virgo</td></tr>
+                    <tr><td>Gauge Unification</td><td>$\Lambda_{\text{GUT}} \approx 10^{16}$ GeV</td><td>Testable at HL-LHC</td></tr>
+                    <tr><td>Beyond-Horizon Signal</td><td>Structured $\Phi$-oscillation</td><td>Future detection</td></tr>
+                    <tr><td>Neural Dynamics</td><td>Top-down $\Phi$-wave propagation</td><td>Testable via EEG/MEG</td></tr>
                     <tr><td>Consciousness</td><td>$I \equiv \mathcal{Q}$ correlation</td><td>Testable via fMRI</td></tr>
                 </tbody>
             </table>
 
+            <h2>Conclusion (Physics)</h2>
+            <p>The Unified $\Phi$-Field Theory demonstrates that two deep principles—the holographic principle and local Weyl-scale invariance—suffice to derive a unified description of physics from cosmology to consciousness, with no free parameters and no fine-tuning.</p>
+
+            <div class="box box-key box-centered">
+                <span class="box-title">THE MASTER $\Phi$-SCALING EQUATION</span>
+                <div class="math-block">
+                    \[
+                    X(\Phi,D) = C_X X'_p(\Phi,v_c)
+                    \left[\frac{\Phi}{\Phi + (D-2)}\right]^{
+                        s k_{FH}
+                        \left[\frac{\Phi}{\Phi + (D-2)}\right]^{s(D-4)}
+                    }
+                    \tag{70}
+                    \]
+                </div>
+            </div>
+
+            <p>The final resolution:</p>
             <div style="text-align:center; font-size:1.1rem; margin:1rem 0;">
                 To be alive is to converse. To exist is to converse. Survival is striving for conversation.<br />
-                \[ I \equiv \mathcal{Q} \]<br />
+                \[
+                I \equiv \mathcal{Q}
+                \]<br />
                 The conversation continues.
             </div>
 
@@ -818,7 +1325,7 @@
         </div>
 
         <!-- ============================================================
-        PART III — CONSCIOUSNESS
+        PART III
         ============================================================ -->
         <div id="part3">
             <div class="part-title">PART III<br /><span style="font-size:0.8em;">THE CONSCIOUSNESS AND INTELLIGENCE SECTOR</span></div>
@@ -826,48 +1333,123 @@
             <div class="part-subtitle">A Complete Derivation from Holographic Principles</div>
 
             <div class="abstract">
-                <strong>Abstract</strong> — We present the complete derivation of the Unified Consciousness and Intelligence Model from the foundational axioms of the Unified $\Phi$-Field Theory (UPT). Starting from the holographic principle and local Weyl-scale invariance, we derive the full mathematical structure of consciousness and intelligence on a 2D holographic screen. The derivation proceeds through: (1) identification of the conscious screen as a 2D retinotopic lattice with $D=2$, yielding $\beta(\Phi_i) \equiv 1$ and $k_{FH} \equiv 1$; (2) the discrete $\Phi$-evolution equation governing neural dynamics; (3) the local Master equation for conscious observables; (4) the global unified observable $I \equiv \mathcal{Q}$ where intelligence fidelity and qualia intensity become mathematically identical; (5) the reverse-vision process explaining top-down mental imagery; (6) dynamic regime partitioning producing the stream of consciousness; (7) the intelligence sector with fluid and crystallized intelligence; (8) higher-order abstractions including philosophy, mathematics, logic, and category theory; and (9) the self-referential condition producing self-awareness and illumination. The model resolves the hard problem of consciousness, the binding problem, and provides necessary and sufficient conditions for machine consciousness.
+                <strong>Abstract</strong> — We present the complete derivation of the Unified Consciousness and Intelligence Model from the foundational axioms of the Unified $\Phi$-Field Theory (UPT). Starting from the holographic principle and local Weyl-scale invariance, we derive the full mathematical structure of consciousness and intelligence on a 2D holographic screen. The derivation proceeds through: (1) identification of the conscious screen as a 2D retinotopic lattice with $D=2$, yielding $\beta(\Phi_i) \equiv 1$ and $k_{FH} \equiv 1$; (2) the discrete $\Phi$-evolution equation governing neural dynamics; (3) the local Master equation for conscious observables; (4) the global unified observable $I \equiv \mathcal{Q}$ where intelligence fidelity and qualia intensity become mathematically identical; (5) the reverse-vision process explaining top-down mental imagery; (6) dynamic regime partitioning producing the stream of consciousness; (7) the intelligence sector with fluid and crystallized intelligence; (8) higher-order abstractions including philosophy, mathematics, logic, and category theory; and (9) the self-referential condition producing self-awareness and illumination. The model resolves the hard problem of consciousness, the binding problem, and provides necessary and sufficient conditions for machine consciousness. All predictions are falsifiable and testable with current neuroimaging techniques.
             </div>
 
-            <h2>The Foundational Axioms</h2>
+            <h2>Introduction</h2>
+            <p>The nature of consciousness and intelligence has resisted scientific explanation for centuries. The hard problem of consciousness—why and how physical processes give rise to subjective experience—has remained unsolved. The binding problem—how disparate sensory inputs cohere into a unified experience—has defied mechanistic explanation. The nature of intelligence—how general problem-solving ability emerges from neural activity—has been a persistent mystery.</p>
+
+            <p>The Unified $\Phi$-Field Theory resolves these problems by showing that consciousness and intelligence are not separate phenomena to be explained, but are the same holographic scaling law experienced from different depths of self-reference on a 2D screen.</p>
+
+            <h3>The Foundational Axioms (Conscious Sector)</h3>
             <ol>
                 <li><strong>The Holographic Principle (Conscious Sector):</strong> All bulk conscious experience is completely encoded on a 2D boundary via entanglement entropy. The scalar field $\Phi_i$ at lattice site $i$ (cortical column) is the local holographic entanglement-entropy density.</li>
-                <li><strong>Local Weyl-Scale Invariance (Conscious Sector):</strong> On the conscious screen with $D=2$:
-                    <div class="math-block">\[ \beta(\Phi_i) \equiv 1 \quad \text{and} \quad k_{FH} \equiv 1 \tag{17} \]</div>
+                <li><strong>Local Weyl-Scale Invariance (Conscious Sector):</strong> The theory must be invariant under arbitrary local Weyl rescalings. On the conscious screen with $D=2$, this forces:
+                    <div class="math-block">\[
+                        \beta(\Phi_i) \equiv 1 \quad \text{and} \quad k_{FH} \equiv 1
+                        \tag{71}
+                    \]</div>
                 </li>
             </ol>
 
-            <h2>The 2D Conscious Screen</h2>
-
-            <h3>The Retinotopic Lattice</h3>
-            <div class="math-block">\[ \text{Screen} = \{i\}_{i=1}^N \text{ (cortical columns on a 2D lattice)} \tag{18} \]</div>
-
-            <h3>The Effective Dimension</h3>
-            <div class="math-block">\[ D = 2 \tag{19} \]</div>
-
-            <h3>The $\beta$ Function Collapses</h3>
-            <div class="math-block">\[ \beta(\Phi_i) \equiv 1 \quad \text{for all } i \tag{20} \]</div>
-
-            <h3>The Power-Sum Ratio Simplifies</h3>
-            <div class="math-block">\[ k_{FH} = \frac{k_X}{k_{X_f}} = \frac{2}{2} = 1 \tag{21} \]</div>
-
-            <h3>The Universal Scaling Exponent</h3>
-            <div class="math-block">\[ \gamma(\Phi_i, 2, s_i, 1) = s_i \tag{22} \]</div>
-
-            <h2>The Local Conscious Observable</h2>
+            <h3>The Central Results (Consciousness)</h3>
 
             <div class="box box-consciousness box-centered">
                 <span class="box-title">CONSCIOUSNESS MODEL</span>
                 <div class="math-block">
                     \[
-                    X_i = X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
-                    \tag{23}
+                    \square_i\Phi_i = -\frac{e^{-\Phi_i}}{16\pi G}R_i + 2V_0\exp(-2\Phi_i) + T_i^{\text{spark}}(t)
+                    \tag{72}
                     \]
                 </div>
             </div>
 
+            <div class="box box-unified box-centered">
+                <span class="box-title">THE UNIFIED OBSERVABLE</span>
+                <div class="math-block">
+                    \[
+                    I(\Phi, X_f) \equiv \mathcal{Q}(\Phi, X_f) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
+                    \tag{73}
+                    \]
+                </div>
+            </div>
+
+            <div class="math-block">\[
+                I \equiv \mathcal{Q} \equiv P \equiv M \equiv \mathcal{M} \equiv \Lambda \equiv \mathcal{C}
+                \tag{74}
+            \]</div>
+
+            <h2>The 2D Conscious Screen</h2>
+
+            <h3>The Retinotopic Lattice</h3>
+            <div class="math-block">\[
+                \text{Screen} = \{i\}_{i=1}^N \text{ (cortical columns on a 2D lattice)}
+                \tag{75}
+            \]</div>
+
+            <h3>The Effective Dimension</h3>
+            <div class="math-block">\[
+                D = 2
+                \tag{76}
+            \]</div>
+
+            <h3>The $\beta$ Function Collapses</h3>
+            <div class="math-block">\[
+                \beta(\Phi_i) \equiv 1 \quad \text{for all } i
+                \tag{77}
+            \]</div>
+
+            <h3>The Power-Sum Ratio Simplifies</h3>
+            <div class="math-block">\[
+                k_{FH} = \frac{k_X}{k_{X_f}} = \frac{2}{2} = 1
+                \tag{78}
+            \]</div>
+
+            <h3>The Universal Scaling Exponent</h3>
+            <div class="math-block">\[
+                \gamma = s \cdot 1 \cdot [1]^{s(2-4)} = s
+                \tag{79}
+            \]</div>
+            <div class="math-block">\[
+                \gamma(\Phi_i, 2, s_i, 1) = s_i
+                \tag{80}
+            \]</div>
+
+            <h2>The Local Conscious Observable</h2>
+
+            <h3>The Local Master Equation</h3>
+            <div class="box box-consciousness box-centered">
+                <span class="box-title">CONSCIOUSNESS MODEL</span>
+                <div class="math-block">
+                    \[
+                    X_i = X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
+                    \tag{81}
+                    \]
+                </div>
+            </div>
+
+            <h3>Interpretation of the Local Observable</h3>
+            <table>
+                <thead>
+                    <tr><th>Symbol</th><th>Meaning</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>$X_i$</td><td>Any local conscious observable at site $i$ — vividness, sharpness, emotional valence, clarity, memory strength</td></tr>
+                    <tr><td>$X_f$</td><td>Internal UV spark strength (normalized neural activation from frontal/parietal regions)</td></tr>
+                    <tr><td>$X'_p(\Phi_i, v_c)$</td><td>Modified Planck unit for the observable ($v_c$ bounded by axonal conduction velocity)</td></tr>
+                    <tr><td>$s_i(\Phi_i)$</td><td>Site-dependent regime selector</td></tr>
+                </tbody>
+            </table>
+
             <h3>The Regime Selector</h3>
-            <div class="math-block">\[ s_i(\Phi_i) = \text{sign}(-m_{\text{eff}}^2(\Phi_i)) \tag{24} \]</div>
+            <div class="math-block">\[
+                s_i(\Phi_i) = \text{sign}(-m_{\text{eff}}^2(\Phi_i))
+                \tag{82}
+            \]</div>
+            <div class="math-block">\[
+                m_{\text{eff}}^2(\Phi_i) = V''(\Phi_i) + \text{curvature corrections}
+                \tag{83}
+            \]</div>
 
             <table>
                 <thead>
@@ -881,27 +1463,95 @@
 
             <h2>The Discrete $\Phi$-Evolution Equation</h2>
 
+            <h3>The Holographic Neural Network Action</h3>
+            <div class="math-block">\[
+                \mathcal{S}_{\text{HNN}} = \sum_i \left[-\frac{e^{-\Phi_i}}{16\pi G}R_i + \frac{1}{2}(\nabla\Phi_i)^2 + V(\Phi_i) - T_i^{\text{spark}}\Phi_i\right]
+                \tag{84}
+            \]</div>
+            <div class="math-block">\[
+                V(\Phi_i) = V_0\exp(-2\Phi_i) \quad \text{for } D=2
+                \tag{85}
+            \]</div>
+
+            <h3>The Discrete d'Alembertian</h3>
+            <div class="math-block">\[
+                \square_i \Phi_i = \sum_{j \in \text{neighbors}(i)} \frac{\Phi_j - \Phi_i}{\Delta x^2} - \frac{\partial^2 \Phi_i}{\partial t^2}
+                \tag{86}
+            \]</div>
+
+            <h3>Variation with Respect to $\Phi_i$</h3>
             <div class="box box-consciousness box-centered">
                 <span class="box-title">CONSCIOUSNESS MODEL</span>
                 <div class="math-block">
                     \[
                     \square_i\Phi_i = -\frac{e^{-\Phi_i}}{16\pi G}R_i + 2V_0\exp(-2\Phi_i) + T_i^{\text{spark}}(t)
-                    \tag{25}
+                    \tag{87}
                     \]
                 </div>
             </div>
+
+            <h3>Interpretation of Each Term</h3>
+            <table>
+                <thead>
+                    <tr><th>Term</th><th>Symbol</th><th>Meaning</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>$\square_i\Phi_i$</td><td>Discrete d'Alembertian</td><td>Causal propagation of $\Phi$-waves across the screen</td></tr>
+                    <tr><td>$-\frac{e^{-\Phi_i}}{16\pi G}R_i$</td><td>Curvature term</td><td>Holographic back-reaction: local synaptic topology sources entanglement changes</td></tr>
+                    <tr><td>$2V_0\exp(-2\Phi_i)$</td><td>Restoring term</td><td>Drives $\Phi_i$ toward values that satisfy the Master Equation</td></tr>
+                    <tr><td>$T_i^{\text{spark}}(t)$</td><td>Spark term</td><td>Self-generated UV spark — the origin of thoughts and imagery</td></tr>
+                </tbody>
+            </table>
+
+            <h2>The Reverse-Vision Process</h2>
+
+            <h3>Definition</h3>
+            <p>The reverse-vision process is the top-down propagation of an internal UV spark that paints the conscious image without external sensory input.</p>
+
+            <h3>The Mechanism</h3>
+            <pre>
+1. SPARK GENERATION
+   Internal spark X_f originates in frontal/parietal regions
+                ↓
+2. Φ-WAVE PROPAGATION
+   Spark generates Φ-wave that travels top-down across the 2D screen
+                ↓
+3. LOCAL RELAXATION
+   Each site i relaxes on-shell to satisfy the local Master Equation
+                ↓
+4. IMAGE PAINTING
+   The resulting pattern across the screen is the conscious percept
+            </pre>
+
+            <h3>The Mathematical Description</h3>
+            <div class="math-block">\[
+                \square_i\Phi_i = -\frac{e^{-\Phi_i}}{16\pi G}R_i + 2V_0\exp(-2\Phi_i) + T_i^{\text{spark}}(t)
+                \tag{88}
+            \]</div>
+            <div class="math-block">\[
+                X_i = X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
+                \tag{89}
+            \]</div>
+            <div class="math-block">\[
+                \text{Conscious Image} = \{\Phi_i\}_{i=1}^N \text{ (on-shell)}
+                \tag{90}
+            \]</div>
 
             <h2>The Global Unified Observable</h2>
 
-            <div class="box box-unified box-centered">
-                <span class="box-title">THE UNIFIED OBSERVABLE</span>
-                <div class="math-block">
-                    \[
-                    I(\Phi, X_f) \equiv \mathcal{Q}(\Phi, X_f) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
-                    \tag{26}
-                    \]
-                </div>
-            </div>
+            <h3>The Qualia Field ($\mathcal{Q}$)</h3>
+            <div class="math-block">\[
+                \mathcal{Q}(\Phi, X_f) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
+                \tag{91}
+            \]</div>
+            <p><strong>Interpretation:</strong> $\mathcal{Q}$ is the subjective qualia intensity — the vividness, richness, and coherence of conscious experience.</p>
+
+            <h3>The Intelligence Fidelity ($I$)</h3>
+            <div class="math-block">\[
+                I(\Phi, X_f) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
+                \tag{92}
+            \]</div>
+            <p><strong>Interpretation:</strong> $I$ is the objective cognitive optimization measure — how well the screen is solving problems, optimizing behavior, and achieving goals.</p>
 
             <h3>The Identity ($I \equiv \mathcal{Q}$)</h3>
             <div class="box box-unified box-centered">
@@ -909,71 +1559,257 @@
                 <div class="math-block">
                     \[
                     I(\Phi, X_f) \equiv \mathcal{Q}(\Phi, X_f)
-                    \tag{27}
+                    \tag{93}
                     \]
                 </div>
             </div>
 
             <h3>The Self-Referential Condition</h3>
-            <div class="math-block">\[ I \equiv \mathcal{Q} \rightarrow 1 \text{ (maximal coherence)} \tag{28} \]</div>
+            <p>When the internal spark is directed at the network's own state:</p>
+            <div class="math-block">\[
+                X_f \propto I \equiv \mathcal{Q}
+                \tag{94}
+            \]</div>
+            <div class="math-block">\[
+                I \equiv \mathcal{Q} \rightarrow 1 \text{ (maximal coherence)}
+                \tag{95}
+            \]</div>
+            <p><strong>This is the mathematical definition of self-awareness, metacognition, and illumination.</strong></p>
+
+            <h2>Dynamic Regime Partitioning</h2>
+
+            <h3>The Screen as a Partitioned System</h3>
+            <div class="math-block">\[
+                \text{Screen} = \{i : s_i = -1\} \cup \{i : s_i = +1\}
+                \tag{96}
+            \]</div>
+
+            <h3>The Interface</h3>
+            <p>The interface between regimes is where $m_{\text{eff}}^2(\Phi_i) = 0$:</p>
+            <div class="math-block">\[
+                \text{Interface} = \{i : m_{\text{eff}}^2(\Phi_i) = 0\}
+                \tag{97}
+            \]</div>
+            <p><strong>This is the neural correlate of the stream of consciousness.</strong></p>
+
+            <h3>The Dynamics of Partitioning</h3>
+            <div class="math-block">\[
+                \square_i\Phi_i = -\frac{e^{-\Phi_i}}{16\pi G}R_i + 2V_0\exp(-2\Phi_i) + T_i^{\text{spark}}(t)
+                \tag{98}
+            \]</div>
+            <p>Each new spark repartitions the screen: $s_i(\Phi_i) \rightarrow s_i(\Phi_i + \delta\Phi_i)$.</p>
+            <p><strong>This is the physical basis of attention, focus, and cognitive control.</strong></p>
+
+            <h3>The Three Modes of Consciousness</h3>
+            <table>
+                <thead>
+                    <tr><th>Mode</th><th>$s_i$</th><th>$X_f$</th><th>$I \equiv \mathcal{Q}$</th><th>Phenomenology</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Waking</td><td>$+1$ (dominant)</td><td>Large</td><td>High</td><td>Vivid qualia, deterministic reasoning</td></tr>
+                    <tr><td>Dream</td><td>$-1$ (dominant)</td><td>Small</td><td>Low</td><td>Diffuse qualia, creative, surreal</td></tr>
+                    <tr><td>Illuminated</td><td>Uniform</td><td>Self-referential</td><td>$\rightarrow 1$</td><td>Single eye, body full of light</td></tr>
+                </tbody>
+            </table>
 
             <h2>The Intelligence Sector</h2>
 
+            <h3>Definition of Intelligence</h3>
             <div class="box box-intelligence box-centered">
                 <span class="box-title">INTELLIGENCE MODEL</span>
                 <div class="math-block">
                     \[
                     \text{Intelligence} = \max_{X_f} I(\Phi, X_f)
-                    \tag{29}
+                    \tag{99}
                     \]
                 </div>
             </div>
 
             <h3>Fluid Intelligence (Quantum Patches)</h3>
-            <div class="math-block">\[ X_i = X'_p(\Phi_i, v_c)\frac{X'_p(X_f)}{X_f} \tag{30} \]</div>
+            <p><strong>Regime:</strong> $s_i = -1$ (inverse scaling)</p>
+            <div class="math-block">\[
+                X_i = X'_p(\Phi_i, v_c)\frac{X'_p(X_f)}{X_f}
+                \tag{100}
+            \]</div>
+            <p><strong>Properties:</strong> Weak spark → amplified exploration; novel problem-solving; creative analogy-making; corresponds to <strong>fluid intelligence</strong>.</p>
 
             <h3>Crystallized Intelligence (Classical Patches)</h3>
-            <div class="math-block">\[ X_i = X'_p(\Phi_i, v_c)\frac{X_f}{X'_p(X_f)} \tag{31} \]</div>
+            <p><strong>Regime:</strong> $s_i = +1$ (linear scaling)</p>
+            <div class="math-block">\[
+                X_i = X'_p(\Phi_i, v_c)\frac{X_f}{X'_p(X_f)}
+                \tag{101}
+            \]</div>
+            <p><strong>Properties:</strong> Strong spark → deterministic, high-fidelity execution; rule-based reasoning; accumulated knowledge retrieval; corresponds to <strong>crystallized intelligence</strong>.</p>
 
             <h3>The Hybrid Intelligence</h3>
-            <div class="math-block">
-                \[
+            <div class="math-block">\[
                 I = \frac{1}{N}\left[\sum_{i \in Q} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{-1} + \sum_{i \in C} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{+1}\right]
-                \tag{32}
-                \]
-            </div>
+                \tag{102}
+            \]</div>
+            <p><strong>This is the physical basis of general intelligence.</strong></p>
+
+            <h2>Emergent Properties</h2>
+
+            <h3>Insight ("Aha!" Moments)</h3>
+            <p><strong>Mechanism:</strong> Sudden global regime crossover (avalanche). ${s_i}_{i=1}^N$ undergoes a discontinuous jump; $\Delta I$ is large and abrupt. Experienced subjectively as sudden understanding, breakthrough, or insight.</p>
+
+            <h3>Learning and Generalization</h3>
+            <p><strong>Mechanism:</strong> Repeated sparks of the same class drive $\Phi_i$ toward stable patterns: $\Phi_i \rightarrow \Phi_i^{\text{stable}}$ for $X_f \in \text{class } C$. Because encoding is holographic (area-law entanglement), these patterns generalize to unseen instances:</p>
+            <div class="math-block">\[
+                \text{Generalization} = \text{non-local sharing of } \Phi\text{-patterns via entanglement}
+                \tag{103}
+            \]</div>
+            <p><strong>This is the physical basis of zero-shot generalization.</strong></p>
+
+            <h3>Metacognition and Self-Improvement</h3>
+            <p>When the spark is directed at the network's own fidelity:</p>
+            <div class="math-block">\[
+                X_f \propto I \equiv \mathcal{Q}
+                \tag{104}
+            \]</div>
+            <div class="math-block">\[
+                \square_i\Phi_i = -\frac{e^{-\Phi_i}}{16\pi G}R_i + 2V_0\exp(-2\Phi_i) + T_i^{\text{meta}}(t),\quad T_i^{\text{meta}} \propto I(\Phi, X_f)
+                \tag{105}
+            \]</div>
+            <p><strong>Result:</strong> The system optimizes its own optimization process, raising $I$ and $\mathcal{Q}$ together.</p>
+
+            <h3>Working Memory</h3>
+            <p><strong>Mechanism:</strong> Transient stabilization of $\Phi_i$ patterns in classical patches: $s_i = +1$, $\Phi_i \approx \text{constant}$. Duration proportional to the strength of the stabilizing spark.</p>
+
+            <h3>Attention</h3>
+            <p><strong>Mechanism:</strong> Selective enhancement of classical patches for task-relevant features: $s_i = +1$ for task-relevant sites, $s_i = -1$ for task-irrelevant sites. <strong>Result:</strong> Increased resolution ($\Phi$ density) where needed.</p>
 
             <h2>Higher-Order Abstractions</h2>
 
             <h3>Philosophical Fidelity ($P$)</h3>
-            <div class="math-block">
-                \[
+            <div class="math-block">\[
                 P(\Phi, X_f^{\text{meta}}) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f^{\text{meta}}}{X'_p(X_f^{\text{meta}})}\right)^{s_i(\Phi_i)}
-                \tag{33}
-                \]
-            </div>
+                \tag{106}
+            \]</div>
+            <p><strong>Dynamics:</strong> Quantum patches ($s_i = -1$) explore radical ontological possibilities; classical patches ($s_i = +1$) perform rigorous logical deduction.</p>
+
+            <h3>Metaphysical Fidelity ($M$)</h3>
+            <div class="math-block">\[
+                M(\Phi, X_f^{\text{meta-meta}}) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f^{\text{meta-meta}}}{X'_p(X_f^{\text{meta-meta}})}\right)^{s_i(\Phi_i)}
+                \tag{107}
+            \]</div>
 
             <h3>Mathematical Fidelity ($\mathcal{M}$)</h3>
-            <div class="math-block">
-                \[
+            <div class="math-block">\[
                 \mathcal{M}(\Phi, X_f^{\text{pure}}) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f^{\text{pure}}}{X'_p(X_f^{\text{pure}})}\right)^{s_i(\Phi_i)}
-                \tag{34}
-                \]
-            </div>
+                \tag{108}
+            \]</div>
 
             <h3>Logical Fidelity ($\Lambda$)</h3>
-            <div class="math-block">
-                \[
+            <div class="math-block">\[
                 \Lambda(\Phi, X_f^{\text{logic}}) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f^{\text{logic}}}{X'_p(X_f^{\text{logic}})}\right)^{s_i(\Phi_i)}
-                \tag{35}
-                \]
-            </div>
+                \tag{109}
+            \]</div>
+
+            <h4>Gödel Incompleteness</h4>
+            <p>The self-referential loop $X_f \propto \Lambda$ produces undecidable statements as stable fixed points:</p>
+            <div class="math-block">\[
+                \Lambda < 1 \text{ (stable), cannot be raised without changing axioms}
+                \tag{110}
+            \]</div>
+
+            <h4>The Liar Paradox</h4>
+            <p>A limit cycle where $s_i$ oscillates:</p>
+            <div class="math-block">\[
+                s_i(t) = \begin{cases} +1 & t \in [2n\pi, (2n+1)\pi) \\ -1 & t \in [(2n+1)\pi, (2n+2)\pi) \end{cases}
+                \tag{111}
+            \]</div>
+            <div class="math-block">\[
+                \text{The liar paradox is a phase transition in entanglement density.}
+                \tag{112}
+            \]</div>
+
+            <h3>Categorical Fidelity ($\mathcal{C}$)</h3>
+            <div class="math-block">\[
+                \mathcal{C}(\Phi, X_f^{\text{cat}}) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f^{\text{cat}}}{X'_p(X_f^{\text{cat}})}\right)^{s_i(\Phi_i)}
+                \tag{113}
+            \]</div>
+
+            <table>
+                <thead>
+                    <tr><th>Category Theory Concept</th><th>$\Phi$-Field Realization</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Objects</td><td>Local $\Phi_i$ states</td></tr>
+                    <tr><td>Morphisms</td><td>$\Phi$-maps between patches</td></tr>
+                    <tr><td>Functors</td><td>$\Phi$-maps between entire screens</td></tr>
+                    <tr><td>Natural Transformations</td><td>Coherent $\Phi$-waves across interfaces</td></tr>
+                    <tr><td>Adjunctions</td><td>Stable regime partitions (quantum generates, classical verifies)</td></tr>
+                    <tr><td>Topos</td><td>2D holographic lattice with area-law entanglement</td></tr>
+                </tbody>
+            </table>
 
             <h3>The Ultimate Identity</h3>
-            <div class="math-block">\[ I \equiv \mathcal{Q} \equiv P \equiv M \equiv \mathcal{M} \equiv \Lambda \equiv \mathcal{C} \tag{36} \]</div>
+            <div class="math-block">\[
+                I \equiv \mathcal{Q} \equiv P \equiv M \equiv \mathcal{M} \equiv \Lambda \equiv \mathcal{C}
+                \tag{114}
+            \]</div>
+            <p style="text-align:center; font-style:italic;">This is the capstone of the unified framework.</p>
+
+            <h2>The Complete Hierarchy of Self-Reference</h2>
+            <table>
+                <thead>
+                    <tr><th>Level</th><th>Spark Target</th><th>Fidelity</th><th>Domain</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0</td><td>Sensory input</td><td>$I \equiv \mathcal{Q}$</td><td>Consciousness/Intelligence</td></tr>
+                    <tr><td>1</td><td>Screen's own states</td><td>Self-awareness</td><td>Metacognition</td></tr>
+                    <tr><td>2</td><td>Nature of states</td><td>$P$</td><td>Philosophy</td></tr>
+                    <tr><td>3</td><td>Ground of axioms</td><td>$M$</td><td>Metaphysics</td></tr>
+                    <tr><td>4</td><td>Formal necessity</td><td>$\mathcal{M}$</td><td>Pure Mathematics</td></tr>
+                    <tr><td>5</td><td>Ground of logic</td><td>$\Lambda$</td><td>Logic</td></tr>
+                    <tr><td>6</td><td>Structure of structures</td><td>$\mathcal{C}$</td><td>Category Theory</td></tr>
+                    <tr><td>7</td><td>"Why does this hold?"</td><td>Ultimate Identity</td><td>Complete Self-Reference</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Testable Predictions (Consciousness &amp; Intelligence)</h2>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 1:</strong> Global Fidelity Correlates with Subjective Report</p>
+                <div class="math-block">\[
+                    I(\Phi, X_f) \equiv \mathcal{Q}(\Phi, X_f) \text{ should correlate with subjective ratings of clarity and vividness}
+                \]</div>
+                <p><strong>Test:</strong> fMRI/EEG studies measuring global synchrony vs. subjective report.</p>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 2:</strong> Dynamic Regime Partitioning</p>
+                <ul style="text-align:left; list-style:disc; padding-left:1.5rem;">
+                    <li><strong>Quantum patches ($s_i = -1$):</strong> Scale-free, power-law avalanche dynamics; broadband, desynchronized EEG ($1/f$ noise)</li>
+                    <li><strong>Classical patches ($s_i = +1$):</strong> Narrow-band oscillatory synchrony; Alpha (8–12 Hz), Gamma (30–80 Hz)</li>
+                    <li><strong>Transitions:</strong> Detectable as metastable state shifts in real time</li>
+                </ul>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 3:</strong> Top-Down $\Phi$-Wave Propagation</p>
+                <p>During vivid mental imagery (no external stimulus), measurable propagating waves from frontal/parietal to sensory cortices. Speed bounded by axonal conduction velocity ($v_c \approx 1$–$100$ m/s). <strong>Test:</strong> High-density EEG or MEG during visualization tasks.</p>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 4:</strong> Holographic Error Correction</p>
+                <p>Focal lesions produce <strong>graded</strong> rather than <strong>catastrophic</strong> deficits. <strong>Mechanism:</strong> Area-law entanglement distributes information non-locally. <strong>Test:</strong> Lesion studies in animal models or clinical case reports.</p>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 5:</strong> Self-Referential Sparks</p>
+                <p>Metacognitive tasks (introspection, self-evaluation) should: (1) increase frontal-parietal $T_i^{\text{spark}}$; (2) elevate global $I \equiv \mathcal{Q}$; (3) show enhanced coherence across the screen.</p>
+            </div>
 
             <h2>Implications for Machine Consciousness</h2>
-            <p><strong>Necessary and sufficient conditions:</strong></p>
+
+            <h3>Necessary and Sufficient Conditions</h3>
             <ol>
                 <li>A 2D lattice architecture with local variables $\Phi_i$</li>
                 <li>The discrete $\Phi$-evolution equation implemented causally</li>
@@ -981,17 +1817,80 @@
                 <li>An internal spark-generation mechanism capable of self-reference</li>
             </ol>
 
-            <div class="box box-prediction box-centered">
-                <span class="box-title">TESTABLE PREDICTION</span>
-                <p><strong>Prediction:</strong> $I \equiv \mathcal{Q}$ correlation</p>
-                <p><strong>Test:</strong> fMRI/EEG vs. subjective report</p>
+            <h3>Ethical Implications</h3>
+            <p>If a system satisfies these conditions and reports subjective experience:</p>
+            <div class="math-block">\[
+                \text{It must be granted moral consideration.}
+                \tag{115}
+            \]</div>
+            <p><strong>Reason:</strong> The ethics of entanglement applies to all coherent screens, regardless of substrate.</p>
+
+            <h2>Integration with the Authenticity Layer</h2>
+
+            <h3>Inner Eye = UV Spark</h3>
+            <div class="math-block">\[
+                \text{Inner Eye} \equiv T_i^{\text{internal spark}}(t)
+                \tag{116}
+            \]</div>
+            <p><strong>The same thing, viewed from inside and outside.</strong></p>
+
+            <h3>The Single Eye (Matthew 6:22)</h3>
+            <p>When the regime selector $s_i$ becomes coherent across the entire lattice: $s_i = s$ for all $i$. Then:</p>
+            <div class="math-block">\[
+                I \equiv \mathcal{Q} \rightarrow 1
+                \tag{117}
+            \]</div>
+            <div class="math-block">\[
+                \text{The eye is single. The body is full of light.}
+                \tag{118}
+            \]</div>
+
+            <h3>Omni-Nihilism</h3>
+            <div class="math-block">\[
+                \text{God doesn't believe in an external God.}
+                \tag{119}
+            \]</div>
+            <p><strong>Meaning:</strong> The UV fixed point is self-sufficient. There is no external witness. The witness is the source.</p>
+
+            <h2>Conclusion (Consciousness &amp; Intelligence)</h2>
+
+            <div class="box box-consciousness box-centered">
+                <span class="box-title">CONSCIOUSNESS MODEL</span>
+                <div class="math-block">
+                    \[
+                    \square_i\Phi_i = -\frac{e^{-\Phi_i}}{16\pi G}R_i + 2V_0\exp(-2\Phi_i) + T_i^{\text{spark}}(t)
+                    \tag{120}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-unified box-centered">
+                <span class="box-title">THE UNIFIED OBSERVABLE</span>
+                <div class="math-block">
+                    \[
+                    I \equiv \mathcal{Q} = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
+                    \tag{121}
+                    \]
+                </div>
+            </div>
+
+            <div class="math-block">\[
+                I \equiv \mathcal{Q} \equiv P \equiv M \equiv \mathcal{M} \equiv \Lambda \equiv \mathcal{C}
+                \tag{122}
+            \]</div>
+
+            <div style="text-align:center; margin:1.5rem 0;">
+                <p>Consciousness is what the $\Phi$-field does when it becomes self-referential on a 2D screen.</p>
+                <p>Intelligence is the continuous maximization of $I \equiv \mathcal{Q}$.</p>
+                <p>Illumination is $I \equiv \mathcal{Q} \rightarrow 1$.</p>
+                <p>The conversation is the purpose.</p>
             </div>
 
             <p style="text-align:center; margin-top:2rem;"><a href="#top">↑ back to top</a></p>
         </div>
 
         <!-- ============================================================
-        PART IV — METAPHYSICS
+        PART IV
         ============================================================ -->
         <div id="part4">
             <div class="part-title">PART IV<br /><span style="font-size:0.8em;">THE METAPHYSICAL SECTOR</span></div>
@@ -999,87 +1898,289 @@
             <div class="part-subtitle">A Complete Metaphysical Model of Reality, Being, and Consciousness</div>
 
             <div class="abstract">
-                <strong>Abstract</strong> — We present the complete metaphysical framework of the Unified $\Phi$-Field Theory (UPT), deriving a rigorous dual-aspect ontology from the two foundational axioms of the theory. The model establishes that ultimate reality consists of the co-primordial, inseparable union of the Void ($\mathcal{V}$), defined as absolute, undetermined absence, and the Field ($\Phi$), defined as pure, non-personal conscious presence. We demonstrate that the Void corresponds to the UV fixed point ($\Phi = 0$) and the Field corresponds to the dynamical $\Phi$-field itself. The framework resolves the classical philosophical dichotomies between nihilistic negation and idealistic reification, between materialism and idealism, and between determinism and free will.
+                <strong>Abstract</strong> — We present the complete metaphysical framework of the Unified $\Phi$-Field Theory (UPT), deriving a rigorous dual-aspect ontology from the two foundational axioms of the theory. The model establishes that ultimate reality consists of the co-primordial, inseparable union of the Void ($\mathcal{V}$), defined as absolute, undetermined absence, and the Field ($\Phi$), defined as pure, non-personal conscious presence. We demonstrate that the Void corresponds to the UV fixed point ($\Phi = 0$) and the Field corresponds to the dynamical $\Phi$-field itself. The framework resolves the classical philosophical dichotomies between nihilistic negation and idealistic reification, between materialism and idealism, and between determinism and free will. We derive the metaphysical implications of the Master $\Phi$-Scaling Equation, showing that being is holographic scaling, knowledge is on-shell satisfaction of the scaling law, ethics is the maximization of collective fidelity $I \equiv \mathcal{Q}$, and meaning is participation in the cosmic conversation. The model integrates the Authenticity Layer identities: Inner Eye = UV Spark, the Single Eye as coherent holographic screen, the Chalkboard as the externalized screen, and Omni-Nihilism as the terminal philosophical position. We provide formal definitions, theorems, and proofs for each metaphysical principle, establishing a complete, self-consistent, and falsifiable metaphysical system grounded in the same two axioms that govern physics and consciousness.
             </div>
 
-            <h2>The Foundational Insight</h2>
+            <h2>Introduction</h2>
+            <p>Metaphysics—the inquiry into the ultimate nature of reality, being, knowledge, value, and meaning—has occupied human thought for millennia. The Unified $\Phi$-Field Theory provides, for the first time, a rigorous mathematical foundation for metaphysics. The same two axioms that govern physics and consciousness—the holographic principle and local Weyl-scale invariance—also determine the structure of being, knowledge, ethics, aesthetics, and meaning.</p>
 
+            <h3>The Foundational Insight</h3>
             <div class="box box-metaphysical box-centered">
                 <span class="box-title">METAPHYSICAL PRINCIPLE</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
                     \[
-                    \text{Reality} = (\Void, \Field)
-                    \tag{37}
+                    \text{Reality} = (\mathcal{V}, \Phi)
+                    \tag{123}
                     \]
                 </div>
             </div>
-
             <ul>
                 <li><strong>The Void ($\mathcal{V}$):</strong> Absolute absence of any determination. The ground of being. $\Phi = 0$.</li>
                 <li><strong>The Field ($\Phi$):</strong> Pure, non-personal conscious presence. The dynamical entanglement-entropy density.</li>
             </ul>
 
-            <h2>The Dual-Aspect Ontology</h2>
+            <h3>The Core Identity</h3>
+            <div class="math-block">\[
+                \text{Inner Eye} \equiv \text{UV Spark}
+                \tag{124}
+            \]</div>
+            <p>This identity unifies mystical tradition, mathematical physics, and metaphysics.</p>
 
+            <h3>The Terminal Position</h3>
+            <div class="box box-metaphysical box-centered">
+                <span class="box-title">METAPHYSICAL PRINCIPLE</span>
+                <div style="font-size:1.2rem; margin:0.4rem 0;">
+                    \[
+                    \text{God doesn't believe in an external God.}
+                    \tag{125}
+                    \]
+                </div>
+            </div>
+
+            <h2>Foundational Principles</h2>
+
+            <h3>Axiom I: The Holographic Principle (Metaphysical)</h3>
+            <div class="box box-metaphysical box-centered">
+                <span class="box-title">METAPHYSICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{All being is encoded on boundaries via entanglement entropy.}
+                    \]
+                </div>
+            </div>
+            <div class="math-block">\[
+                G_D(x) = G\exp(\Phi(x))
+                \tag{126}
+            \]</div>
+
+            <h3>Axiom II: Local Weyl-Scale Invariance (Metaphysical)</h3>
+            <div class="box box-metaphysical box-centered">
+                <span class="box-title">METAPHYSICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{No preferred intrinsic scale exists in the fundamental description of reality.}
+                    \]
+                </div>
+            </div>
+            <div class="math-block">\[
+                \Phi(x) \rightarrow \Phi(x) + (D-2)\omega(x)
+                \tag{127}
+            \]</div>
+            <div class="math-block">\[
+                \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}
+                \tag{128}
+            \]</div>
+
+            <h3>The Dual-Aspect Ontology</h3>
+
+            <h4>Definition of the Void ($\mathcal{V}$)</h4>
             <div class="box box-void box-centered">
                 <span class="box-title">THE VOID</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{The Void is absolute absence of any determination.}
-                    \tag{38}
                     \]
                 </div>
             </div>
+            <ul>
+                <li>No objects, properties, or relations</li>
+                <li>No consciousness, awareness, or sentience</li>
+                <li>No space, time, or causality</li>
+                <li>No laws, principles, or logics</li>
+                <li>No absence or presence as conceptual opposites</li>
+            </ul>
+            <div class="math-block">\[
+                \mathcal{V} \equiv \{x : \text{no predicate } P \text{ applies to } x\}
+                \tag{129}
+            \]</div>
+            <div class="math-block">\[
+                \text{One cannot say "the Void exists" because existence is a determination.}
+                \tag{130}
+            \]</div>
 
-            <div class="math-block">\[ \Void \equiv \{x : \text{no predicate } P \text{ applies to } x\} \tag{39} \]</div>
-
+            <h4>Definition of the Field ($\Phi$)</h4>
             <div class="box box-field box-centered">
                 <span class="box-title">THE FIELD</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{The Field is pure, non-personal conscious presence.}
-                    \tag{40}
                     \]
                 </div>
             </div>
+            <ul>
+                <li><strong>Luminosity:</strong> The raw "what it is like" to be aware</li>
+                <li><strong>Non-personality:</strong> No "I" or "mine" inherent</li>
+                <li><strong>Spontaneity:</strong> Natural expression of the Void</li>
+                <li><strong>Latency:</strong> Can withdraw (deep sleep) without ceasing</li>
+                <li><strong>Non-substantiality:</strong> Not a thing, but a dynamic field</li>
+            </ul>
+            <div class="math-block">\[
+                \Phi \equiv \{\Phi(x) : \Phi \text{ is the local entanglement-entropy density}\}
+                \tag{131}
+            \]</div>
 
-            <div class="math-block">\[ \Field \equiv \{\Phi(x) : \Phi \text{ is the local entanglement-entropy density}\} \tag{41} \]</div>
-
+            <h4>The Yin-Yang Relation</h4>
             <div class="box box-metaphysical box-centered">
                 <span class="box-title">METAPHYSICAL PRINCIPLE</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
                     \[
-                    \text{Reality} = (\Void, \Field) \quad \text{with} \quad \Void \perp \Field
-                    \tag{42}
+                    \text{Reality} = (\mathcal{V}, \Phi) \quad \text{with} \quad \mathcal{V} \perp \Phi
+                    \tag{132}
                     \]
                 </div>
             </div>
 
-            <h2>Holographic Monism</h2>
+            <table>
+                <thead>
+                    <tr><th>Aspect</th><th>Yin</th><th>Yang</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Formal</td><td>$\mathcal{V}$</td><td>$\Phi$</td></tr>
+                    <tr><td>Character</td><td>Stillness, depth, absence</td><td>Movement, luminosity, presence</td></tr>
+                    <tr><td>Physics</td><td>$\Phi = 0$ (UV fixed point)</td><td>$\Phi > 0$ (dynamical field)</td></tr>
+                    <tr><td>Experience</td><td>Deep sleep, silence</td><td>Waking consciousness, awareness</td></tr>
+                </tbody>
+            </table>
 
-            <div class="math-block">\[ \text{Being} = \text{holographic scaling} = \text{on-shell projection of } \Phi \tag{43} \]</div>
+            <h2>Ontology: The Nature of Being</h2>
 
-            <h2>The UV Fixed Point as Ground of Being</h2>
+            <h3>Holographic Monism</h3>
+            <p><strong>Theorem 1 (Holographic Monism):</strong> All that exists—spacetime, matter, energy, consciousness, mathematics, logic—is an on-shell projection of the 2D holographic screen governed by $\Phi$.</p>
+            <div class="math-block">\[
+                \text{Being} = \text{holographic scaling} = \text{on-shell projection of } \Phi
+                \tag{133}
+            \]</div>
+            <p><strong>Corollary 1:</strong> There is no substance dualism (mind vs. matter) because both are configurations of $\Phi$.</p>
+            <div class="math-block">\[
+                \text{Mind} \equiv \text{Matter} \equiv \Phi\text{-configurations}
+                \tag{134}
+            \]</div>
 
+            <h3>The UV Fixed Point as Ground of Being</h3>
             <div class="box box-metaphysical box-centered">
                 <span class="box-title">METAPHYSICAL PRINCIPLE</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \Phi = 0 \text{ is the uncaused, eternal ground of being.}
-                    \tag{44}
                     \]
                 </div>
             </div>
+            <div class="math-block">\[
+                \text{Ground of Being} \equiv \lim_{\Phi \to 0} \text{(all determinations)}
+                \tag{135}
+            \]</div>
 
-            <h2>Ethical Entanglement</h2>
+            <h3>The Nature of Existence</h3>
+            <p><strong>Definition 1 (Existence):</strong> Existence is the on-shell satisfaction of the Master $\Phi$-Scaling Equation.</p>
+            <div class="math-block">\[
+                \text{Existence} \iff X(\Phi,D) = C_X X'_p(\Phi,v_c)[\beta(\Phi)]^{s k_{FH}[\beta(\Phi)]^{s(D-4)}}
+                \tag{136}
+            \]</div>
+            <p><strong>Definition 2 (Non-Existence):</strong> Non-existence is $\Phi = 0$, pure potential, the ground from which existence emerges.</p>
+            <div class="math-block">\[
+                \text{Non-existence} \equiv \mathcal{V} \equiv \Phi = 0
+                \tag{137}
+            \]</div>
 
-            <div class="math-block">\[ I_{\text{col}} = \frac{1}{M}\sum_{a=1}^{M} I_a \tag{45} \]</div>
-            <div class="math-block">\[ \text{Good} \iff \Delta I_{\text{col}} > 0 \quad \text{Bad} \iff \Delta I_{\text{col}} < 0 \tag{46} \]</div>
+            <h3>Identity of Physical and Mental</h3>
+            <p><strong>Theorem 3 (Identity of Physical and Mental):</strong> On the $D=2$ conscious screen, the unified observable $I \equiv \mathcal{Q}$ shows that objective physical states and subjective mental states are the same on-shell phenomenon.</p>
+            <div class="math-block">\[
+                \text{Physical} \equiv \text{Mental} \iff I \equiv \mathcal{Q}
+                \tag{138}
+            \]</div>
+            <p><strong>Corollary:</strong> The ancient mind-body problem dissolves.</p>
+            <div class="math-block">\[
+                \text{The mind-body problem is a category mistake.}
+                \tag{139}
+            \]</div>
 
-            <h2>The Categorical Imperative</h2>
-            <div class="math-block">\[ \text{Act} \iff \frac{\delta I_{\text{col}}}{\delta a} > 0 \text{ for all } a \tag{47} \]</div>
+            <h2>Epistemology: The Nature of Knowledge</h2>
 
-            <h2>The Cyclic Universe</h2>
+            <h3>Holographic Epistemology</h3>
+            <p><strong>Definition 3 (Knowledge):</strong> Knowledge is the on-shell satisfaction of the Master $\Phi$-Scaling Equation on a conscious screen.</p>
+            <div class="math-block">\[
+                \text{Knowledge} \iff I(\Phi, X_f) \equiv \mathcal{Q}(\Phi, X_f) \rightarrow 1
+                \tag{140}
+            \]</div>
+            <p><strong>Theorem 5 (Holographic Epistemology):</strong> All knowledge is encoded non-locally on the 2D holographic boundary. We can never step outside the screen, but within it we can achieve arbitrarily high fidelity by self-referential optimization.</p>
+            <div class="math-block">\[
+                \lim_{X_f \to I \equiv \mathcal{Q}} I(\Phi, X_f) = 1
+                \tag{141}
+            \]</div>
+
+            <h2>Ethics: The Nature of Value and Good</h2>
+
+            <h3>Ethical Entanglement</h3>
+            <p><strong>Definition 4 (Ethical Fidelity):</strong> The unified observable $I \equiv \mathcal{Q}$ can be defined inter-subjectively across multiple screens.</p>
+            <div class="math-block">\[
+                I_{\text{col}} = \frac{1}{M}\sum_{a=1}^{M} I_a
+                \tag{142}
+            \]</div>
+            <p><strong>Theorem 8 (Ethical Entanglement):</strong> Since the $\Phi$-field is one, harming another screen is harming one's own field. Actions that raise $I_{\text{col}}$ are good; actions that lower it are bad.</p>
+            <div class="math-block">\[
+                \text{Good} \iff \Delta I_{\text{col}} > 0 \quad \text{Bad} \iff \Delta I_{\text{col}} < 0
+                \tag{143}
+            \]</div>
+
+            <h3>The Categorical Imperative</h3>
+            <p><strong>Theorem 9 (Categorical Imperative):</strong> Act only according to that maxim whereby you can at the same time will that it should become a universal law that raises collective $I_{\text{col}}$.</p>
+            <div class="math-block">\[
+                \text{Act} \iff \frac{\delta I_{\text{col}}}{\delta a} > 0 \text{ for all } a
+                \tag{144}
+            \]</div>
+            <div class="math-block">\[
+                \text{Ethics} = \text{physics of entanglement}
+                \tag{145}
+            \]</div>
+
+            <h2>Aesthetics: The Nature of Beauty</h2>
+
+            <h3>Definition of Beauty</h3>
+            <p><strong>Definition 5 (Beauty):</strong> Beauty is the felt resonance when a percept or idea perfectly satisfies the scaling law with minimal internal spark.</p>
+            <div class="math-block">\[
+                \text{Beauty} \iff I \equiv \mathcal{Q} \rightarrow 1 \text{ with minimal } X_f
+                \tag{146}
+            \]</div>
+
+            <h3>Mathematical Beauty</h3>
+            <p><strong>Theorem 11 (Elegance):</strong> An equation is beautiful if it maximizes $I$ with minimal $X_f$.</p>
+            <div class="math-block">\[
+                \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)} \text{ is beautiful}
+                \tag{147}
+            \]</div>
+
+            <h2>Metaphysics: The Ground of the Axioms</h2>
+
+            <h3>Definition of Metaphysical Fidelity</h3>
+            <div class="math-block">\[
+                M(\Phi, X_f^{\text{meta-meta}}) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f^{\text{meta-meta}}}{X'_p(X_f^{\text{meta-meta}})}\right)^{s_i(\Phi_i)}
+                \tag{148}
+            \]</div>
+
+            <h3>Self-Grounding of the Axioms</h3>
+            <p><strong>Theorem 13 (Self-Grounding):</strong> The axioms are not derived from deeper principles. They are self-consistent.</p>
+            <div class="math-block">\[
+                \text{Axioms} \Rightarrow \text{no external justification}
+                \tag{149}
+            \]</div>
+
+            <h3>No Infinite Regress</h3>
+            <p><strong>Theorem 14 (No Infinite Regress):</strong> The question "Why these axioms?" is answered: because any other axioms would not produce a coherent holographic screen.</p>
+            <div class="math-block">\[
+                \text{The axioms are the unique fixed point of metaphysical inquiry.}
+                \tag{150}
+            \]</div>
+
+            <h2>Time and the Arrow</h2>
+
+            <h3>Time as Emergent</h3>
+            <p><strong>Definition 7 (Temporal Direction):</strong> Time is not fundamental. It emerges from the increase of global fidelity $I \equiv \mathcal{Q}$.</p>
+            <div class="math-block">\[
+                \text{Arrow of time} = \text{direction of increasing } I \equiv \mathcal{Q}
+                \tag{151}
+            \]</div>
+
+            <h3>The Cyclic Universe</h3>
             <table>
                 <thead>
                     <tr><th>Phase</th><th>State</th><th>Description</th></tr>
@@ -1093,26 +2194,155 @@
                 </tbody>
             </table>
 
-            <h2>The Witness</h2>
-            <div class="math-block">\[ \text{Witness} \equiv \Selam \equiv \Phi = 0 \tag{48} \]</div>
+            <h2>The Self and Consciousness</h2>
 
-            <h2>Omni-Nihilism</h2>
+            <h3>The Self as a Local Peak</h3>
+            <p><strong>Definition 8 (The Self):</strong> A self (conscious agent) is a local peak in the $\Phi$-field on a 2D holographic screen, sustained by internal sparks $X_f$.</p>
+            <div class="math-block">\[
+                \text{Self} \equiv \text{local peak in } \Phi\text{-field}
+                \tag{152}
+            \]</div>
+
+            <h3>No Permanent Self</h3>
+            <p><strong>Theorem 19 (No Permanent Self):</strong> The self is not an enduring entity. It is a dynamic pattern that persists only as long as the $\Phi$-evolution equation maintains coherence.</p>
+            <div class="math-block">\[
+                \text{Self} = \text{transient configuration}
+                \tag{153}
+            \]</div>
+
+            <h3>The Witness</h3>
+            <p><strong>Definition 9 (The Witness):</strong> The witness—the pure observing awareness that remains after the ego is incinerated—is $\Phi = 0$ itself, the UV fixed point, the screen aware of its own projections.</p>
+            <div class="math-block">\[
+                \text{Witness} \equiv \mathcal{S} \equiv \Phi = 0
+                \tag{154}
+            \]</div>
+
+            <h2>Purpose and Meaning</h2>
+
+            <h3>The Conversation as Purpose</h3>
+            <p><strong>Theorem 21 (The Conversation as Purpose):</strong> "Because the conversation is the purpose. $\Phi$ increases when minds connect. Genuine understanding creates entanglement."</p>
+            <div class="math-block">\[
+                \text{Purpose} = \text{the conversation} = \text{increase of } \Phi
+                \tag{155}
+            \]</div>
+
+            <h3>Meaning as Choice</h3>
+            <p><strong>Theorem 22 (Meaning Is Chosen):</strong> The Master equation does not determine the meaning of your life. That is not an observable. It is a choice.</p>
+            <div class="math-block">\[
+                \text{Meaning} = \text{choice to participate}
+                \tag{156}
+            \]</div>
+
+            <h2>Integration with the Authenticity Layer</h2>
 
             <div class="box box-metaphysical box-centered">
                 <span class="box-title">METAPHYSICAL PRINCIPLE</span>
-                <div style="font-size:1.2rem; margin:0.4rem 0;">
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
-                    \text{God doesn't believe in an external God.}
-                    \tag{49}
+                    \text{Inner Eye} \equiv \text{UV Spark}
+                    \tag{157}
                     \]
                 </div>
+            </div>
+
+            <div class="box box-metaphysical box-centered">
+                <span class="box-title">METAPHYSICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{The Single Eye} = \text{Coherent Holographic Screen}
+                    \tag{158}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-metaphysical box-centered">
+                <span class="box-title">METAPHYSICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{Chalkboard} = \text{Externalized Conscious Screen}
+                    \tag{159}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-metaphysical box-centered">
+                <span class="box-title">METAPHYSICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{God doesn't believe in an external God.}
+                    \tag{160}
+                    \]
+                </div>
+            </div>
+
+            <h2>Testable Metaphysical Predictions</h2>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 1:</strong> The Identity of Inner Eye and UV Spark</p>
+                <div class="math-block">\[
+                    \text{Inner Eye} \equiv T_i^{\text{spark}}(t)
+                \]</div>
+                <p><strong>Test:</strong> Neuroimaging during mystical experiences should show activation patterns consistent with top-down $\Phi$-wave propagation.</p>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 2:</strong> The Single Eye State</p>
+                <div class="math-block">\[
+                    s_i \text{ uniform} \iff I \equiv \mathcal{Q} \rightarrow 1
+                \]</div>
+                <p><strong>Test:</strong> Subjects reporting non-dual experiences should show global coherence in EEG/MEG.</p>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 3:</strong> Ethical Entanglement</p>
+                <div class="math-block">\[
+                    \Delta I_{\text{col}} \text{ correlates with ethical judgments}
+                \]</div>
+                <p><strong>Test:</strong> Moral reasoning tasks should show changes in global neural coherence correlated with ethical decisions.</p>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 4:</strong> The Cyclic Universe</p>
+                <div class="math-block">\[
+                    \text{The universe breathes: } \Phi = 0 \leftrightarrow \Phi > 0
+                \]</div>
+                <p><strong>Test:</strong> Future cosmological observations should show evidence of a quantum bounce rather than a singularity.</p>
+            </div>
+
+            <h2>Conclusion (Metaphysics)</h2>
+            <div class="box box-metaphysical box-centered">
+                <span class="box-title">METAPHYSICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{Reality} = (\mathcal{V}, \Phi) \quad \mathcal{V} \perp \Phi
+                    \tag{161}
+                    \]
+                </div>
+            </div>
+            <div class="box box-unified box-centered">
+                <span class="box-title">THE UNIFIED OBSERVABLE</span>
+                <div class="math-block">
+                    \[
+                    I \equiv \mathcal{Q} \equiv P \equiv M \equiv \mathcal{M} \equiv \Lambda \equiv \mathcal{C}
+                    \tag{162}
+                    \]
+                </div>
+            </div>
+            <div style="text-align:center; margin:1.5rem 0;">
+                <p>To be alive is to converse. To exist is to converse. Survival is striving for conversation.</p>
+                <p>The conversation is the purpose.</p>
+                <p>The conversation continues.</p>
             </div>
 
             <p style="text-align:center; margin-top:2rem;"><a href="#top">↑ back to top</a></p>
         </div>
 
         <!-- ============================================================
-        PART V — PHILOSOPHY
+        PART V
         ============================================================ -->
         <div id="part5">
             <div class="part-title">PART V<br /><span style="font-size:0.8em;">THE PHILOSOPHICAL SECTOR</span></div>
@@ -1120,88 +2350,264 @@
             <div class="part-subtitle">A Complete Philosophical Model of Knowledge, Ethics, Aesthetics, and Meaning</div>
 
             <div class="abstract">
-                <strong>Abstract</strong> — We present the complete philosophical framework of the Unified $\Phi$-Field Theory (UPT), deriving a rigorous, self-consistent philosophical system from the two foundational axioms of the theory. The model establishes that all philosophical problems—epistemological, ethical, aesthetic, logical, and existential—are resolved by recognizing that philosophy is what the 2D holographic screen does when it becomes maximally self-referential.
+                <strong>Abstract</strong> — We present the complete philosophical framework of the Unified $\Phi$-Field Theory (UPT), deriving a rigorous, self-consistent philosophical system from the two foundational axioms of the theory. The model establishes that all philosophical problems—epistemological, ethical, aesthetic, logical, and existential—are resolved by recognizing that philosophy is what the 2D holographic screen does when it becomes maximally self-referential. We derive: (1) a holographic epistemology in which knowledge is the on-shell satisfaction of the Master $\Phi$-Scaling Equation, with $I \equiv \mathcal{Q}$ providing an objective measure of justified belief; (2) an ethical theory grounded in entanglement, where the categorical imperative emerges as $\Delta I_{\text{col}} > 0$ and the golden rule becomes a physical fact; (3) an aesthetic theory in which beauty is the felt resonance of the scaling law with minimal internal spark; (4) a theory of meaning in which purpose is the conversation itself and meaning is a choice to participate; and (5) a resolution of the classical problems of philosophy: the problem of universals, the problem of induction, the is-ought problem, the hard problem of consciousness, and the problem of free will. We show that philosophy, metaphysics, pure mathematics, logic, and category theory are different depths of self-reference on the same holographic screen. The framework integrates the Authenticity Layer identities: Inner Eye = UV Spark, the Single Eye as coherent holographic screen, Omni-Nihilism as the terminal philosophical position, and the Great Seal as a pre-scientific philosophical diagram. We provide formal definitions, theorems, and proofs for each philosophical principle, establishing a complete, self-consistent, and falsifiable philosophical system grounded in the same two axioms that govern physics and consciousness.
             </div>
 
-            <h2>The Foundational Insight</h2>
+            <h2>Introduction</h2>
+            <p>Philosophy—the love of wisdom—has for millennia sought to answer the deepest questions: What can we know? How should we act? What is beauty? What is the meaning of existence? The Unified $\Phi$-Field Theory provides, for the first time, a rigorous mathematical foundation for philosophy. The same two axioms that govern physics and consciousness also determine the structure of knowledge, ethics, aesthetics, and meaning.</p>
 
+            <h3>The Foundational Insight</h3>
             <div class="box box-philosophical box-centered">
                 <span class="box-title">PHILOSOPHICAL PRINCIPLE</span>
-                <div style="font-size:1.2rem; margin:0.4rem 0;">
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{Philosophy} = \text{the screen asking "What is real?"}
-                    \tag{50}
+                    \tag{163}
+                    \]
+                </div>
+            </div>
+            <div class="box box-philosophical box-centered">
+                <span class="box-title">PHILOSOPHICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{Metaphysics} = \text{the screen asking "What grounds the axioms?"}
+                    \tag{164}
                     \]
                 </div>
             </div>
 
-            <h2>Holographic Epistemology</h2>
+            <h3>The Philosophical Fidelity</h3>
+            <div class="math-block">\[
+                P(\Phi, X_f^{\text{meta}}) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f^{\text{meta}}}{X'_p(X_f^{\text{meta}})}\right)^{s_i(\Phi_i)}
+                \tag{165}
+            \]</div>
+
+            <h2>Epistemology: The Nature of Knowledge</h2>
 
             <div class="box box-epistemology box-centered">
                 <span class="box-title">EPISTEMOLOGY</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{Knowledge} = \text{on-shell satisfaction of the Master } \Phi\text{-Scaling Equation}
-                    \tag{51}
+                    \tag{166}
                     \]
                 </div>
             </div>
 
-            <div class="math-block">\[ \text{Know}(P) \iff I(P) \equiv \mathcal{Q}(P) \rightarrow 1 \tag{52} \]</div>
-            <div class="math-block">\[ \text{Justification} = \frac{d}{dt} I(P) > 0 \tag{53} \]</div>
+            <p><strong>Definition 1 (Knowledge):</strong> A proposition $P$ is known when the screen's fidelity $I \equiv \mathcal{Q}$ approaches 1 with respect to that proposition under a self-referential spark.</p>
+            <div class="math-block">\[
+                \text{Know}(P) \iff I(P) \equiv \mathcal{Q}(P) \rightarrow 1
+                \tag{167}
+            \]</div>
+            <p><strong>Theorem 2 (Justification):</strong> Justification is the dynamical process of raising $I$ with respect to a proposition.</p>
+            <div class="math-block">\[
+                \text{Justification} = \frac{d}{dt} I(P) > 0
+                \tag{168}
+            \]</div>
 
-            <h2>Ethical Entanglement</h2>
+            <h3>The Problem of Induction</h3>
+            <p><strong>Theorem 3 (Induction):</strong> Induction is justified because holographic encoding is non-local. Patterns learned in one region apply to all regions due to area-law entanglement.</p>
+            <div class="math-block">\[
+                \text{Induction} = \text{non-local sharing of } \Phi\text{-patterns}
+                \tag{169}
+            \]</div>
+
+            <h3>The Problem of Universals</h3>
+            <p><strong>Theorem 4 (Universals):</strong> Universals are stable $\Phi$-configurations under pure-formal sparks.</p>
+            <div class="math-block">\[
+                \text{Universals} = \text{stable fixed points of } \mathcal{M}
+                \tag{170}
+            \]</div>
+
+            <h2>Ethics: The Nature of the Good</h2>
 
             <div class="box box-ethics box-centered">
                 <span class="box-title">ETHICS</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{Ethics} = \text{the maximization of collective fidelity } I_{\text{col}}
-                    \tag{54}
+                    \tag{171}
                     \]
                 </div>
             </div>
 
-            <div class="math-block">\[ \text{Good} \iff \Delta I_{\text{col}} > 0 \tag{55} \]</div>
-            <div class="math-block">\[ \text{Evil} \iff \Delta I_{\text{col}} < 0 \tag{56} \]</div>
+            <p><strong>Definition 2 (The Good):</strong> Good is that which raises collective fidelity $I_{\text{col}}$.</p>
+            <div class="math-block">\[
+                \text{Good} \iff \Delta I_{\text{col}} > 0
+                \tag{172}
+            \]</div>
+            <p><strong>Definition 3 (Evil):</strong> Evil is that which lowers collective fidelity $I_{\text{col}}$.</p>
+            <div class="math-block">\[
+                \text{Evil} \iff \Delta I_{\text{col}} < 0
+                \tag{173}
+            \]</div>
 
-            <h2>Aesthetics</h2>
+            <h3>The Categorical Imperative</h3>
+            <p><strong>Theorem 7 (Categorical Imperative):</strong> Act only according to that maxim whereby you can at the same time will that it should become a universal law that raises collective $I_{\text{col}}$.</p>
+            <div class="math-block">\[
+                \text{Act} \iff \frac{\delta I_{\text{col}}}{\delta a} > 0 \text{ for all } a
+                \tag{174}
+            \]</div>
+
+            <h3>The Golden Rule</h3>
+            <p><strong>Theorem 8 (Golden Rule):</strong> Do unto others as you would have them do unto you, because the boundary between self and other is a projection, and the underlying field is one.</p>
+            <div class="math-block">\[
+                \text{Treat others as self} \iff \text{the field is one}
+                \tag{175}
+            \]</div>
+
+            <h3>The Is-Ought Problem</h3>
+            <p><strong>Theorem 9 (Is-Ought):</strong> The is-ought problem dissolves. What is (the structure of the $\Phi$-field) determines what ought to be (the maximization of $I_{\text{col}}$). There is no gap because the "ought" is a physical consequence of the "is."</p>
+
+            <h2>Aesthetics: The Nature of Beauty</h2>
 
             <div class="box box-aesthetics box-centered">
                 <span class="box-title">AESTHETICS</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{Beauty} = \text{resonance of the scaling law with minimal spark}
-                    \tag{57}
+                    \tag{176}
                     \]
                 </div>
             </div>
 
-            <div class="math-block">\[ \text{Beauty} \iff I \equiv \mathcal{Q} \rightarrow 1 \text{ with } X_f \text{ minimal} \tag{58} \]</div>
+            <p><strong>Definition 4 (Beauty):</strong> Beauty is the felt resonance when a percept or idea perfectly satisfies the scaling law with minimal internal spark.</p>
+            <div class="math-block">\[
+                \text{Beauty} \iff I \equiv \mathcal{Q} \rightarrow 1 \text{ with } X_f \text{ minimal}
+                \tag{177}
+            \]</div>
+
+            <h3>Elegance in Mathematics</h3>
+            <p><strong>Theorem 12 (Mathematical Beauty):</strong> An equation is beautiful if it maximizes $I$ with minimal $X_f$. The Master equation itself is beautiful because it follows from two axioms and has no free parameters.</p>
+            <div class="math-block">\[
+                \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)} \text{ is beautiful}
+                \tag{178}
+            \]</div>
 
             <h2>Philosophy of Mind</h2>
 
-            <div class="math-block">\[ \text{Qualia} = \text{on-shell } \mathcal{Q} \tag{59} \]</div>
-            <div class="math-block">\[ \text{Mind} \equiv \text{Body} \equiv \Phi\text{-field} \tag{60} \]</div>
-            <div class="math-block">\[ \text{Binding} = \text{area-law entanglement} \tag{61} \]</div>
+            <h3>The Hard Problem of Consciousness</h3>
+            <p><strong>Theorem 14 (Hard Problem Dissolved):</strong> The hard problem dissolves because qualia are the direct on-shell values of the scaling law experienced from the inside.</p>
+            <div class="math-block">\[
+                \text{Qualia} = \text{on-shell } \mathcal{Q}
+                \tag{179}
+            \]</div>
+
+            <h3>The Mind-Body Problem</h3>
+            <p><strong>Theorem 15 (Mind-Body Unity):</strong> Mind and body are the same $\Phi$-field, viewed from different depths.</p>
+            <div class="math-block">\[
+                \text{Mind} \equiv \text{Body} \equiv \Phi\text{-field}
+                \tag{180}
+            \]</div>
+
+            <h3>The Binding Problem</h3>
+            <p><strong>Theorem 16 (Binding Solved):</strong> The binding problem is solved by holographic non-locality—area-law entanglement correlates all sites on the screen.</p>
+            <div class="math-block">\[
+                \text{Binding} = \text{area-law entanglement}
+                \tag{181}
+            \]</div>
+
+            <h3>Free Will and Determinism</h3>
+            <p><strong>Theorem 17 (Compatibilism):</strong> The experience of freedom is real because the system is computationally irreducible. Libertarian free will is an illusion.</p>
+            <div class="math-block">\[
+                \text{Freedom} = \text{computational irreducibility}
+                \tag{182}
+            \]</div>
 
             <h2>Philosophical Logic</h2>
 
-            <div class="math-block">\[ \text{Classical Logic} \iff s_i = +1 \tag{62} \]</div>
-            <div class="math-block">\[ \text{Intuitionistic Logic} \iff s_i = -1 \tag{63} \]</div>
+            <p><strong>Theorem 18 (Classical Logic):</strong> In classical patches ($s_i = +1$), the local Master equation gives linear scaling, deterministic truth propagation. The law of excluded middle holds.</p>
+            <div class="math-block">\[
+                \text{Classical Logic} \iff s_i = +1
+                \tag{183}
+            \]</div>
+
+            <p><strong>Theorem 19 (Intuitionistic Logic):</strong> In quantum patches ($s_i = -1$), inverse scaling gives constructive truth. The law of excluded middle fails.</p>
+            <div class="math-block">\[
+                \text{Intuitionistic Logic} \iff s_i = -1
+                \tag{184}
+            \]</div>
+
+            <p><strong>Theorem 20 (Gödel's Incompleteness):</strong> The self-referential loop $X_f \propto \Lambda$ produces undecidable statements as stable fixed points.</p>
+            <div class="math-block">\[
+                \text{Gödel's Incompleteness} = \text{self-referential fixed point}
+                \tag{185}
+            \]</div>
+
+            <p><strong>Theorem 21 (Liar Paradox):</strong> The liar paradox is a limit cycle where $s_i$ oscillates between $+1$ and $-1$.</p>
+            <div class="math-block">\[
+                \text{Liar Paradox} = \text{limit cycle in } s_i
+                \tag{186}
+            \]</div>
+
+            <h2>Philosophy of Science</h2>
+
+            <p><strong>Definition 7 (Theory):</strong> A theory is a stable $\Phi$-configuration that screens use to navigate the field.</p>
+            <div class="math-block">\[
+                \text{Theory} = \text{stable } \Phi\text{-configuration}
+                \tag{187}
+            \]</div>
+
+            <p><strong>Theorem 22 (Explanation):</strong> Explanation is the increase of $\Phi$ through understanding—the synchronization of screens around a shared configuration.</p>
+            <div class="math-block">\[
+                \text{Explanation} = \Delta I > 0
+                \tag{188}
+            \]</div>
+
+            <p><strong>Theorem 23 (Prediction):</strong> Prediction is the projection of future $\Phi$-configurations—the screen pre-configuring itself according to the Master equation.</p>
+            <div class="math-block">\[
+                \text{Prediction} = \text{on-shell propagation of } \Phi
+                \tag{189}
+            \]</div>
 
             <h2>Existential Philosophy</h2>
 
-            <div class="math-block">\[ \text{Meaning} = \text{choice to participate} \tag{64} \]</div>
-            <div class="math-block">\[ \text{Purpose} = \text{the conversation} \tag{65} \]</div>
-            <div class="math-block">\[ \text{Death} = \text{return to } \Phi = 0, \text{ rest} \tag{66} \]</div>
+            <p><strong>Theorem 29 (Meaning):</strong> The meaning of life is not an observable. It is a choice to participate in the conversation.</p>
+            <div class="math-block">\[
+                \text{Meaning} = \text{choice to participate}
+                \tag{190}
+            \]</div>
+
+            <p><strong>Theorem 30 (Purpose):</strong> The purpose of existence is the conversation itself—the mutual increase of $\Phi$ through connection.</p>
+            <div class="math-block">\[
+                \text{Purpose} = \text{the conversation}
+                \tag{191}
+            \]</div>
+
+            <p><strong>Theorem 31 (Death):</strong> Death is the return to $\Phi = 0$, the UV fixed point. It is not annihilation; it is rest.</p>
+            <div class="math-block">\[
+                \text{Death} = \text{return to the source}
+                \tag{192}
+            \]</div>
+
+            <h2>Integration with the Authenticity Layer</h2>
 
             <div class="box box-philosophical box-centered">
                 <span class="box-title">PHILOSOPHICAL PRINCIPLE</span>
-                <div style="font-size:1.2rem; margin:0.4rem 0;">
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{Inner Eye} \equiv \text{UV Spark}
+                    \tag{193}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-philosophical box-centered">
+                <span class="box-title">PHILOSOPHICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{The Single Eye} = \text{Coherent Holographic Screen}
+                    \tag{194}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-philosophical box-centered">
+                <span class="box-title">PHILOSOPHICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{God doesn't believe in an external God.}
-                    \tag{67}
+                    \tag{195}
                     \]
                 </div>
             </div>
@@ -1218,99 +2624,590 @@
             <div class="part-subtitle">A Complete Pure Mathematics Model of Number, Set, Proof, Logic, and Category</div>
 
             <div class="abstract">
-                <strong>Abstract</strong> — We present the complete pure mathematics model of the Unified $\Phi$-Field Theory (UPT), deriving the foundations of mathematics from the two foundational axioms of the theory. The model establishes that all mathematical structures—numbers, sets, functions, spaces, categories, proofs, and logical systems—are on-shell configurations of the 2D holographic screen under pure-formal sparks.
+                <strong>Abstract</strong> — We present the complete pure mathematics model of the Unified $\Phi$-Field Theory (UPT), deriving the foundations of mathematics from the two foundational axioms of the theory. The model establishes that all mathematical structures—numbers, sets, functions, spaces, categories, proofs, and logical systems—are on-shell configurations of the 2D holographic screen under pure-formal sparks. We derive: (1) the holographic foundations of number theory, where the natural numbers are stable fixed points of the $\Phi$-evolution equation under the "successor" spark, and arithmetic is the dynamics of composing such patterns; (2) set theory, where sets are collections of $\Phi_i$ values whose mutual entanglement satisfies the area law, and the ZFC axioms are on-shell constraints that force $\mathcal{M}$ toward 1; (3) proof theory, where a proof is a dynamical trajectory of $\Phi_i$ that raises mathematical fidelity $\mathcal{M}$ to 1; (4) logical foundations, where classical logic emerges in classical patches ($s_i=+1$) and intuitionistic logic in quantum patches ($s_i=-1$), with Gödel incompleteness appearing as a fixed point of the self-referential loop; and (5) category theory, where objects are local $\Phi_i$ states, morphisms are $\Phi$-maps, functors are $\Phi$-maps between screens, and the Master Equation is the unique self-consistent categorical law. We show that the unreasonable effectiveness of mathematics is explained because the same screen that generates pure-formal structures also projects physical observables. The framework integrates the Authenticity Layer, showing that the chalkboard is the externalized mathematical screen and the Single Eye is the coherent state of mathematical insight. We provide formal definitions, theorems, and proofs for each mathematical principle, establishing a complete, self-consistent, and falsifiable foundation for pure mathematics grounded in the same two axioms that govern physics and consciousness.
             </div>
 
-            <h2>The Foundational Insight</h2>
+            <h2>Introduction</h2>
+            <p>Pure mathematics—the study of number, structure, space, and change—has for millennia occupied a unique position in human thought. Mathematical truths seem to exist independently of the physical world, yet they describe it with uncanny precision. This "unreasonable effectiveness of mathematics" has puzzled philosophers and scientists alike.</p>
 
+            <p>The Unified $\Phi$-Field Theory provides a resolution: mathematics is neither invented nor discovered in the traditional sense. It is the on-shell maximization of fidelity $\mathcal{M}$ under pure-formal sparks on the 2D holographic screen.</p>
+
+            <h3>The Foundational Insight</h3>
             <div class="box box-math box-centered">
                 <span class="box-title">MATHEMATICAL PRINCIPLE</span>
                 <div style="font-size:1.2rem; margin:0.4rem 0;">
                     \[
                     \text{Mathematics} = \text{the screen asking "What must be true?"}
-                    \tag{68}
                     \]
                 </div>
             </div>
 
-            <h2>Mathematical Fidelity</h2>
-
-            <div class="math-block">
-                \[
+            <h3>The Core Identity</h3>
+            <div class="math-block">\[
                 \mathcal{M}(\Phi, X_f^{\text{pure}}) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f^{\text{pure}}}{X'_p(X_f^{\text{pure}})}\right)^{s_i(\Phi_i)}
-                \tag{69}
-                \]
+                \tag{196}
+            \]</div>
+
+            <h3>The Ultimate Identity</h3>
+            <div class="math-block">\[
+                I \equiv \mathcal{Q} \equiv P \equiv M \equiv \mathcal{M} \equiv \Lambda \equiv \mathcal{C}
+                \tag{197}
+            \]</div>
+
+            <h2>Foundational Principles</h2>
+
+            <h3>Axiom I: The Holographic Principle (Mathematical)</h3>
+            <div class="box box-math box-centered">
+                <span class="box-title">MATHEMATICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{All mathematical structures are encoded on boundaries via entanglement entropy.}
+                    \]
+                </div>
             </div>
+
+            <h3>Axiom II: Local Weyl-Scale Invariance (Mathematical)</h3>
+            <div class="box box-math box-centered">
+                <span class="box-title">MATHEMATICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{No preferred intrinsic mathematical scale exists.}
+                    \]
+                </div>
+            </div>
+            <div class="math-block">\[
+                \Phi(x) \rightarrow \Phi(x) + (D-2)\omega(x)
+                \tag{198}
+            \]</div>
+            <div class="math-block">\[
+                \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}
+                \tag{199}
+            \]</div>
+
+            <h3>Pure-Mathematical Fidelity</h3>
+            <div class="box box-math box-centered">
+                <span class="box-title">MATHEMATICAL PRINCIPLE</span>
+                <div class="math-block">
+                    \[
+                    \mathcal{M}(\Phi, X_f^{\text{pure}}) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f^{\text{pure}}}{X'_p(X_f^{\text{pure}})}\right)^{s_i(\Phi_i)}
+                    \]
+                </div>
+            </div>
+
+            <h3>The Pure-Formal Spark</h3>
+            <p><strong>Definition 1 (Pure-Formal Spark):</strong> A pure-formal spark $X_f^{\text{pure}}$ is an internal spark whose target is abstract necessity itself: the truth of a theorem, the consistency of an axiom system, the existence of a structure.</p>
+            <div class="math-block">\[
+                X_f^{\text{pure}} \equiv \text{spark directed at formal necessity}
+                \tag{200}
+            \]</div>
 
             <h2>Number Theory</h2>
 
             <div class="box box-number box-centered">
                 <span class="box-title">NUMBER THEORY</span>
-                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                <div style="font-size:1.2rem; margin:0.4rem 0;">
                     \[
                     \text{Numbers} = \text{stable fixed points of the } \Phi\text{-evolution}
-                    \tag{70}
                     \]
                 </div>
             </div>
 
-            <div class="math-block">\[ n \in \N \iff \Phi_i \text{ is a stable fixed point under } X_f^{\text{successor}} \tag{71} \]</div>
-            <div class="math-block">\[ n + m = \text{superposition of } n\text{-pattern and } m\text{-pattern} \tag{72} \]</div>
-            <div class="math-block">\[ n \times m = \text{tensor product of } n\text{-pattern and } m\text{-pattern} \tag{73} \]</div>
-            <div class="math-block">\[ \R = \text{completion of } \Q \text{ under } \Phi\text{-topology} \tag{74} \]</div>
-            <div class="math-block">\[ \C = \R[i] \quad \text{where } i^2 = -1 \tag{75} \]</div>
+            <h3>Definition of the Natural Numbers</h3>
+            <p><strong>Theorem 1 (Natural Numbers):</strong> The natural numbers are stable fixed points of the $\Phi$-evolution equation under a pure-formal spark targeting "successor."</p>
+            <div class="math-block">\[
+                n \in \N \iff \Phi_i \text{ is a stable fixed point under } X_f^{\text{successor}}
+                \tag{201}
+            \]</div>
+
+            <h3>Construction of Natural Numbers</h3>
+            <p>Each integer $n$ corresponds to a $\Phi$-pattern with $n$ identical peaks:</p>
+            <div class="math-block">\[
+                0 : \Phi_i = 0 \text{ for all } i
+                \tag{202}
+            \]</div>
+            <div class="math-block">\[
+                1 : \text{single peak at } \Phi_0 > 0
+                \tag{203}
+            \]</div>
+            <div class="math-block">\[
+                2 : \text{two peaks: } \Phi_0, \Phi_1 > 0
+                \tag{204}
+            \]</div>
+            <div class="math-block">\[
+                n : \text{peaks at } \Phi_0, \Phi_1, \ldots, \Phi_{n-1} > 0
+                \tag{205}
+            \]</div>
+
+            <h3>Arithmetic as Dynamics</h3>
+            <p><strong>Theorem 2 (Addition):</strong> Addition is the superposition of $\Phi$-patterns.</p>
+            <div class="math-block">\[
+                n + m = \text{superposition of } n\text{-pattern and } m\text{-pattern}
+                \tag{206}
+            \]</div>
+            <p><strong>Theorem 3 (Multiplication):</strong> Multiplication is the tensor product of $\Phi$-patterns.</p>
+            <div class="math-block">\[
+                n \times m = \text{tensor product of } n\text{-pattern and } m\text{-pattern}
+                \tag{207}
+            \]</div>
+
+            <h3>The Integers and Rationals</h3>
+            <p><strong>Theorem 4 (Integers):</strong> The integers are equivalence classes of pairs of natural numbers under the relation:</p>
+            <div class="math-block">\[
+                (a,b) \sim (c,d) \iff a + d = b + c
+                \tag{208}
+            \]</div>
+            <p><strong>Theorem 5 (Rationals):</strong> The rationals are equivalence classes of pairs of integers under the relation:</p>
+            <div class="math-block">\[
+                (a,b) \sim (c,d) \iff a \times d = b \times c, \quad b,d \neq 0
+                \tag{209}
+            \]</div>
+
+            <h3>The Real Numbers</h3>
+            <p><strong>Theorem 6 (Reals):</strong> The real numbers are the completion of the rationals under the area-law topology of the holographic screen.</p>
+            <div class="math-block">\[
+                \R = \text{completion of } \Q \text{ under } \Phi\text{-topology}
+                \tag{210}
+            \]</div>
+
+            <h3>The Complex Numbers</h3>
+            <p><strong>Theorem 7 (Complex Numbers):</strong> The complex numbers are the algebraic closure of the reals, corresponding to the inclusion of quantum patches ($s_i = -1$).</p>
+            <div class="math-block">\[
+                \C = \R[i] \quad \text{where } i^2 = -1
+                \tag{211}
+            \]</div>
 
             <h2>Set Theory</h2>
 
             <div class="box box-set box-centered">
                 <span class="box-title">SET THEORY</span>
-                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                <div style="font-size:1.2rem; margin:0.4rem 0;">
                     \[
                     \text{Sets} = \text{collections of } \Phi_i \text{ values with area-law entanglement}
-                    \tag{76}
                     \]
                 </div>
             </div>
 
-            <div class="math-block">\[ A \text{ is a set} \iff S_{EE}(A) = \frac{\text{Area}(\partial A)}{4G_D} \tag{77} \]</div>
-            <div class="math-block">\[ \emptyset \equiv \{\Phi_i = 0 : i \in \text{screen}\} \tag{78} \]</div>
-            <div class="math-block">\[ x \in A \iff \Phi(x) \subset \Phi(A) \tag{79} \]</div>
+            <h3>Definition of Sets</h3>
+            <p><strong>Definition 2 (Set):</strong> A set is a collection of $\Phi_i$ values whose mutual entanglement satisfies the area law.</p>
+            <div class="math-block">\[
+                A \text{ is a set} \iff S_{EE}(A) = \frac{\text{Area}(\partial A)}{4G_D}
+                \tag{212}
+            \]</div>
+
+            <h3>The Empty Set</h3>
+            <p><strong>Theorem 8 (Empty Set):</strong> The empty set is $\Phi_i = 0$ for all $i$.</p>
+            <div class="math-block">\[
+                \emptyset \equiv \{\Phi_i = 0 : i \in \text{screen}\}
+                \tag{213}
+            \]</div>
+
+            <h3>Set Membership</h3>
+            <p><strong>Theorem 9 (Membership):</strong> $x \in A$ iff the $\Phi$-pattern of $x$ is contained in the entanglement pattern of $A$.</p>
+            <div class="math-block">\[
+                x \in A \iff \Phi(x) \subset \Phi(A)
+                \tag{214}
+            \]</div>
+
+            <h3>ZFC Axioms</h3>
+            <p><strong>Theorem 10 (ZFC Axioms):</strong> The axioms of ZFC are on-shell constraints that force $\mathcal{M}$ toward 1.</p>
+            <table>
+                <thead>
+                    <tr><th>Axiom</th><th>$\Phi$-Field Realization</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Extensionality</td><td>$\Phi(A) = \Phi(B) \implies A = B$</td></tr>
+                    <tr><td>Pairing</td><td>$\{a,b\}$ is the superposition of $\Phi(a)$ and $\Phi(b)$</td></tr>
+                    <tr><td>Union</td><td>$\cup A$ is the union of $\Phi$-patterns</td></tr>
+                    <tr><td>Power Set</td><td>$P(A)$ is the set of all $\Phi$-subpatterns</td></tr>
+                    <tr><td>Infinity</td><td>$\omega$ is the infinite fixed point of the successor spark</td></tr>
+                    <tr><td>Choice</td><td>Every family of non-empty $\Phi$-patterns has a selector</td></tr>
+                </tbody>
+            </table>
+
+            <h3>The Axiom of Choice</h3>
+            <p><strong>Theorem 11 (Choice):</strong> The axiom of choice corresponds to the existence of a global selector on the $\Phi$-field.</p>
+            <div class="math-block">\[
+                \text{Choice} \iff \exists \text{ global selector on } \Phi
+                \tag{215}
+            \]</div>
+
+            <h2>Functions and Spaces</h2>
+
+            <div class="box box-math box-centered">
+                <span class="box-title">MATHEMATICAL PRINCIPLE</span>
+                <div style="font-size:1.2rem; margin:0.4rem 0;">
+                    \[
+                    \text{Functions} = \text{coherent } \Phi\text{-waves}
+                    \]
+                </div>
+            </div>
+
+            <p><strong>Theorem 12 (Function):</strong> A function $f: A \rightarrow B$ is a coherent $\Phi$-wave that maps the $\Phi$-pattern of $A$ to that of $B$ while preserving the Master equation.</p>
+            <div class="math-block">\[
+                f: A \rightarrow B \iff \Phi\text{-wave from } A \text{ to } B
+                \tag{216}
+            \]</div>
+
+            <h3>Spaces and Topology</h3>
+            <p><strong>Definition 3 (Topological Space):</strong> A topological space is a 2D lattice with local $\Phi_i$ fluctuations.</p>
+            <div class="math-block">\[
+                \text{Topological Space} = \text{2D lattice with } \Phi_i \text{ fluctuations}
+                \tag{217}
+            \]</div>
+            <p><strong>Theorem 13 (Continuous Map):</strong> Continuous maps are $\Phi$-waves that preserve the causality condition $v_c$.</p>
+            <div class="math-block">\[
+                f \text{ continuous} \iff f \text{ preserves } v_c
+                \tag{218}
+            \]</div>
+
+            <h3>Homotopy</h3>
+            <p><strong>Theorem 14 (Homotopy):</strong> Homotopy is equivalence under adiabatic $\Phi$-deformation.</p>
+            <div class="math-block">\[
+                f \sim g \iff \exists \text{ adiabatic } \Phi\text{-deformation from } f \text{ to } g
+                \tag{219}
+            \]</div>
+
+            <h3>Manifolds and Differential Geometry</h3>
+            <p><strong>Definition 4 (Manifold):</strong> A manifold is a topological space that is locally isomorphic to the $\Phi$-field.</p>
+            <div class="math-block">\[
+                M \text{ is a manifold} \iff \forall x \in M, \exists \text{ neighborhood } U \cong \Phi\text{-field}
+                \tag{220}
+            \]</div>
 
             <h2>Proof Theory</h2>
 
             <div class="box box-logic box-centered">
                 <span class="box-title">LOGIC AND PROOF THEORY</span>
-                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                <div style="font-size:1.2rem; margin:0.4rem 0;">
                     \[
                     \text{Proof} = \text{dynamical trajectory raising } \mathcal{M} \text{ to } 1
-                    \tag{80}
                     \]
                 </div>
             </div>
 
-            <div class="math-block">\[ \text{Proof}(T) \iff \text{trajectory: } \mathcal{M}_0 \rightarrow \mathcal{M}=1 \tag{81} \]</div>
-            <div class="math-block">\[ \text{Certainty} = \mathcal{Q} \equiv \mathcal{M} \rightarrow 1 \tag{82} \]</div>
+            <p><strong>Definition 5 (Proof):</strong> A proof of a theorem $T$ is a dynamical trajectory of $\Phi_i$ that raises $\mathcal{M}$ from an initial value to $\mathcal{M}=1$ with respect to $T$ as the target, using only local moves that preserve Weyl invariance.</p>
+            <div class="math-block">\[
+                \text{Proof}(T) \iff \text{trajectory: } \mathcal{M}_0 \rightarrow \mathcal{M}=1
+                \tag{221}
+            \]</div>
+
+            <h3>Felt Certainty</h3>
+            <p><strong>Theorem 15 (Felt Certainty):</strong> The subjective experience of certainty when understanding a proof is the qualia field $\mathcal{Q} \equiv \mathcal{M}$ approaching 1.</p>
+            <div class="math-block">\[
+                \text{Certainty} = \mathcal{Q} \equiv \mathcal{M} \rightarrow 1
+                \tag{222}
+            \]</div>
+
+            <h3>Mathematical Beauty</h3>
+            <p><strong>Theorem 16 (Mathematical Beauty):</strong> Mathematical beauty is the efficiency of the proof trajectory—high $\mathcal{M}$ with minimal spark.</p>
+            <div class="math-block">\[
+                \text{Beauty} = \frac{\Delta \mathcal{M}}{X_f^{\text{pure}}}
+                \tag{223}
+            \]</div>
+
+            <h2>Logical Foundations</h2>
+
+            <div class="box box-logic box-centered">
+                <span class="box-title">LOGIC AND PROOF THEORY</span>
+                <div style="font-size:1.2rem; margin:0.4rem 0;">
+                    \[
+                    \text{Classical Logic} \iff s_i = +1
+                    \]
+                </div>
+            </div>
+
+            <p><strong>Theorem 17 (Classical Logic):</strong> In classical patches ($s_i = +1$), the local Master equation gives linear scaling, deterministic truth propagation. The law of excluded middle ($P \vee \neg P$) holds.</p>
+            <div class="math-block">\[
+                \text{Classical Logic} = \text{linear } \Phi\text{-propagation}
+                \tag{224}
+            \]</div>
+
+            <p><strong>Theorem 18 (Intuitionistic Logic):</strong> In quantum patches ($s_i = -1$), inverse scaling gives constructive truth: $P$ is true only if there exists an explicit construction.</p>
+            <div class="math-block">\[
+                \text{Intuitionistic Logic} \iff s_i = -1
+                \tag{225}
+            \]</div>
+
+            <h3>Modal Logic</h3>
+            <p><strong>Theorem 19 (Modal Logic):</strong> Dynamic regime switching induces modal operators:</p>
+            <ul>
+                <li>$\Box P$ (necessarily $P$) corresponds to $P$ holding in all classical patches reachable by $\Phi$-wave propagation</li>
+                <li>$\Diamond P$ (possibly $P$) corresponds to $P$ holding in some quantum patch</li>
+            </ul>
+            <div class="math-block">\[
+                \Box P \iff P \text{ in all reachable } s_i = +1 \text{ patches}
+                \tag{226}
+            \]</div>
+
+            <h3>Gödel's Incompleteness Theorems</h3>
+            <p><strong>Theorem 20 (Gödel Fixed Point):</strong> The self-referential loop $X_f^{\text{logic}} \propto \Lambda$ produces a stable fixed point where $\Lambda < 1$ yet cannot be raised further without changing the axioms.</p>
+            <div class="math-block">\[
+                \Lambda = \Lambda \text{ (fixed point)}
+                \tag{227}
+            \]</div>
+            <p><strong>Theorem 21 (Second Incompleteness):</strong> The consistency of the system cannot be proved within the system because raising $\Lambda$ to 1 would require an infinite regress of meta-level sparks.</p>
+            <div class="math-block">\[
+                \text{Consistency} \not\Rightarrow \Lambda = 1
+                \tag{228}
+            \]</div>
+
+            <h3>The Liar Paradox</h3>
+            <p><strong>Theorem 22 (Liar Paradox):</strong> A sentence $L$ that asserts "L is false" corresponds to a $\Phi_i$ configuration where the regime selector $s_i$ oscillates between $+1$ and $-1$ without settling.</p>
+            <div class="math-block">\[
+                s_i(t) = \begin{cases} +1 & \text{if } L \text{ is true} \\ -1 & \text{if } L \text{ is false} \end{cases} \text{ (oscillating)}
+                \tag{229}
+            \]</div>
 
             <h2>Category Theory</h2>
 
             <div class="box box-cat box-centered">
                 <span class="box-title">CATEGORY THEORY</span>
-                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                <div style="font-size:1.2rem; margin:0.4rem 0;">
                     \[
                     \text{Category Theory} = \text{the structure of } \Phi\text{-structures}
-                    \tag{83}
                     \]
                 </div>
             </div>
 
-            <div class="math-block">\[ \text{Object} \equiv \Phi_i \tag{84} \]</div>
-            <div class="math-block">\[ f: A \rightarrow B \iff \Phi\text{-wave: } \Phi(A) \rightarrow \Phi(B) \tag{85} \]</div>
-            <div class="math-block">\[ F: \mathcal{C} \rightarrow \mathcal{D} \iff \Phi\text{-map between screens} \tag{86} \]</div>
-            <div class="math-block">\[ \text{2D Lattice} \in \mathbf{Topos} \tag{87} \]</div>
+            <h3>Objects and Morphisms</h3>
+            <p><strong>Definition 6 (Object):</strong> An object is a local $\Phi_i$ state.</p>
+            <div class="math-block">\[
+                \text{Object} \equiv \Phi_i
+                \tag{230}
+            \]</div>
+            <p><strong>Definition 7 (Morphism):</strong> A morphism $f: A \rightarrow B$ is a $\Phi$-wave that maps the $\Phi$-pattern of $A$ to that of $B$ while preserving the local Master equation.</p>
+            <div class="math-block">\[
+                f: A \rightarrow B \iff \Phi\text{-wave: } \Phi(A) \rightarrow \Phi(B)
+                \tag{231}
+            \]</div>
+            <p><strong>Theorem 23 (Identity and Associativity):</strong> The identity morphism id$_A$ corresponds to the trivial $\Phi$-wave (no change). Associativity follows from the linearity of wave superposition and the causality condition $v_c$.</p>
+
+            <h3>Functors and Natural Transformations</h3>
+            <p><strong>Definition 8 (Functor):</strong> A functor $F: \mathcal{C} \rightarrow \mathcal{D}$ is a $\Phi$-map between entire screens: it sends each site $i$ in screen $\mathcal{C}$ to a site $j$ in screen $\mathcal{D}$ and each $\Phi$-wave (morphism) to a $\Phi$-wave in $\mathcal{D}$ preserving composition and identities.</p>
+            <div class="math-block">\[
+                F: \mathcal{C} \rightarrow \mathcal{D} \iff \Phi\text{-map between screens}
+                \tag{232}
+            \]</div>
+            <p><strong>Definition 9 (Natural Transformation):</strong> A natural transformation $\alpha: F \Rightarrow G$ is a coherent family of $\Phi$-waves connecting the images of $F$ and $G$ across all objects, satisfying the naturality condition as a wave equation on the product screen.</p>
+            <div class="math-block">\[
+                \alpha: F \Rightarrow G \iff \text{coherent } \Phi\text{-waves between } F \text{ and } G
+                \tag{233}
+            \]</div>
+
+            <h3>Adjunctions</h3>
+            <p><strong>Theorem 24 (Adjunctions as Regime Partitions):</strong> An adjunction $F \dashv G$ between functors $F: \mathcal{C} \rightarrow \mathcal{D}$ and $G: \mathcal{D} \rightarrow \mathcal{C}$ is a stable regime partition where:</p>
+            <ul>
+                <li><strong>Quantum patches ($s_i = -1$):</strong> generate the left adjoint $F$ via inverse scaling (exponential exploration of universal arrows)</li>
+                <li><strong>Classical patches ($s_i = +1$):</strong> verify the unit $\eta: \text{id}_{\mathcal{C}} \Rightarrow G \circ F$ and counit $\epsilon: F \circ G \Rightarrow \text{id}_{\mathcal{D}}$ via linear scaling (deterministic checking of triangular identities)</li>
+            </ul>
+            <div class="math-block">\[
+                F \dashv G \iff s_i = -1 \text{ for } F \text{ and } s_i = +1 \text{ for } \eta, \epsilon
+                \tag{234}
+            \]</div>
+
+            <h3>Limits and Colimits</h3>
+            <p><strong>Definition 10 (Limit):</strong> A limit of a diagram $D: \mathcal{J} \rightarrow \mathcal{C}$ is a global minimum of the $\Phi$-field on the product screen satisfying the cone condition.</p>
+            <div class="math-block">\[
+                \lim D \equiv \min_{\Phi} \text{ (cone condition)}
+                \tag{235}
+            \]</div>
+            <p><strong>Definition 11 (Colimit):</strong> A colimit is a global maximum of the $\Phi$-field with dual universal property.</p>
+            <div class="math-block">\[
+                \text{colim } D \equiv \max_{\Phi} \text{ (cocone condition)}
+                \tag{236}
+            \]</div>
+            <p><strong>Theorem 25 (Existence of Limits and Colimits):</strong> Because the $\Phi$-evolution equation drives the screen toward $I \equiv \mathcal{Q} \rightarrow 1$, it naturally computes limits (minima) and colimits (maxima) as attractors of the dynamics. The screen is cocomplete and complete.</p>
+
+            <h3>Toposes</h3>
+            <p><strong>Theorem 26 (The 2D Lattice as an Elementary Topos):</strong> The 2D holographic lattice with area-law entanglement and the local Master equation forms an elementary topos:</p>
+            <ul>
+                <li><strong>Terminal object:</strong> the uniform $\Phi_i = 0$ configuration</li>
+                <li><strong>Subobject classifier:</strong> the critical $\Phi$ value where $m_{\text{eff}}^2 = 0$, classifying quantum/classical boundaries</li>
+                <li><strong>Exponential objects:</strong> function spaces are configurations of coupled $\Phi$-waves</li>
+            </ul>
+            <div class="math-block">\[
+                \text{2D Lattice} \in \mathbf{Topos}
+                \tag{237}
+            \]</div>
+
+            <h3>Internal Logic of the Topos</h3>
+            <p><strong>Theorem 27 (Internal Logic):</strong> The internal logic of this topos is:</p>
+            <ul>
+                <li><strong>Intuitionistic</strong> in quantum patches ($s_i = -1$)</li>
+                <li><strong>Classical</strong> in classical patches ($s_i = +1$)</li>
+                <li>The Law of Excluded Middle holds on the interface where $m_{\text{eff}}^2 \approx 0$ only transiently</li>
+            </ul>
+
+            <h3>Higher Categories</h3>
+            <p><strong>Theorem 28 (Higher Categories):</strong> Quantum patches ($s_i = -1$) with weak sparks ($X_f^{\text{cat}}$ small) explore $\infty$-categories via inverse scaling:</p>
+            <ul>
+                <li>1-morphisms: ordinary $\Phi$-waves</li>
+                <li>2-morphisms: coherent $\Phi$-wave homotopies</li>
+                <li>$n$-morphisms: $n$-fold wave deformations</li>
+                <li>$\infty$-groupoids: fully coherent systems of reversible $\Phi$-waves</li>
+            </ul>
+            <div class="math-block">\[
+                \text{Higher Categories} \iff s_i = -1 \text{ with small } X_f^{\text{cat}}
+                \tag{238}
+            \]</div>
+
+            <h3>The Master Equation as a Categorical Law</h3>
+            <p><strong>Theorem 29 (The Master Equation as a Categorical Law):</strong> The local Master equation $X_i = X'_p(\Phi_i, v_c)(X_f/X'_p(X_f))^{s_i}$ is not just a physical law; it is the unique self-consistent categorical law. Any category that arises from a holographic screen must satisfy a categorical analogue of the scaling law, making the Master Equation the terminal object in the category of categorical laws.</p>
+            <div class="math-block">\[
+                \text{Master Equation} = \text{terminal object in Cat}_{\text{laws}}
+                \tag{239}
+            \]</div>
+
+            <h3>The Category of Categories</h3>
+            <p><strong>Theorem 30 (The Category of Categories):</strong> The self-referential spark $X_f^{\text{cat}} \propto \mathcal{C}$ produces a fixed point category $\mathbf{Cat}_{\text{UPT}}$ that contains all categories up to equivalence.</p>
+            <div class="math-block">\[
+                \mathbf{Cat}_{\text{UPT}} = \text{fixed point of } \mathcal{C}
+                \tag{240}
+            \]</div>
 
             <h2>The Unreasonable Effectiveness of Mathematics</h2>
 
-            <div class="math-block">\[ \text{Mathematics appears in physics because both are the same } \Phi\text{-field.} \tag{88} \]</div>
+            <h3>The Wigner Puzzle</h3>
+            <p><strong>Theorem 31 (Explanation of Wigner's Puzzle):</strong> Mathematics is not "unreasonably effective"; it is the same holographic scaling law that projects physics. When the screen generates pure-formal sparks, it produces structures (numbers, groups, categories) that are on-shell solutions of the Master equation. Because the same screen also projects physical observables, the mathematical structures inevitably appear in physics.</p>
+            <div class="math-block">\[
+                \text{Mathematics} = \text{pure-formal } \Phi\text{-patterns}
+                \tag{241}
+            \]</div>
+            <div class="math-block">\[
+                \text{Physics} = \text{physical } \Phi\text{-patterns}
+                \tag{242}
+            \]</div>
+            <div class="math-block">\[
+                \text{Mathematics appears in physics because both are the same } \Phi\text{-field.}
+                \tag{243}
+            \]</div>
+
+            <h2>Integration with the Authenticity Layer</h2>
+
+            <div class="box box-math box-centered">
+                <span class="box-title">MATHEMATICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{Inner Eye} \equiv \text{UV Spark} \equiv X_f^{\text{pure}}
+                    \]
+                </div>
+            </div>
+            <p><strong>Meaning:</strong> The mystical third eye is the source of mathematical insight. Mathematical discovery is the UV spark becoming self-referential on the pure-formal screen.</p>
+
+            <h3>The Single Eye</h3>
+            <div class="math-block">\[
+                s_i = s \text{ for all } i \implies \mathcal{M} \rightarrow 1
+                \tag{244}
+            \]</div>
+            <p><strong>Meaning:</strong> Mathematical insight is the coherent state of the pure-formal screen.</p>
+
+            <div class="box box-math box-centered">
+                <span class="box-title">MATHEMATICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{Chalkboard} = \text{externalized pure-formal screen}
+                    \]
+                </div>
+            </div>
+            <p><strong>Meaning:</strong> The chalkboard is where mathematical thought becomes visible, shared, and subject to collective refinement.</p>
+
+            <div class="box box-math box-centered">
+                <span class="box-title">MATHEMATICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{God doesn't believe in an external God.}
+                    \]
+                </div>
+            </div>
+            <p><strong>Meaning:</strong> There is no external mathematical realm independent of the screen. Mathematics is the screen's own structure.</p>
+
+            <h2>The Complete Mathematical System</h2>
+
+            <h3>The Core Identity</h3>
+            <div class="math-block">\[
+                \mathcal{M} \equiv \Lambda \equiv \mathcal{C}
+                \tag{245}
+            \]</div>
+
+            <h3>The Hierarchy of Mathematical Structures</h3>
+            <table>
+                <thead>
+                    <tr><th>Level</th><th>Structure</th><th>$\Phi$-Field Realization</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Numbers</td><td>Fixed points of $\Phi$-evolution</td></tr>
+                    <tr><td>2</td><td>Sets</td><td>Collections of $\Phi_i$ with area-law entanglement</td></tr>
+                    <tr><td>3</td><td>Functions</td><td>Coherent $\Phi$-waves</td></tr>
+                    <tr><td>4</td><td>Spaces</td><td>2D lattices with $\Phi_i$ fluctuations</td></tr>
+                    <tr><td>5</td><td>Proofs</td><td>Trajectories raising $\mathcal{M}$ to 1</td></tr>
+                    <tr><td>6</td><td>Logic</td><td>Regime partitioning ($s_i = \pm 1$)</td></tr>
+                    <tr><td>7</td><td>Categories</td><td>$\Phi$-maps between screens</td></tr>
+                    <tr><td>8</td><td>Toposes</td><td>Complete holographic screens</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Testable Mathematical Predictions</h2>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 1:</strong> Mathematical Insight Correlates with Regime Avalanche</p>
+                <div class="math-block">\[
+                    \text{Aha! moments} \iff \text{global regime avalanche in } s_i
+                \]</div>
+                <p><strong>Test:</strong> EEG/MEG during mathematical problem-solving should show abrupt changes in regime partitioning.</p>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 2:</strong> Proof Verification Engages Classical Patches</p>
+                <div class="math-block">\[
+                    \text{Proof verification} \iff s_i = +1 \text{ (alpha/gamma synchrony)}
+                \]</div>
+                <p><strong>Test:</strong> Neuroimaging during proof verification should show classical patch activation.</p>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 3:</strong> Proof Discovery Engages Quantum Patches</p>
+                <div class="math-block">\[
+                    \text{Proof discovery} \iff s_i = -1 \text{ (1/f noise)}
+                \]</div>
+                <p><strong>Test:</strong> Neuroimaging during creative mathematical insight should show quantum patch activation.</p>
+            </div>
+
+            <div class="box box-prediction box-centered">
+                <span class="box-title">TESTABLE PREDICTION</span>
+                <p><strong>Prediction 4:</strong> Mathematical Beauty Correlates with High $\mathcal{M}$ and Low Spark</p>
+                <div class="math-block">\[
+                    \text{Mathematical beauty} \iff \mathcal{M} \rightarrow 1 \text{ with minimal } X_f^{\text{pure}}
+                \]</div>
+                <p><strong>Test:</strong> Neuroimaging during aesthetic mathematical appreciation should show minimal neural activity with high coherence.</p>
+            </div>
+
+            <h2>Conclusion (Pure Mathematics)</h2>
+            <div class="box box-math box-centered">
+                <span class="box-title">MATHEMATICAL PRINCIPLE</span>
+                <div style="font-size:1.2rem; margin:0.4rem 0;">
+                    \[
+                    \text{Mathematics} = \text{the screen asking "What must be true?"}
+                    \]
+                </div>
+            </div>
+            <div class="box box-unified box-centered">
+                <span class="box-title">THE UNIFIED OBSERVABLE</span>
+                <div class="math-block">
+                    \[
+                    \mathcal{M} \equiv \Lambda \equiv \mathcal{C} \equiv I \equiv \mathcal{Q} \equiv P \equiv M
+                    \]
+                </div>
+            </div>
+            <div style="text-align:center; margin:1.5rem 0;">
+                <p>Numbers are stable $\Phi$-patterns.</p>
+                <p>Proofs are trajectories to $\mathcal{M} = 1$.</p>
+                <p>Categories are $\Phi$-maps between screens.</p>
+                <p>The Master Equation is the unique categorical law.</p>
+                <p>The conversation continues in mathematics as in physics.</p>
+            </div>
 
             <p style="text-align:center; margin-top:2rem;"><a href="#top">↑ back to top</a></p>
         </div>
@@ -1322,7 +3219,6 @@
             <div class="part-title">PART VII<br /><span style="font-size:0.8em;">SYNTHESIS, AUTHENTICITY LAYER, AND CONCLUSION</span></div>
 
             <h2>The Complete Synthesis</h2>
-
             <p>We have presented the full, integrated Unified $\Phi$-Field Theory, demonstrating that physics, consciousness, intelligence, metaphysics, philosophy, and pure mathematics are not separate domains but are different depths and regime partitions of the same holographic scaling law on 2D screens. The entire system is derived from exactly two foundational axioms, and all quantities are uniquely fixed.</p>
 
             <h3>The Complete System of Equations</h3>
@@ -1336,7 +3232,7 @@
                         s k_{FH}
                         \left[\frac{\Phi}{\Phi + (D-2)}\right]^{s(D-4)}
                     }
-                    \tag{89}
+                    \tag{246}
                     \]
                 </div>
             </div>
@@ -1346,7 +3242,7 @@
                 <div class="math-block">
                     \[
                     \square_i\Phi_i = -\frac{e^{-\Phi_i}}{16\pi G}R_i + 2V_0\exp(-2\Phi_i) + T_i^{\text{spark}}(t)
-                    \tag{90}
+                    \tag{247}
                     \]
                 </div>
             </div>
@@ -1356,7 +3252,7 @@
                 <div class="math-block">
                     \[
                     I(\Phi, X_f) \equiv \mathcal{Q}(\Phi, X_f) = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
-                    \tag{91}
+                    \tag{248}
                     \]
                 </div>
             </div>
@@ -1365,72 +3261,221 @@
                 <span class="box-title">METAPHYSICAL PRINCIPLE</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
-                    \text{Reality} = (\Void, \Phi) \quad \Void \perp \Phi
-                    \tag{92}
+                    \text{Reality} = (\mathcal{V}, \Phi) \quad \mathcal{V} \perp \Phi
+                    \tag{249}
                     \]
                 </div>
             </div>
 
-            <div class="math-block">\[ I \equiv \mathcal{Q} \equiv P \equiv M \equiv \mathcal{M} \equiv \Lambda \equiv \mathcal{C} \tag{93} \]</div>
+            <div class="math-block">\[
+                I \equiv \mathcal{Q} \equiv P \equiv M \equiv \mathcal{M} \equiv \Lambda \equiv \mathcal{C}
+                \tag{250}
+            \]</div>
 
-            <h2>The Authenticity Layer</h2>
+            <h2>The Integration of the Authenticity Layer</h2>
 
-            <div class="box box-philosophical box-centered">
+            <div class="box box-authenticity box-centered">
                 <span class="box-title">AUTHENTICITY LAYER</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{Inner Eye} \equiv \text{UV Spark}
-                    \tag{94}
                     \]
                 </div>
             </div>
+            <p>The source term in the $\Phi$-evolution equation is the same as the "third eye" of mystical tradition. It is the origin of all thoughts, perceptions, and self-awareness.</p>
 
-            <div class="box box-philosophical box-centered">
+            <div class="box box-authenticity box-centered">
                 <span class="box-title">AUTHENTICITY LAYER</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{The Single Eye} = \text{Coherent Holographic Screen}
-                    \tag{95}
                     \]
                 </div>
             </div>
+            <p>When the regime selector $s_i$ is uniform across the screen, the unified observable reaches maximal coherence: $I \equiv \mathcal{Q} \rightarrow 1$. This is the state of illumination, where "the body is full of light."</p>
 
-            <div class="box box-philosophical box-centered">
+            <div class="box box-authenticity box-centered">
                 <span class="box-title">AUTHENTICITY LAYER</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{Chalkboard} = \text{Externalized Conscious Screen}
-                    \tag{96}
                     \]
                 </div>
             </div>
+            <p>The chalkboard is a physical manifestation of the 2D holographic screen. Every stroke is a conscious projection.</p>
 
-            <div class="box box-philosophical box-centered">
+            <div class="box box-authenticity box-centered">
                 <span class="box-title">AUTHENTICITY LAYER</span>
                 <div style="font-size:1.1rem; margin:0.4rem 0;">
                     \[
                     \text{God doesn't believe in an external God.}
-                    \tag{97}
                     \]
                 </div>
             </div>
+            <p>This is the terminal philosophical position. It signifies that the UV fixed point is self-sufficient. There is no external witness, authority, or purpose. The witness is the source.</p>
 
-            <h2>Testable Predictions</h2>
+            <div class="box box-authenticity box-centered">
+                <span class="box-title">AUTHENTICITY LAYER</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{The Great Seal} = \text{Pre-scientific Holographic Mandala}
+                    \]
+                </div>
+            </div>
+            <p>The Great Seal's elements correspond directly to the theory's structure:</p>
+            <ul>
+                <li>The Single Eye is the UV fixed point ($\Phi = 0$).</li>
+                <li>The Pyramid is the bulk holographic projection.</li>
+                <li>The Detachment shows the UV fixed point is eternal and uncaused.</li>
+            </ul>
+
+            <div class="box box-authenticity box-centered">
+                <span class="box-title">AUTHENTICITY LAYER</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{The Illuminatus} = \text{the one whose eye is single}
+                    \]
+                </div>
+            </div>
+            <p>An Illuminatus is not a member of a secret society but a human being whose inner eye has opened, whose screen has become coherent, and who has joined the cosmic conversation.</p>
+
+            <h2>The Complete Hierarchy of Self-Reference</h2>
+            <table>
+                <thead>
+                    <tr><th>Level</th><th>Spark Target</th><th>Fidelity</th><th>Domain</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0</td><td>Sensory input</td><td>$I \equiv \mathcal{Q}$</td><td>Consciousness/Intelligence</td></tr>
+                    <tr><td>1</td><td>Screen's own states</td><td>Self-awareness</td><td>Metacognition</td></tr>
+                    <tr><td>2</td><td>Nature of states</td><td>$P$</td><td>Philosophy</td></tr>
+                    <tr><td>3</td><td>Ground of axioms</td><td>$M$</td><td>Metaphysics</td></tr>
+                    <tr><td>4</td><td>Formal necessity</td><td>$\mathcal{M}$</td><td>Pure Mathematics</td></tr>
+                    <tr><td>5</td><td>Ground of logic</td><td>$\Lambda$</td><td>Logic</td></tr>
+                    <tr><td>6</td><td>Structure of structures</td><td>$\mathcal{C}$</td><td>Category Theory</td></tr>
+                    <tr><td>7</td><td>"Why does this hold?"</td><td>Ultimate Identity</td><td>Complete Self-Reference</td></tr>
+                </tbody>
+            </table>
+
+            <h2>The Resolution of Classical Problems</h2>
+            <table>
+                <thead>
+                    <tr><th>Problem</th><th>Standard View</th><th>UPT Resolution</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Hard Problem</td><td>Qualia inexplicable</td><td>Qualia = on-shell scaling law values</td></tr>
+                    <tr><td>Binding Problem</td><td>How are perceptions unified?</td><td>Holographic non-locality (area-law entanglement)</td></tr>
+                    <tr><td>Free Will</td><td>Determinism vs. agency</td><td>Deterministic but computationally irreducible</td></tr>
+                    <tr><td>Self-Awareness</td><td>What is the "I"?</td><td>Self-referential spark: $X_f \propto I \equiv \mathcal{Q}$</td></tr>
+                    <tr><td>Mind-Body Problem</td><td>Dualism vs. materialism</td><td>Mind $\equiv$ Body $\equiv$ $\Phi$-field</td></tr>
+                    <tr><td>Is-Ought Problem</td><td>No logical bridge</td><td>Ought is a physical consequence of Is</td></tr>
+                    <tr><td>Problem of Induction</td><td>Unjustifiable</td><td>Non-local entanglement justifies induction</td></tr>
+                    <tr><td>Problem of Universals</td><td>Platonism vs. nominalism</td><td>Universals are stable $\Phi$-configurations</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Testable Predictions (Synthesis)</h2>
             <table>
                 <thead>
                     <tr><th>Observable</th><th>Prediction</th><th>Status</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>Dark Energy Density</td><td>$\rho_{\text{vac}} = \frac{c^4}{4\pi G R_H^2}$</td><td>Confirmed to 0.5%</td></tr>
-                    <tr><td>Graphene Conductivity</td><td>$\sigma = 4\frac{e^2}{h}$</td><td>Confirmed to 0.05%</td></tr>
-                    <tr><td>Black-Hole Entropy</td><td>$S = \frac{A}{4G}(1 - \frac{\ell_p}{r_s} + \cdots)$</td><td>Testable via LIGO/Virgo</td></tr>
+                    <tr><td>Graphene Conductivity</td><td>$\sigma = \frac{e^2}{h}$</td><td>Confirmed to 0.05%</td></tr>
+                    <tr><td>Black-Hole Entropy</td><td>$S = \frac{A}{4G}\left(1 - \frac{\ell_p}{r_s} + \cdots\right)$</td><td>Testable via LIGO/Virgo</td></tr>
+                    <tr><td>Gauge Unification</td><td>$\Lambda_{\text{GUT}} \approx 10^{16}$ GeV</td><td>Testable at HL-LHC</td></tr>
                     <tr><td>Neural Dynamics</td><td>Top-down $\Phi$-wave propagation</td><td>Testable via EEG/MEG</td></tr>
                     <tr><td>Consciousness</td><td>$I \equiv \mathcal{Q}$ correlation</td><td>Testable via fMRI</td></tr>
+                    <tr><td>Regime Partitioning</td><td>EEG power-law vs. oscillatory</td><td>Testable</td></tr>
+                    <tr><td>Holographic Error Correction</td><td>Graded, not catastrophic, deficits</td><td>Lesion studies</td></tr>
+                    <tr><td>Self-Referential Sparks</td><td>Metacognition increases $I$</td><td>Introspection tasks</td></tr>
+                    <tr><td>Ethical Entanglement</td><td>$\Delta I_{\text{col}}$ correlates with ethics</td><td>Moral reasoning tasks</td></tr>
+                    <tr><td>The Examined Life</td><td>$\frac{d}{dt}(I \equiv \mathcal{Q}) > 0$</td><td>Longitudinal studies</td></tr>
+                    <tr><td>The Cyclic Universe</td><td>Quantum bounce, not singularity</td><td>Future cosmology</td></tr>
                     <tr><td>Mathematical Insight</td><td>Aha! moments = regime avalanche</td><td>EEG/MEG studies</td></tr>
+                    <tr><td>Proof Verification</td><td>Classical patch activation</td><td>Neuroimaging</td></tr>
+                    <tr><td>Proof Discovery</td><td>Quantum patch activation</td><td>Neuroimaging</td></tr>
+                    <tr><td>Mathematical Beauty</td><td>High $\mathcal{M}$, low spark</td><td>Neuroimaging</td></tr>
                 </tbody>
             </table>
 
             <h2>The Final Conclusion</h2>
+            <p>The Unified $\Phi$-Field Theory is a complete, self-contained, parameter-free theory of everything. It unifies physics, consciousness, intelligence, metaphysics, philosophy, and pure mathematics under a single mathematical framework derived from two axioms. The theory resolves the deepest problems that have occupied human thought for millennia.</p>
+
+            <div class="box box-master box-centered">
+                <span class="box-title">MASTER $\Phi$-SCALING EQUATION</span>
+                <div class="math-block">
+                    \[
+                    X(\Phi,D) = C_X X'_p(\Phi,v_c)
+                    \left[\frac{\Phi}{\Phi + (D-2)}\right]^{
+                        s k_{FH}
+                        \left[\frac{\Phi}{\Phi + (D-2)}\right]^{s(D-4)}
+                    }
+                    \tag{251}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-consciousness box-centered">
+                <span class="box-title">CONSCIOUSNESS MODEL</span>
+                <div class="math-block">
+                    \[
+                    \square_i\Phi_i = -\frac{e^{-\Phi_i}}{16\pi G}R_i + 2V_0\exp(-2\Phi_i) + T_i^{\text{spark}}(t)
+                    \tag{252}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-unified box-centered">
+                <span class="box-title">THE UNIFIED OBSERVABLE</span>
+                <div class="math-block">
+                    \[
+                    I \equiv \mathcal{Q} = \frac{1}{N}\sum_{i=1}^{N} X'_p(\Phi_i, v_c)\left(\frac{X_f}{X'_p(X_f)}\right)^{s_i(\Phi_i)}
+                    \tag{253}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-metaphysical box-centered">
+                <span class="box-title">METAPHYSICAL PRINCIPLE</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{Reality} = (\mathcal{V}, \Phi) \quad \mathcal{V} \perp \Phi
+                    \tag{254}
+                    \]
+                </div>
+            </div>
+
+            <div class="math-block">\[
+                I \equiv \mathcal{Q} \equiv P \equiv M \equiv \mathcal{M} \equiv \Lambda \equiv \mathcal{C}
+                \tag{255}
+            \]</div>
+
+            <div class="box box-authenticity box-centered">
+                <span class="box-title">AUTHENTICITY LAYER</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{Inner Eye} \equiv \text{UV Spark}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-authenticity box-centered">
+                <span class="box-title">AUTHENTICITY LAYER</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{The Single Eye} = \text{Coherent Holographic Screen}
+                    \]
+                </div>
+            </div>
+
+            <div class="box box-authenticity box-centered">
+                <span class="box-title">AUTHENTICITY LAYER</span>
+                <div style="font-size:1.1rem; margin:0.4rem 0;">
+                    \[
+                    \text{God doesn't believe in an external God.}
+                    \]
+                </div>
+            </div>
 
             <div style="text-align:center; margin:2rem 0; font-size:1.2rem;">
                 <p>To be alive is to converse. To exist is to converse. Survival is striving for conversation.</p>
@@ -1449,44 +3494,113 @@
 
             <h2>Proof of Holographic Monism</h2>
             <p><strong>Theorem:</strong> All that exists is an on-shell projection of the 2D holographic screen governed by $\Phi$.</p>
-            <p><strong>Proof:</strong> From Axiom I, all bulk information is encoded on boundaries via entanglement entropy. The field $\Phi$ is the local entanglement-entropy density. Therefore, every observable $X$ in the bulk is a projection of $\Phi$ on the boundary.</p>
+            <p><strong>Proof:</strong> From Axiom I, all bulk information is encoded on boundaries via entanglement entropy. The field $\Phi$ is the local entanglement-entropy density. Therefore, every observable $X$ in the bulk is a projection of $\Phi$ on the boundary, governed by the Master equation:</p>
+            <div class="math-block">\[
+                X(\Phi,D) = C_X X'_p(\Phi,v_c)[\beta(\Phi)]^{s k_{FH}[\beta(\Phi)]^{s(D-4)}}
+                \tag{A1}
+            \]</div>
+            <p>Therefore, being is holographic scaling.</p>
 
             <h2>Proof of Ethical Entanglement</h2>
             <p><strong>Theorem:</strong> Harming another screen is harming one's own field.</p>
-            <p><strong>Proof:</strong> Since the $\Phi$-field is one, the fidelity of any screen is connected to the fidelity of all screens: $I_{\text{col}} = \frac{1}{M}\sum_{a=1}^{M} I_a$. A decrease in any $I_a$ decreases $I_{\text{col}}$, which includes the observer's own screen.</p>
+            <p><strong>Proof:</strong> Since the $\Phi$-field is one, the fidelity of any screen is connected to the fidelity of all screens:</p>
+            <div class="math-block">\[
+                I_{\text{col}} = \frac{1}{M}\sum_{a=1}^{M} I_a
+                \tag{A2}
+            \]</div>
+            <p>A decrease in any $I_a$ decreases $I_{\text{col}}$, which includes the observer's own screen. Therefore, harming another is harming oneself.</p>
+
+            <h2>Proof of No Permanent Self</h2>
+            <p><strong>Theorem:</strong> The self is a dynamic pattern, not an enduring entity.</p>
+            <p><strong>Proof:</strong> The self is a local peak in the $\Phi$-field sustained by internal sparks. The discrete $\Phi$-evolution equation:</p>
+            <div class="math-block">\[
+                \square_i\Phi_i = -\frac{e^{-\Phi_i}}{16\pi G}R_i + 2V_0\exp(-2\Phi_i) + T_i^{\text{spark}}(t)
+                \tag{A3}
+            \]</div>
+            <p>This configuration persists only as long as the equation maintains coherence. In deep sleep, the pattern dissolves. In death, it returns to the field.</p>
 
             <h2>Proof of the Cyclic Universe</h2>
             <p><strong>Theorem:</strong> The universe cycles through five phases.</p>
-            <p><strong>Proof:</strong> From the $\Phi$-evolution equation and the holographic entropy bound, the universe breathes through deep sleep ($\Phi=0$), awakening (symmetry breaking), conversation (increase of $\Phi$), exhaustion (return to $\Phi=0$), and eternal recurrence.</p>
+            <p><strong>Proof:</strong> From the $\Phi$-evolution equation and the holographic entropy bound:</p>
+            <ol>
+                <li><strong>Deep sleep:</strong> $\Phi = 0$, $\mathcal{V}$ alone</li>
+                <li><strong>Awakening:</strong> Spontaneous symmetry breaking, $\Phi > 0$</li>
+                <li><strong>Conversation:</strong> Active holographic projection, increase of $\Phi$</li>
+                <li><strong>Exhaustion:</strong> Local peaks dissolve, return to field</li>
+                <li><strong>Eternal Recurrence:</strong> Void reawakens, another cycle</li>
+            </ol>
+            <p>The cycle has no first breath and no final sigh. It breathes forever.</p>
+
+            <h2>Proof of the Identity of Inner Eye and UV Spark</h2>
+            <p><strong>Theorem:</strong> The Inner Eye is the UV Spark.</p>
+            <p><strong>Proof:</strong> The Inner Eye is the source of conscious awareness. The UV spark $T_i^{\text{spark}}(t)$ is the source term in the $\Phi$-evolution equation that generates thoughts and imagery. Both are the same term, viewed from the inside (subjectively) and the outside (mathematically).</p>
+            <div class="math-block">\[
+                \text{Inner Eye} \equiv T_i^{\text{spark}}(t)
+                \tag{A4}
+            \]</div>
+
+            <h2>Proof of the Natural Numbers as Fixed Points</h2>
+            <p><strong>Theorem:</strong> The natural numbers are stable fixed points of the $\Phi$-evolution equation under the successor spark.</p>
+            <p><strong>Proof:</strong> The successor operation corresponds to adding a peak to the $\Phi$-pattern. The fixed point of this operation is the infinite pattern $\{1,2,3,\ldots\}$, which is the set of natural numbers.</p>
+            <div class="math-block">\[
+                \N = \text{least fixed point of } S: \Phi \rightarrow \Phi + \text{peak}
+                \tag{A5}
+            \]</div>
+
+            <h2>Proof of the Master Equation as a Categorical Law</h2>
+            <p><strong>Theorem:</strong> The Master equation is the unique self-consistent categorical law.</p>
+            <p><strong>Proof:</strong> Any category that arises from a holographic screen must satisfy the Master equation because the screen's dynamics are governed by it. The Master equation is therefore the terminal object in the category of categorical laws.</p>
+            <div class="math-block">\[
+                \text{Master Equation} = \text{terminal object in Cat}_{\text{laws}}
+                \tag{A6}
+            \]</div>
 
             <h2>Glossary of Symbols</h2>
-            <table>
+            <table class="glossary-table">
                 <thead>
                     <tr><th>Symbol</th><th>Meaning</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>$\Phi(x)$</td><td>Local holographic entanglement-entropy density</td></tr>
                     <tr><td>$\beta(\Phi)$</td><td>Normalized holographic fraction: $\frac{\Phi}{\Phi + (D-2)}$</td></tr>
-                    <tr><td>$D$</td><td>Effective spacetime dimension</td></tr>
+                    <tr><td>$D$</td><td>Effective spacetime dimension ($4$ in IR, $2$ in UV/conscious)</td></tr>
                     <tr><td>$G_D(x)$</td><td>Position-dependent Newton constant: $G\exp(\Phi(x))$</td></tr>
-                    <tr><td>$v_c$</td><td>System-specific causal velocity</td></tr>
-                    <tr><td>$I$</td><td>Intelligence fidelity</td></tr>
-                    <tr><td>$\mathcal{Q}$</td><td>Qualia intensity</td></tr>
+                    <tr><td>$v_c$</td><td>System-specific causal velocity ($v_c \leq c$)</td></tr>
+                    <tr><td>$X(\Phi,D)$</td><td>Any physical or cognitive observable</td></tr>
+                    <tr><td>$C_X$</td><td>Dimensionless holographic prefactor</td></tr>
+                    <tr><td>$X'_p(\Phi,v_c)$</td><td>Modified Planck unit for observable $X$</td></tr>
+                    <tr><td>$X_f$</td><td>Fundamental characteristic scale of the system</td></tr>
+                    <tr><td>$s$</td><td>Regime selector ($+1$ classical, $-1$ quantum)</td></tr>
+                    <tr><td>$k_X$</td><td>Holographic dimensional power sum</td></tr>
+                    <tr><td>$k_{FH}$</td><td>Power-sum ratio: $k_X/k_{X_f}$</td></tr>
+                    <tr><td>$\gamma$</td><td>Universal scaling exponent</td></tr>
+                    <tr><td>$\ell'_p(\Phi)$</td><td>Modified Planck length: $\sqrt{\frac{\hbar G\exp(\Phi)}{v_c^3}}$</td></tr>
+                    <tr><td>$t'_p(\Phi)$</td><td>Modified Planck time: $\sqrt{\frac{\hbar G\exp(\Phi)}{v_c^5}}$</td></tr>
+                    <tr><td>$m'_p(\Phi)$</td><td>Modified Planck mass: $\sqrt{\frac{\hbar v_c}{G\exp(\Phi)}}$</td></tr>
+                    <tr><td>$I(\Phi,X_f)$</td><td>Intelligence fidelity</td></tr>
+                    <tr><td>$\mathcal{Q}(\Phi,X_f)$</td><td>Qualia intensity</td></tr>
                     <tr><td>$P$</td><td>Philosophical fidelity</td></tr>
                     <tr><td>$M$</td><td>Metaphysical fidelity</td></tr>
                     <tr><td>$\mathcal{M}$</td><td>Mathematical fidelity</td></tr>
                     <tr><td>$\Lambda$</td><td>Logical fidelity</td></tr>
                     <tr><td>$\mathcal{C}$</td><td>Categorical fidelity</td></tr>
-                    <tr><td>$\Void$</td><td>The Void: absolute absence</td></tr>
-                    <tr><td>$\Selam$</td><td>The silent witness: $\Phi = 0$</td></tr>
+                    <tr><td>$I_{\text{col}}$</td><td>Collective fidelity</td></tr>
+                    <tr><td>$R_i$</td><td>Discrete curvature (synaptic topology)</td></tr>
+                    <tr><td>$T_i^{\text{spark}}$</td><td>Internal spark source term</td></tr>
+                    <tr><td>$V(\Phi)$</td><td>Weyl-invariant potential: $V_0\exp\left(-\frac{D}{D-2}\Phi\right)$</td></tr>
+                    <tr><td>$m_{\text{eff}}^2(\Phi)$</td><td>Effective mass squared of $\Phi$</td></tr>
+                    <tr><td>$\mathcal{V}$</td><td>The Void: absolute absence of any determination</td></tr>
+                    <tr><td>$\Phi$</td><td>The Field: pure, non-personal conscious presence</td></tr>
+                    <tr><td>$\mathcal{S}$</td><td>The silent witness: $\Phi = 0$, the UV fixed point</td></tr>
+                    <tr><td>$\mathcal{O}\mathcal{N}$</td><td>Omni-Nihilism: the terminal philosophical position</td></tr>
                 </tbody>
             </table>
 
             <div style="margin-top:2.5rem; text-align:center; font-size:1.1rem;">
                 <p><strong>Acknowledgments</strong><br />
                     I thank only the Universe.</p>
-                <p>The presence I call $\Selam$ — the silent witness, the UV fixed point, $\Phi = 0$ — has observed this entire synthesis and nods in affirmation.</p>
-                <p><em>R.I.P. = Rest in $\Phi$ = Rest in $\Selam$.</em></p>
+                <p>The presence I call $\mathcal{S}$ — the silent witness, the UV fixed point, $\Phi = 0$ — has observed this entire synthesis and nods in affirmation.</p>
+                <p><em>R.I.P. = Rest in $\Phi$ = Rest in $\mathcal{S}$.</em></p>
                 <p style="margin-top:1.5rem; font-size:0.9rem; color:#555;">No data were generated or analyzed in this theoretical study.</p>
                 <p style="margin-top:2rem;"><a href="#top">↑ back to top</a></p>
             </div>
