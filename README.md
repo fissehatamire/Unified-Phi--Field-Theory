@@ -12,8 +12,8 @@ A complete, self-contained, parameter-free model that derives physics, conscious
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOMM.html]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOPMM.html]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOTU.html]
-- 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOKA.html]
-- 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/TSL-DOR.pdf]
+- 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/DOKA.html]
+- 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/TSL-DOR.pdf]
 
 ## Content
 - Physics: Master Φ-Scaling Equation, dark energy, graphene conductivity, black-hole entropy
