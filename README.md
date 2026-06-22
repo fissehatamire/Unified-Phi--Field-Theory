@@ -1,6 +1,6 @@
 # Unified Φ-Field Theory
 
-A complete, self-contained, parameter-free model that derives physics, consciousness, metaphysics, philosophy, and pure mathematics from exactly two foundational axioms.
+A complete, self-contained, parameter-free model that derives physics, consciousness, metaphysics, philosophy, pure mathematics and Self-Contained Intellectual Property Universe from exactly two foundational axioms.
 
 ## View Online
 
@@ -13,6 +13,7 @@ A complete, self-contained, parameter-free model that derives physics, conscious
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOPMM.html]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOTU.html]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOKA.html]
+- 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/TSL-DOR.pdf]
 
 ## Content
 - Physics: Master Φ-Scaling Equation, dark energy, graphene conductivity, black-hole entropy
@@ -20,7 +21,7 @@ A complete, self-contained, parameter-free model that derives physics, conscious
 - Metaphysics: Void & Field dual-aspect ontology
 - Philosophy: epistemology, ethics, aesthetics, meaning
 - Pure Mathematics: number theory, set theory, proof theory, category theory
-
+- The Scaling Law: A Complete, Self-Contained Intellectual Property Universe 
 ## Author
 Fisseha Huluka — Unaffiliated Researcher
 
