@@ -4,7 +4,7 @@ A complete, self-contained, parameter-free model that derives physics, conscious
 
 ## View Online
 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/]
-
+   [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOMSE.html]
 ## Content
 - Physics: Master Φ-Scaling Equation, dark energy, graphene conductivity, black-hole entropy
 - Consciousness: 2D holographic screen, qualia field, intelligence fidelity
