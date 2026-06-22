@@ -1,6 +1,6 @@
 # Unified Φ-Field Theory Intellectual Property
 
-A complete, self-contained, parameter-free model that derives physics, consciousness, metaphysics, philosophy, pure mathematics and Self-Contained Intellectual Property Universe from exactly two foundational axioms.
+A complete, self-contained, parameter-free model that derives physics, consciousness, metaphysics, philosophy, pure mathematics and Intellectual Property Universe from exactly two foundational axioms.
 
 ## View Online
 
