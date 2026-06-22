@@ -66,7 +66,7 @@ Manuscripts Included:
 · UPT_Foundation.tex — Foundational first principles
 · UPT-ESCM.tex — Absolute scale invariance + Standard Model embedding
 · UPT-FH.tex — Self-contained derivation of the Master Equation
-· UPT.pdf — Short derivation with testable predictions
+· UPT.pdf — Physics focused derivation with testable predictions
 
 2. Four-Act Prestige Screenplay (The Map)
 
