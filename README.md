@@ -1,10 +1,10 @@
-# Unified Φ-Field Theory
+# Unified Φ-Field Theory Intellectual Property
 
 A complete, self-contained, parameter-free model that derives physics, consciousness, metaphysics, philosophy, pure mathematics and Self-Contained Intellectual Property Universe from exactly two foundational axioms.
 
 ## View Online
 
-- 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/]
+- 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOMSE.html]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOC&IM.html]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory/DOMPM.html]
