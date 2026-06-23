@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Scaling Law-Unified Phi-Field Theory IP– PDF Viewer</title>
-    <!-- PDF.js CDN -->
+    <title>Unified Phi Field Theory � HD Viewer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <style>
         * {
@@ -28,16 +27,12 @@
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             padding: 24px;
-            flex: 1;
         }
         h1 {
             font-size: 1.6rem;
             font-weight: 600;
             color: #1e293b;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 4px;
         }
         .subtitle {
             color: #64748b;
@@ -55,23 +50,21 @@
             text-decoration: none;
             font-weight: 500;
         }
-        .subtitle a:hover {
-            text-decoration: underline;
-        }
         #pdf-container {
             width: 100%;
             min-height: 600px;
             background: #eef2f7;
             border-radius: 10px;
-            overflow: hidden;
-            position: relative;
+            overflow: auto; /* Allows scrolling if canvas is huge */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 10px;
         }
         #pdf-canvas {
-            width: 100%;
-            height: auto;
             display: block;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            /* Size is set dynamically by JavaScript to match container width */
         }
         .loading {
             display: flex;
@@ -81,6 +74,7 @@
             color: #475569;
             font-size: 1.1rem;
             gap: 12px;
+            width: 100%;
         }
         .spinner {
             width: 30px;
@@ -130,78 +124,61 @@
             min-width: 80px;
             text-align: center;
         }
-        .fallback-link {
-            margin-top: 14px;
-            font-size: 0.95rem;
-            color: #475569;
-            text-align: center;
-        }
-        .fallback-link a {
-            color: #2563eb;
-            font-weight: 500;
-        }
         .error-msg {
             background: #fee2e2;
             color: #991b1b;
             padding: 20px;
             border-radius: 10px;
-            margin-top: 10px;
             display: none;
+            width: 100%;
+            text-align: center;
+        }
+        .error-msg a {
+            color: #2563eb;
         }
         @media (max-width: 640px) {
             .container { padding: 16px; }
-            h1 { font-size: 1.3rem; }
-            #pdf-container { min-height: 400px; }
+            #pdf-container { min-height: 400px; padding: 4px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>📄 Unified Phi Field Theory</h1>
+    <h1> Unified Phi Field Theory</h1>
     <div class="subtitle">
-        <span>TSL-SCIPU · PDF Preview</span>
+        <span>TSL-SCIPU � HD Render</span>
         <a href="https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/TSL-SCIPU.pdf" target="_blank" rel="noopener">
-            ⬇ Open original PDF
+             Open Original PDF
         </a>
     </div>
 
-    <!-- PDF viewer area -->
     <div id="pdf-container">
         <div id="loading-indicator" class="loading">
             <div class="spinner"></div>
-            <span>Loading PDF…</span>
+            <span>Loading PDF�</span>
         </div>
         <canvas id="pdf-canvas" style="display: none;"></canvas>
         <div id="error-msg" class="error-msg">
-            ⚠️ Could not load the PDF. The server may be unreachable or the file is missing.
+             Could not load the PDF. The server may be unreachable.
             <br />
             Try the <a href="https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/TSL-SCIPU.pdf" target="_blank">direct link</a> instead.
         </div>
     </div>
 
-    <!-- Navigation controls -->
     <div class="controls" id="controls" style="display: none;">
         <div class="nav">
-            <button id="prev-page" disabled>◀ Previous</button>
+            <button id="prev-page" disabled> Previous</button>
             <span class="page-info" id="page-info">1 / 1</span>
-            <button id="next-page" disabled>Next ▶</button>
+            <button id="next-page" disabled>Next </button>
         </div>
-        <span style="font-size:0.9rem; color:#64748b;">
-            PDF.js renderer
-        </span>
-    </div>
-
-    <div class="fallback-link">
-        If the viewer doesn't load, <a href="https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/TSL-SCIPU.pdf" target="_blank" rel="noopener">click here to open the PDF directly</a> in a new tab.
+        <span style="font-size:0.85rem; color:#64748b;">Rendered at high-DPI (crisp text)</span>
     </div>
 </div>
 
 <script>
     (function() {
         const PDF_URL = 'https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/TSL-SCIPU.pdf';
-
-        // Set the worker source for PDF.js
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
         const canvas = document.getElementById('pdf-canvas');
@@ -212,6 +189,7 @@
         const prevBtn = document.getElementById('prev-page');
         const nextBtn = document.getElementById('next-page');
         const pageInfo = document.getElementById('page-info');
+        const container = document.getElementById('pdf-container');
 
         let pdfDoc = null;
         let currentPage = 1;
@@ -221,32 +199,45 @@
             if (!pdfDoc) return;
 
             pdfDoc.getPage(pageNum).then(page => {
-                const viewport = page.getViewport({ scale: 1.5 });
-                const container = document.getElementById('pdf-container');
-                const containerWidth = container.clientWidth - 32; // padding
+                // 1. Get the usable width of the container (minus padding)
+                const containerWidth = container.clientWidth - 20; 
 
-                // Scale to fit container width
-                const scale = Math.min(1.5, containerWidth / viewport.width);
-                const scaledViewport = page.getViewport({ scale });
+                // 2. Get the page's original aspect ratio
+                const viewport = page.getViewport({ scale: 1 });
+                const baseScale = containerWidth / viewport.width;
 
-                canvas.width = scaledViewport.width;
-                canvas.height = scaledViewport.height;
-                canvas.style.width = '100%';
-                canvas.style.height = 'auto';
+                // 3. CRITICAL FIX FOR BLUR: Multiply scale by device pixel ratio (Retina / HD)
+                const pixelRatio = window.devicePixelRatio || 1;
+                // Cap the pixel ratio at 2.5 to avoid performance issues on very high-end screens
+                const renderScale = baseScale * Math.min(pixelRatio, 2.5);
 
+                // 4. Create the render viewport
+                const renderViewport = page.getViewport({ scale: renderScale });
+
+                // 5. Set canvas internal resolution (actual pixels)
+                canvas.width = renderViewport.width;
+                canvas.height = renderViewport.height;
+
+                // 6. Set canvas CSS size (logical pixels) to perfectly fit the container width.
+                //    Dividing by pixelRatio ensures the browser doesn't stretch it, keeping it sharp.
+                canvas.style.width = (renderViewport.width / pixelRatio) + 'px';
+                canvas.style.height = (renderViewport.height / pixelRatio) + 'px';
+
+                // 7. Render the page
                 const renderContext = {
                     canvasContext: ctx,
-                    viewport: scaledViewport
+                    viewport: renderViewport,
                 };
 
                 page.render(renderContext).promise.then(() => {
-                    // Update controls
                     pageInfo.textContent = `${pageNum} / ${totalPages}`;
                     prevBtn.disabled = (pageNum <= 1);
                     nextBtn.disabled = (pageNum >= totalPages);
                 }).catch(err => {
                     console.warn('Render error:', err);
+                    showError();
                 });
+
             }).catch(err => {
                 console.warn('Page fetch error:', err);
                 showError();
@@ -284,7 +275,7 @@
                 });
         }
 
-        // Navigation events
+        // Navigation
         prevBtn.addEventListener('click', () => {
             if (currentPage > 1) {
                 currentPage--;
@@ -299,16 +290,15 @@
             }
         });
 
-        // Re-render on window resize (debounced)
+        // Re-render on resize (debounced)
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
                 if (pdfDoc) renderPage(currentPage);
-            }, 300);
+            }, 250);
         });
 
-        // Start loading
         loadPDF();
     })();
 </script>
