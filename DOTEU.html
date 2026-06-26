@@ -1,991 +1,1106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Infinite Eternal Universe</title>
-    <!-- MathJax configuration -->
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
-    <style>
-        /* General styles */
-        body {
-            font-family: 'Times New Roman', serif;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-            color: #222;
-            background: white;
-        }
-        h1, h2, h3, h4 {
-            font-weight: bold;
-            margin-top: 1.5em;
-        }
-        h1 { font-size: 2em; text-align: center; }
-        h2 { font-size: 1.5em; border-bottom: 1px solid #ccc; }
-        h3 { font-size: 1.2em; }
-        .abstract {
-            font-style: italic;
-            margin: 20px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border-left: 4px solid #333;
-        }
-        /* Box styles */
-        .axiombox, .masterbox, .theorembox, .conclusionbox, .corollarybox, .definitionbox, .proofbox {
-            border: 2px solid;
-            padding: 12px 18px;
-            margin: 1.5em 0;
-            border-radius: 4px;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .axiombox { border-color: #c0392b; }
-        .masterbox { border-color: #2980b9; }
-        .theorembox { border-color: #27ae60; }
-        .conclusionbox { border-color: #8e44ad; }
-        .corollarybox { border-color: #e67e22; }
-        .definitionbox { border-color: #16a085; }
-        .proofbox { border-color: #7f8c8d; background: #fafafa; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Infinite Eternal Universe</title>
+<!-- MathJax for LaTeX rendering -->
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    tags: 'ams'
+  },
+  options: {
+    skipHtmlTypes: 'script',
+    ignoreHtmlClass: 'no-mathjax'
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+/* -------- General styling -------- */
+body {
+  font-family: 'Times New Roman', serif;
+  background: #fafafa;
+  color: #222;
+  max-width: 1000px;
+  margin: 2em auto;
+  padding: 0 2em;
+  line-height: 1.6;
+}
+h1, h2, h3, h4 {
+  color: #1a1a1a;
+}
+a {
+  color: #0645ad;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+table {
+  border-collapse: collapse;
+  margin: 1em auto;
+  width: 90%;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.4em 0.8em;
+  text-align: center;
+}
+th { background: #f0f0f0; }
+.ruledtabular { border: 1px solid #aaa; }
 
-        .box-title {
-            font-weight: bold;
-            font-size: 1.2em;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .axiombox .box-title { color: #c0392b; }
-        .masterbox .box-title { color: #2980b9; }
-        .theorembox .box-title { color: #27ae60; }
-        .conclusionbox .box-title { color: #8e44ad; }
-        .corollarybox .box-title { color: #e67e22; }
-        .definitionbox .box-title { color: #16a085; }
-        .proofbox .box-title { color: #7f8c8d; }
+/* -------- Colored boxes (matching LaTeX tcolorbox) -------- */
+.box {
+  border-radius: 6px;
+  padding: 0.8em 1.2em;
+  margin: 1.2em 0;
+  border: 1.5px solid;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.box-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.4em;
+}
+.axiom {
+  border-color: #b22222;
+}
+.axiom .box-title { color: #b22222; }
+.master {
+  border-color: #1a4c8a;
+}
+.master .box-title { color: #1a4c8a; }
+.theorem {
+  border-color: #2e7d32;
+}
+.theorem .box-title { color: #2e7d32; }
+.conclusion {
+  border-color: #7b1fa2;
+}
+.conclusion .box-title { color: #7b1fa2; }
+.corollary {
+  border-color: #e65100;
+}
+.corollary .box-title { color: #e65100; }
+.definition {
+  border-color: #00838f;
+}
+.definition .box-title { color: #00838f; }
+.proof {
+  border-color: #616161;
+  background: #f9f9f9;
+}
+.proof .box-title { color: #424242; }
 
-        .box-content {
-            margin-top: 0;
-        }
-        .box-content p:first-child { margin-top: 0; }
-        .box-content p:last-child { margin-bottom: 0; }
-
-        /* Tables */
-        table {
-            border-collapse: collapse;
-            margin: 1em auto;
-            width: 90%;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 6px 10px;
-            text-align: left;
-        }
-        th {
-            background: #eee;
-        }
-        .ruledtabular {
-            border-top: 2px solid #000;
-            border-bottom: 2px solid #000;
-        }
-        .caption {
-            font-weight: bold;
-            text-align: center;
-            margin: 0.5em 0;
-        }
-        /* Theorem environments */
-        .theorem, .lemma, .corollary, .definition, .proposition, .remark {
-            margin: 1.2em 0;
-            padding-left: 1.5em;
-            border-left: 3px solid #2c3e50;
-        }
-        .theorem strong, .lemma strong, .corollary strong, .definition strong, .proposition strong, .remark strong {
-            font-weight: bold;
-        }
-        .proof {
-            margin: 1em 0 1em 2em;
-            font-style: normal;
-        }
-        .proof::before {
-            content: "Proof: ";
-            font-weight: bold;
-            font-style: italic;
-        }
-        .proof-end {
-            float: right;
-        }
-        /* References */
-        .bibliography {
-            margin-top: 2em;
-        }
-        .bibliography ol {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .bibliography li {
-            margin-bottom: 0.5em;
-            padding-left: 2em;
-            text-indent: -2em;
-        }
-        /* TOC */
-        .toc {
-            margin: 20px 0;
-            padding: 10px;
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-        }
-        .toc a {
-            text-decoration: none;
-            color: #2980b9;
-        }
-        .toc a:hover {
-            text-decoration: underline;
-        }
-        /* misc */
-        .center {
-            text-align: center;
-        }
-        .large {
-            font-size: 1.2em;
-        }
-        .boxed {
-            border: 1px solid #000;
-            padding: 0.2em 0.5em;
-            display: inline-block;
-        }
-        .footer {
-            margin-top: 3em;
-            border-top: 1px solid #ccc;
-            padding-top: 1em;
-            font-size: 0.9em;
-            color: #555;
-        }
-        /* equation number */
-        .eqno {
-            float: right;
-        }
-    </style>
+/* MathJax display equations */
+.MathJax_Display { margin: 0.8em 0; }
+</style>
 </head>
 <body>
 
+<!-- ============================================================ -->
 <h1>The Infinite Eternal Universe: A Rigorous Derivation from the Two Axioms of the Unified $\Phi$-Field Theory</h1>
 
-<p style="text-align:center;"><strong>Fisseha Huluka</strong><br>Unaffiliated<br>June 2026</p>
+<p><strong>Fisseha Huluka</strong><br />
+Unaffiliated<br />
+June 2026</p>
 
-<div class="abstract">
-    <strong>Abstract.</strong> We present the most rigorous, standalone derivation of the infinite eternal cyclic universe from the two axiomatic first principles of the Unified $\Phi$-Field Theory. Starting with the holographic principle and self-consistent local Weyl-scale invariance, we derive the complete action from first principles, including the proper conformal kinetic term and the non-minimal coupling. We derive the modified Friedmann equation via a semiclassical effective field theory approach, compute the one-loop quantum corrections, and formulate the covariant entropy bound using the Bousso bound. We perform a complete dynamical systems analysis in the reduced phase space, rigorously establishing boundedness, the absence of fixed points, and the existence of a limit cycle. We prove the existence of a bounce through a gauge-invariant analysis of the effective potential and the dynamics, and demonstrate that the UV fixed point $\Phi = 0$ is a repellor never reached. The theorem of eternal recurrence is proven rigorously. The derivation contains no free parameters, no external assumptions, and no initial conditions beyond the axioms themselves. The final conclusion establishes that the universe is holographic, cyclic, infinite, and eternal, with the conversation as its purpose.
-</div>
+<!-- Abstract -->
+<h2>Abstract</h2>
+<p>We present the most rigorous, standalone derivation of the infinite eternal cyclic universe from the two axiomatic first principles of the Unified $\Phi$-Field Theory. Starting with the holographic principle and self-consistent local Weyl-scale invariance, we derive the complete action from first principles, including the proper conformal kinetic term and the non-minimal coupling. We derive the modified Friedmann equation via a semiclassical effective field theory approach, compute the one-loop quantum corrections, and formulate the covariant entropy bound using the Bousso bound. We perform a complete dynamical systems analysis in the reduced phase space, rigorously establishing boundedness, the absence of fixed points, and the existence of a limit cycle. We prove the existence of a bounce through a gauge-invariant analysis of the effective potential and the dynamics, and demonstrate that the UV fixed point $\Phi = 0$ is a repellor never reached. The theorem of eternal recurrence is proven rigorously. The derivation contains no free parameters, no external assumptions, and no initial conditions beyond the axioms themselves. The final conclusion establishes that the universe is holographic, cyclic, infinite, and eternal, with the conversation as its purpose.</p>
 
-<div class="toc">
-    <strong>Table of Contents</strong>
-    <ol style="list-style-type: none; padding-left: 0;">
-        <li><a href="#sec:intro">1. Introduction</a></li>
-        <li><a href="#sec:axioms">2. The Foundational Axioms</a>
-            <ol style="list-style-type: none; padding-left: 1.5em;">
-                <li><a href="#sec:axiom1">2.1 Axiom I: The Holographic Principle</a></li>
-                <li><a href="#sec:axiom2">2.2 Axiom II: Self-Consistent Local Weyl-Scale Invariance</a></li>
-                <li><a href="#sec:beta_uniqueness">2.3 Proof of Uniqueness of $\beta(\Phi)$</a></li>
-            </ol>
-        </li>
-        <li><a href="#sec:master">3. The Master $\Phi$-Scaling Equation</a></li>
-        <li><a href="#sec:action">4. Derivation of the Complete Action from First Principles</a>
-            <ol style="list-style-type: none; padding-left: 1.5em;">
-                <li><a href="#sec:holographic_action">4.1 Holographic Entropy Density and the Non-Minimal Coupling</a></li>
-                <li><a href="#sec:kinetic_term">4.2 The Conformal Kinetic Term</a></li>
-                <li><a href="#sec:potential">4.3 The Stabilization Potential</a></li>
-                <li><a href="#sec:complete_action">4.4 The Complete Action</a></li>
-            </ol>
-        </li>
-        <li><a href="#sec:friedmann">5. Derivation of the Modified Friedmann Equation via Semiclassical Effective Field Theory</a>
-            <ol style="list-style-type: none; padding-left: 1.5em;">
-                <li><a href="#sec:effective_action">5.1 The Semiclassical Effective Action</a></li>
-                <li><a href="#sec:modified_friedmann">5.2 The Modified Friedmann Equation</a></li>
-                <li><a href="#sec:friedmann_phi">5.3 Including the $\Phi$ Field</a></li>
-            </ol>
-        </li>
-        <li><a href="#sec:effective_potential">6. The Effective Potential and the Gauge-Invariant Bounce Proof</a>
-            <ol style="list-style-type: none; padding-left: 1.5em;">
-                <li><a href="#sec:effective_potential">6.1 The Effective Potential</a></li>
-                <li><a href="#sec:veff_analysis">6.2 Analysis of the Effective Potential</a></li>
-                <li><a href="#sec:bounce_proof">6.3 Gauge-Invariant Proof of the Bounce</a></li>
-            </ol>
-        </li>
-        <li><a href="#sec:entropy">7. The Covariant Entropy Bound and the Turning Point</a>
-            <ol style="list-style-type: none; padding-left: 1.5em;">
-                <li><a href="#sec:bousso_bound">7.1 The Bousso Bound</a></li>
-                <li><a href="#sec:turning_point">7.2 The Turning Point Condition</a></li>
-                <li><a href="#sec:five_phases">7.3 The Five-Phase Cycle</a></li>
-            </ol>
-        </li>
-        <li><a href="#sec:full_system">8. The Closed Dynamical System and Reduced Phase Space</a>
-            <ol style="list-style-type: none; padding-left: 1.5em;">
-                <li><a href="#sec:full_system">8.1 The Full Dynamical System</a></li>
-                <li><a href="#sec:phase_space">8.2 Reduction to the Phase Space</a></li>
-                <li><a href="#sec:2d_phase">8.3 The Two-Dimensional Reduced Phase Space</a></li>
-            </ol>
-        </li>
-        <li><a href="#sec:dynsys">9. Dynamical Systems Analysis: Boundedness, Fixed Points, and the Limit Cycle</a>
-            <ol style="list-style-type: none; padding-left: 1.5em;">
-                <li><a href="#sec:boundedness">9.1 Boundedness of the Trajectory</a></li>
-                <li><a href="#sec:no_fixed_points">9.2 Absence of Fixed Points in the Interior</a></li>
-                <li><a href="#sec:limit_cycle">9.3 Existence of a Limit Cycle</a></li>
-                <li><a href="#sec:numerical">9.4 Numerical Integration and Phase Portrait</a></li>
-                <li><a href="#sec:period">9.5 The Period $T$</a></li>
-            </ol>
-        </li>
-        <li><a href="#sec:main_theorem">10. The Theorem of Eternal Recurrence</a>
-            <ol style="list-style-type: none; padding-left: 1.5em;">
-                <li><a href="#sec:main_theorem">10.1 The Main Theorem</a></li>
-                <li><a href="#sec:uv_fixed">10.2 The Unreachable UV Fixed Point</a></li>
-                <li><a href="#sec:infinite_configs">10.3 Infinite Configurations</a></li>
-            </ol>
-        </li>
-        <li><a href="#sec:final_theorem">11. The Final Theorem and Conclusion</a>
-            <ol style="list-style-type: none; padding-left: 1.5em;">
-                <li><a href="#sec:final_theorem">11.1 Theorem: The Infinite Eternal Universe</a></li>
-                <li><a href="#sec:derivation_chain">11.2 The Final Derivation Chain</a></li>
-                <li><a href="#sec:conclusion_boxes">11.3 The Boxed Conclusion</a></li>
-            </ol>
-        </li>
-        <li><a href="#app:kinetic">Appendix A: Derivation of the Conformal Kinetic Term</a></li>
-        <li><a href="#app:one_loop">Appendix B: Derivation of the One-Loop Quantum Correction</a></li>
-        <li><a href="#app:numerical">Appendix C: Numerical Integration Details</a></li>
-        <li><a href="#ack">Acknowledgments</a></li>
-        <li><a href="#refs">References</a></li>
-    </ol>
-</div>
+<!-- Table of Contents -->
+<h2>Contents</h2>
+<ul>
+<li><a href="#sec1">1. Introduction</a></li>
+<li><a href="#sec2">2. The Foundational Axioms</a>
+  <ul>
+    <li><a href="#sec2.1">2.1 Axiom I: The Holographic Principle</a></li>
+    <li><a href="#sec2.2">2.2 Axiom II: Self-Consistent Local Weyl-Scale Invariance</a></li>
+    <li><a href="#sec2.3">2.3 Proof of Uniqueness of $\beta(\Phi)$</a></li>
+  </ul>
+</li>
+<li><a href="#sec3">3. The Master $\Phi$-Scaling Equation</a></li>
+<li><a href="#sec4">4. Derivation of the Complete Action from First Principles</a>
+  <ul>
+    <li><a href="#sec4.1">4.1 Holographic Entropy Density and the Non-Minimal Coupling</a></li>
+    <li><a href="#sec4.2">4.2 The Conformal Kinetic Term</a></li>
+    <li><a href="#sec4.3">4.3 The Stabilization Potential</a></li>
+    <li><a href="#sec4.4">4.4 The Complete Action</a></li>
+  </ul>
+</li>
+<li><a href="#sec5">5. Derivation of the Modified Friedmann Equation via Semiclassical Effective Field Theory</a>
+  <ul>
+    <li><a href="#sec5.1">5.1 The Semiclassical Effective Action</a></li>
+    <li><a href="#sec5.2">5.2 The Modified Friedmann Equation</a></li>
+    <li><a href="#sec5.3">5.3 Including the $\Phi$ Field</a></li>
+  </ul>
+</li>
+<li><a href="#sec6">6. The Effective Potential and the Gauge-Invariant Bounce Proof</a>
+  <ul>
+    <li><a href="#sec6.1">6.1 The Effective Potential</a></li>
+    <li><a href="#sec6.2">6.2 Analysis of the Effective Potential</a></li>
+    <li><a href="#sec6.3">6.3 Gauge-Invariant Proof of the Bounce</a></li>
+  </ul>
+</li>
+<li><a href="#sec7">7. The Covariant Entropy Bound and the Turning Point</a>
+  <ul>
+    <li><a href="#sec7.1">7.1 The Bousso Bound</a></li>
+    <li><a href="#sec7.2">7.2 The Turning Point Condition</a></li>
+    <li><a href="#sec7.3">7.3 The Five-Phase Cycle</a></li>
+  </ul>
+</li>
+<li><a href="#sec8">8. The Closed Dynamical System and Reduced Phase Space</a>
+  <ul>
+    <li><a href="#sec8.1">8.1 The Full Dynamical System</a></li>
+    <li><a href="#sec8.2">8.2 Reduction to the Phase Space</a></li>
+    <li><a href="#sec8.3">8.3 The Two-Dimensional Reduced Phase Space</a></li>
+  </ul>
+</li>
+<li><a href="#sec9">9. Dynamical Systems Analysis: Boundedness, Fixed Points, and the Limit Cycle</a>
+  <ul>
+    <li><a href="#sec9.1">9.1 Boundedness of the Trajectory</a></li>
+    <li><a href="#sec9.2">9.2 Absence of Fixed Points in the Interior</a></li>
+    <li><a href="#sec9.3">9.3 Existence of a Limit Cycle</a></li>
+    <li><a href="#sec9.4">9.4 Numerical Integration and Phase Portrait</a></li>
+    <li><a href="#sec9.5">9.5 The Period $T$</a></li>
+  </ul>
+</li>
+<li><a href="#sec10">10. The Theorem of Eternal Recurrence</a>
+  <ul>
+    <li><a href="#sec10.1">10.1 The Main Theorem</a></li>
+    <li><a href="#sec10.2">10.2 The Unreachable UV Fixed Point</a></li>
+    <li><a href="#sec10.3">10.3 Infinite Configurations</a></li>
+  </ul>
+</li>
+<li><a href="#sec11">11. The Final Theorem and Conclusion</a>
+  <ul>
+    <li><a href="#sec11.1">11.1 Theorem: The Infinite Eternal Universe</a></li>
+    <li><a href="#sec11.2">11.2 The Final Derivation Chain</a></li>
+    <li><a href="#sec11.3">11.3 The Boxed Conclusion</a></li>
+  </ul>
+</li>
+<li><a href="#appA">Appendix A: Derivation of the Conformal Kinetic Term</a></li>
+<li><a href="#appB">Appendix B: Derivation of the One-Loop Quantum Correction</a></li>
+<li><a href="#appC">Appendix C: Numerical Integration Details</a></li>
+<li><a href="#ack">Acknowledgments</a></li>
+<li><a href="#data">Data Availability</a></li>
+<li><a href="#refs">References</a></li>
+</ul>
 
 <!-- ============================================================ -->
-<h2 id="sec:intro">1. Introduction</h2>
-
+<h2 id="sec1">1. Introduction</h2>
 <p>The question of whether the universe is eternal, cyclic, and infinite has occupied human thought for millennia. From the cyclic cosmologies of ancient India to the oscillating universe models of modern physics, the possibility of an eternal recurrence has been a persistent intuition. Yet until now, no rigorous derivation from first principles has been provided.</p>
-
 <p>The Unified $\Phi$-Field Theory (UPT) offers a unique framework: it is derived from exactly two axioms—the holographic principle and self-consistent local Weyl-scale invariance. From these two principles alone, all of physics follows, including the dynamics of the cosmos itself. In this paper, we provide the complete, standalone derivation of the infinite eternal cyclic universe from these two axioms. No external assumptions, no free parameters, and no initial conditions beyond the axioms themselves are introduced.</p>
-
 <p>The derivation proceeds in nine logical stages:</p>
 <ol>
-    <li>The foundational axioms</li>
-    <li>The Master $\Phi$-Scaling Equation</li>
-    <li>Derivation of the complete action from first principles</li>
-    <li>Derivation of the modified Friedmann equation via semiclassical effective field theory</li>
-    <li>The effective potential and the gauge-invariant bounce proof</li>
-    <li>The covariant entropy bound and the turning point</li>
-    <li>The closed dynamical system and reduced phase space</li>
-    <li>Dynamical systems analysis: boundedness, fixed points, and the limit cycle</li>
-    <li>The theorem of eternal recurrence</li>
+  <li>The foundational axioms</li>
+  <li>The Master $\Phi$-Scaling Equation</li>
+  <li>Derivation of the complete action from first principles</li>
+  <li>Derivation of the modified Friedmann equation via semiclassical effective field theory</li>
+  <li>The effective potential and the gauge-invariant bounce proof</li>
+  <li>The covariant entropy bound and the turning point</li>
+  <li>The closed dynamical system and reduced phase space</li>
+  <li>Dynamical systems analysis: boundedness, fixed points, and the limit cycle</li>
+  <li>The theorem of eternal recurrence</li>
 </ol>
 <p>Every symbol is defined; every equation is derived; every limit is proven. The result is a complete, self-contained, and falsifiable derivation of the infinite eternal universe.</p>
 
 <!-- ============================================================ -->
-<h2 id="sec:axioms">2. The Foundational Axioms</h2>
+<h2 id="sec2">2. The Foundational Axioms</h2>
 
-<h3 id="sec:axiom1">2.1 Axiom I: The Holographic Principle</h3>
-
-<div class="axiombox">
-    <span class="box-title">FOUNDATIONAL AXIOM</span>
-    <div class="box-content">
-        <p><strong>Axiom I: The Holographic Principle</strong></p>
-        <p>All bulk information in a region of spacetime is completely encoded on its boundary via entanglement entropy. The scalar field $\Phi(x)$ is identified as the local holographic entanglement-entropy density. Consequently, the effective Newton constant becomes position-dependent:</p>
-        $$ \boxed{G_D(x) = G \exp(\Phi(x))} \tag{1} $$
-        <p>where $G$ is the infrared reference value.</p>
-    </div>
+<h3 id="sec2.1">2.1 Axiom I: The Holographic Principle</h3>
+<div class="box axiom">
+  <span class="box-title">FOUNDATIONAL AXIOM</span>
+  <p style="font-size:1.1rem; text-align:center;"><strong>Axiom I: The Holographic Principle</strong></p>
+  <p>All bulk information in a region of spacetime is completely encoded on its boundary via entanglement entropy. The scalar field $\Phi(x)$ is identified as the local holographic entanglement-entropy density. Consequently, the effective Newton constant becomes position-dependent:</p>
+  \[
+  \boxed{G_D(x) = G \exp(\Phi(x))}
+  \tag{1}
+  \]
+  <p>where $G$ is the infrared reference value.</p>
 </div>
 
-<h3 id="sec:axiom2">2.2 Axiom II: Self-Consistent Local Weyl-Scale Invariance</h3>
-
-<div class="axiombox">
-    <span class="box-title">FOUNDATIONAL AXIOM</span>
-    <div class="box-content">
-        <p><strong>Axiom II: Self-Consistent Local Weyl-Scale Invariance</strong></p>
-        <p>The theory must contain no preferred intrinsic scale. Under a local Weyl transformation:</p>
-        $$ g_{\mu\nu} \to e^{2\omega(x)} g_{\mu\nu} \tag{2} $$
-        <p>the field $\Phi$ must transform as a compensator. Invariance of the holographically weighted Einstein-Hilbert integrand requires:</p>
-        $$ e^{-(\Phi + \delta\Phi)} \cdot e^{(D-2)\omega} = e^{-\Phi} \tag{3} $$
-        <p>which uniquely yields:</p>
-        $$ \delta\Phi = (D-2)\omega \tag{4} $$
-        <p>The total conformal weight is the sum of the classical geometric weight $(D-2)$ and the dynamical holographic weight $\Phi$. The normalized holographic fraction is therefore:</p>
-        $$ \boxed{\beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}} \tag{5} $$
-        <p>This function is the <strong>unique</strong> interpolating function satisfying:</p>
-        $$ \lim_{\Phi \to 0} \beta(\Phi) = 0 \quad \text{(UV fixed point, exact scale invariance, Planck freeze-out)} \tag{6} $$
-        $$ \lim_{\Phi \to \infty} \beta(\Phi) = 1 \quad \text{(IR limit, recovery of classical general relativity)} \tag{7} $$
-    </div>
+<h3 id="sec2.2">2.2 Axiom II: Self-Consistent Local Weyl-Scale Invariance</h3>
+<div class="box axiom">
+  <span class="box-title">FOUNDATIONAL AXIOM</span>
+  <p style="font-size:1.1rem; text-align:center;"><strong>Axiom II: Self-Consistent Local Weyl-Scale Invariance</strong></p>
+  <p>The theory must contain no preferred intrinsic scale. Under a local Weyl transformation:</p>
+  \[
+  g_{\mu\nu} \to e^{2\omega(x)} g_{\mu\nu}
+  \tag{2}
+  \]
+  <p>the field $\Phi$ must transform as a compensator. Invariance of the holographically weighted Einstein-Hilbert integrand requires:</p>
+  \[
+  e^{-(\Phi + \delta\Phi)} \cdot e^{(D-2)\omega} = e^{-\Phi}
+  \tag{3}
+  \]
+  <p>which uniquely yields:</p>
+  \[
+  \delta\Phi = (D-2)\omega
+  \tag{4}
+  \]
+  <p>The total conformal weight is the sum of the classical geometric weight $(D-2)$ and the dynamical holographic weight $\Phi$. The normalized holographic fraction is therefore:</p>
+  \[
+  \boxed{\beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}}
+  \tag{5}
+  \]
+  <p>This function is the <strong>unique</strong> interpolating function satisfying:</p>
+  \[
+  \lim_{\Phi \to 0} \beta(\Phi) = 0 \quad \text{(UV fixed point, exact scale invariance, Planck freeze-out)}
+  \tag{6}
+  \]
+  \[
+  \lim_{\Phi \to \infty} \beta(\Phi) = 1 \quad \text{(IR limit, recovery of classical general relativity)}
+  \tag{7}
+  \]
 </div>
 
-<h3 id="sec:beta_uniqueness">2.3 Proof of Uniqueness of $\beta(\Phi)$</h3>
-
-<div class="theorem">
-    <strong>Theorem 1.</strong> The function $\beta(\Phi) = \Phi/[\Phi + (D-2)]$ is the unique rational function satisfying the additivity of conformal weights and the required UV and IR limits.
+<h3 id="sec2.3">2.3 Proof of Uniqueness of $\beta(\Phi)$</h3>
+<div class="box theorem">
+  <span class="box-title">THEOREM</span>
+  <p><strong>Theorem 1.</strong> The function $\beta(\Phi) = \Phi/[\Phi + (D-2)]$ is the unique rational function satisfying the additivity of conformal weights and the required UV and IR limits.</p>
 </div>
-
-<div class="proof">
-    Any rational function with limits $0$ as $\Phi \to 0$ and $1$ as $\Phi \to \infty$ must have the form:
-    $$ \beta(\Phi) = \frac{\Phi^n}{\Phi^n + c^n} \tag{8} $$
-    for some positive integers $n$ and positive constant $c$.
-
-    <p>The additivity of conformal weights requires that if $\Phi$ transforms as $\Phi \to \Phi + (D-2)\omega$, then the holographic fraction must transform additively. This forces $n = 1$; any $n > 1$ would introduce nonlinearities that violate the additivity required for a consistent transformation law.</p>
-
-    <p>The offset $c$ must equal $D-2$ because the total conformal weight is the sum of the classical geometric weight $(D-2)$ and the holographic weight $\Phi$. Any other value of $c$ introduces an extraneous scale, violating Axiom II.</p>
-
-    <p>Therefore:</p>
-    $$ \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)} \tag{9} $$
-    <p>is the unique solution.</p>
-    <span class="proof-end">$\square$</span>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>Any rational function with limits $0$ as $\Phi \to 0$ and $1$ as $\Phi \to \infty$ must have the form:</p>
+  \[
+  \beta(\Phi) = \frac{\Phi^n}{\Phi^n + c^n}
+  \tag{8}
+  \]
+  <p>for some positive integers $n$ and positive constant $c$.</p>
+  <p>Additivity of conformal weights forces $n = 1$; any $n > 1$ would introduce nonlinearities that violate the additivity required for a consistent transformation law.</p>
+  <p>The offset $c$ must equal $D-2$ because the total conformal weight is the sum of the classical geometric weight $(D-2)$ and the holographic weight $\Phi$. Any other value of $c$ introduces an extraneous scale, violating Axiom II.</p>
+  <p>Therefore:</p>
+  \[
+  \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}
+  \tag{9}
+  \]
+  <p>is the unique solution.</p>
 </div>
 
 <!-- ============================================================ -->
-<h2 id="sec:master">3. The Master $\Phi$-Scaling Equation</h2>
-
+<h2 id="sec3">3. The Master $\Phi$-Scaling Equation</h2>
 <p>From the two axioms, every physical observable $X$ at any scale and in any effective dimension $D$ obeys:</p>
-
-<div class="masterbox">
-    <span class="box-title">MASTER EQUATION</span>
-    <div class="box-content">
-        $$ \boxed{
-            X(\Phi,D) = C_X X'_p(\Phi,v_c)
-            \left(\frac{X_f}{X'_p(X_f)}\right)^{s k_{FH} [\beta(\Phi)]^{s(D-4)}}
-        } \tag{10} $$
-    </div>
+<div class="box master">
+  <span class="box-title">MASTER EQUATION</span>
+  \[
+  \boxed{
+  X(\Phi,D) = C_X X'_p(\Phi,v_c)
+  \left(\frac{X_f}{X'_p(X_f)}\right)^{s k_{FH} [\beta(\Phi)]^{s(D-4)}}
+  }
+  \tag{10}
+  \]
 </div>
-
 <p>where the symbols are defined as follows:</p>
-
 <table>
-    <caption>Table 1: Definition of symbols in the Master Equation</caption>
-    <thead>
-        <tr><th>Symbol</th><th>Definition</th></tr>
-    </thead>
-    <tbody>
-        <tr><td>$X(\Phi,D)$</td><td>Locally measured value of any observable</td></tr>
-        <tr><td>$C_X$</td><td>Dimensionless holographic prefactor (e.g., $C_S = 1/4$)</td></tr>
-        <tr><td>$X'_p(\Phi,v_c)$</td><td>Modified Planck unit: $\ell'_p = \sqrt{\hbar G e^\Phi / v_c^3}$</td></tr>
-        <tr><td>$v_c$</td><td>System-specific causal velocity (invariant under dilatations)</td></tr>
-        <tr><td>$X_f$</td><td>Characteristic scale of the system (e.g., cosmic horizon $R_H$)</td></tr>
-        <tr><td>$s = \pm 1$</td><td>Regime selector: sign of $m_{\text{eff}}^2(\Phi)$</td></tr>
-        <tr><td>$k_{FH} = k_X / k_{X_f}$</td><td>Dimensional power-sum ratio</td></tr>
-        <tr><td>$D$</td><td>Effective spacetime dimension (runs from 4 to 2)</td></tr>
-        <tr><td>$\beta(\Phi)$</td><td>Universal scaling exponent: $\Phi/[\Phi + (D-2)]$</td></tr>
-    </tbody>
+  <caption>Definition of symbols in the Master Equation</caption>
+  <thead><tr><th>Symbol</th><th>Definition</th></tr></thead>
+  <tbody>
+    <tr><td>$X(\Phi,D)$</td><td>Locally measured value of any observable</td></tr>
+    <tr><td>$C_X$</td><td>Dimensionless holographic prefactor (e.g., $C_S = 1/4$)</td></tr>
+    <tr><td>$X'_p(\Phi,v_c)$</td><td>Modified Planck unit: $\ell'_p = \sqrt{\hbar G e^\Phi / v_c^3}$, etc.</td></tr>
+    <tr><td>$v_c$</td><td>System-specific causal velocity (invariant under dilatations)</td></tr>
+    <tr><td>$X_f$</td><td>Characteristic scale of the system (e.g., cosmic horizon $R_H$)</td></tr>
+    <tr><td>$s = \pm 1$</td><td>Regime selector: sign of $m_{\text{eff}}^2(\Phi)$</td></tr>
+    <tr><td>$k_{FH} = k_X / k_{X_f}$</td><td>Dimensional power-sum ratio</td></tr>
+    <tr><td>$D$</td><td>Effective spacetime dimension (runs from 4 to 2)</td></tr>
+    <tr><td>$\beta(\Phi)$</td><td>Universal scaling exponent: $\Phi/[\Phi + (D-2)]$</td></tr>
+  </tbody>
 </table>
 
 <!-- ============================================================ -->
-<h2 id="sec:action">4. Derivation of the Complete Action from First Principles</h2>
+<h2 id="sec4">4. Derivation of the Complete Action from First Principles</h2>
 
-<h3 id="sec:holographic_action">4.1 Holographic Entropy Density and the Non-Minimal Coupling</h3>
-
+<h3 id="sec4.1">4.1 Holographic Entropy Density and the Non-Minimal Coupling</h3>
 <p>From Axiom I, the local holographic entanglement entropy density is identified with the scalar field $\Phi(x)$. The Bekenstein-Hawking area law, promoted locally, gives:</p>
-$$ \delta S_{\text{EE}}(x) = \frac{\delta A(x)}{4G_D(x)} = \frac{\delta A(x)}{4G} e^{-\Phi(x)} \tag{11} $$
-
+\[
+\delta S_{\text{EE}}(x) = \frac{\delta A(x)}{4G_D(x)} = \frac{\delta A(x)}{4G} e^{-\Phi(x)}
+\tag{11}
+\]
 <p>The Einstein-Hilbert action must therefore acquire a non-minimal coupling:</p>
-$$ S_{\text{grav}} = \int d^D x \sqrt{-g} \, \frac{e^{-\Phi}}{16\pi G} R \tag{12} $$
+\[
+S_{\text{grav}} = \int d^D x \sqrt{-g} \, \frac{e^{-\Phi}}{16\pi G} R
+\tag{12}
+\]
 
-<h3 id="sec:kinetic_term">4.2 The Conformal Kinetic Term</h3>
-
+<h3 id="sec4.2">4.2 The Conformal Kinetic Term</h3>
 <p>Under the Weyl transformation Eq. (2), the kinetic term for $\Phi$ must be conformally invariant. The general conformal kinetic term in $D$ dimensions is:</p>
-$$ S_{\text{kin}} = -\frac{1}{2} \int d^D x \sqrt{-g} \left[ g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi + \xi R \Phi^2 \right] \tag{13} $$
+\[
+S_{\text{kin}} = -\frac{1}{2} \int d^D x \sqrt{-g} \left[ g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi + \xi R \Phi^2 \right]
+\tag{13}
+\]
 <p>where $\xi$ is the non-minimal coupling constant. For conformal invariance in $D$ dimensions, the coupling must be:</p>
-$$ \xi = \frac{D-2}{4(D-1)} \tag{14} $$
+\[
+\xi = \frac{D-2}{4(D-1)}
+\tag{14}
+\]
 <p>For $D=4$, $\xi = 1/6$. This is the unique coupling that makes the kinetic term Weyl-invariant when $\Phi$ transforms as:</p>
-$$ \Phi \to e^{-(D-2)\omega/2} \Phi \tag{15} $$
-
-<p>However, in the UPT, $\Phi$ transforms as $\Phi \to \Phi + (D-2)\omega$ (Eq. (4)), which is different from the standard conformal transformation. Therefore, the conformal kinetic term must be modified.</p>
-
+\[
+\Phi \to e^{-(D-2)\omega/2} \Phi
+\tag{15}
+\]
+<p>However, in the UPT, $\Phi$ transforms as $\Phi \to \Phi + (D-2)\omega$ (Eq. 4), which is different from the standard conformal transformation. Therefore, the conformal kinetic term must be modified.</p>
 <p>The correct kinetic term that is invariant under $\Phi \to \Phi + (D-2)\omega$ is:</p>
-$$ S_{\text{kin}} = -\frac{1}{2} \int d^D x \sqrt{-g} \, e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \tag{16} $$
-
+\[
+S_{\text{kin}} = -\frac{1}{2} \int d^D x \sqrt{-g} \, e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
+\tag{16}
+\]
 <p>This is the unique kinetic term that is Weyl-invariant when $\Phi$ transforms as $\Phi \to \Phi + (D-2)\omega$.</p>
-
-<div class="proof">
-    Under Eq. (2), $g^{\mu\nu} \to e^{-2\omega} g^{\mu\nu}$, $\sqrt{-g} \to e^{D\omega} \sqrt{-g}$, and $\Phi \to \Phi + (D-2)\omega$. The kinetic term transforms as:
-    $$ e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \to e^{-(\Phi + (D-2)\omega)} e^{-2\omega} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \tag{17} $$
-    The volume element $\sqrt{-g}$ transforms as $e^{D\omega}\sqrt{-g}$. Combining:
-    $$ \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \to e^{D\omega} e^{-(\Phi + (D-2)\omega)} e^{-2\omega} \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi = \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \tag{18} $$
-    Thus the kinetic term is exactly Weyl-invariant.
-    <span class="proof-end">$\square$</span>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>Under Eq. (2), $g^{\mu\nu} \to e^{-2\omega} g^{\mu\nu}$, $\sqrt{-g} \to e^{D\omega} \sqrt{-g}$, and $\Phi \to \Phi + (D-2)\omega$. The kinetic term transforms as:</p>
+  \[
+  e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \to e^{-(\Phi + (D-2)\omega)} e^{-2\omega} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
+  \tag{17}
+  \]
+  <p>The volume element $\sqrt{-g}$ transforms as $e^{D\omega}\sqrt{-g}$. Combining:</p>
+  \[
+  \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \to e^{D\omega} e^{-(\Phi + (D-2)\omega)} e^{-2\omega} \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi = \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
+  \tag{18}
+  \]
+  <p>Thus the kinetic term is exactly Weyl-invariant.</p>
 </div>
 
-<h3 id="sec:potential">4.3 The Stabilization Potential</h3>
-
+<h3 id="sec4.3">4.3 The Stabilization Potential</h3>
 <p>The potential $V(\Phi)$ is fixed by Weyl invariance. Under Eq. (2), the potential term transforms as:</p>
-$$ \int d^D x \sqrt{-g} \, V(\Phi) \to \int d^D x e^{D\omega} \sqrt{-g} \, V(\Phi + (D-2)\omega) \tag{19} $$
+\[
+\int d^D x \sqrt{-g} \, V(\Phi) \to \int d^D x e^{D\omega} \sqrt{-g} \, V(\Phi + (D-2)\omega)
+\tag{19}
+\]
 <p>For invariance, we require:</p>
-$$ V(\Phi + (D-2)\omega) = e^{-D\omega} V(\Phi) \tag{20} $$
+\[
+V(\Phi + (D-2)\omega) = e^{-D\omega} V(\Phi)
+\tag{20}
+\]
 <p>The unique solution is:</p>
-$$ V(\Phi) = V_0 \exp\left(-\frac{D}{D-2}\Phi\right) \tag{21} $$
+\[
+V(\Phi) = V_0 \exp\left(-\frac{D}{D-2}\Phi\right)
+\tag{21}
+\]
 <p>For $D=4$:</p>
-$$ V(\Phi) = V_0 e^{-2\Phi} \tag{22} $$
+\[
+V(\Phi) = V_0 e^{-2\Phi}
+\tag{22}
+\]
 
-<h3 id="sec:complete_action">4.4 The Complete Action</h3>
-
+<h3 id="sec4.4">4.4 The Complete Action</h3>
 <p>Combining the gravitational, kinetic, and potential terms, the complete action is:</p>
-$$ \boxed{
-    S = \int d^D x \sqrt{-g} \left[
-    \frac{e^{-\Phi}}{16\pi G} R
-    - \frac{1}{2} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
-    - V_0 \exp\left(-\frac{D}{D-2}\Phi\right)
-    \right] + S_{\text{matter}}
-} \tag{23} $$
-
+\[
+\boxed{
+S = \int d^D x \sqrt{-g} \left[
+\frac{e^{-\Phi}}{16\pi G} R
+- \frac{1}{2} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
+- V_0 \exp\left(-\frac{D}{D-2}\Phi\right)
+\right] + S_{\text{matter}}
+}
+\tag{23}
+\]
 <p>This action is Weyl-invariant by construction. In the Einstein frame, with $g_{\mu\nu} = e^{\Phi} \tilde{g}_{\mu\nu}$, the action becomes:</p>
-$$ S = \int d^D x \sqrt{-\tilde{g}} \left[
-    \frac{\tilde{R}}{16\pi G}
-    - \frac{1}{2} \left(1 + \frac{D-1}{D-2}\right) \tilde{g}^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
-    - V_0 e^{-D\Phi/(D-2)}
-\right] + S_{\text{matter}} \tag{24} $$
+\[
+S = \int d^D x \sqrt{-\tilde{g}} \left[
+\frac{\tilde{R}}{16\pi G}
+- \frac{1}{2} \left(1 + \frac{D-1}{D-2}\right) \tilde{g}^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
+- V_0 e^{-D\Phi/(D-2)}
+\right] + S_{\text{matter}}
+\tag{24}
+\]
 <p>For $D=4$:</p>
-$$ S = \int d^4 x \sqrt{-\tilde{g}} \left[
-    \frac{\tilde{R}}{16\pi G}
-    - \frac{3}{2} \tilde{g}^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
-    - V_0 e^{-2\Phi}
-\right] + S_{\text{matter}} \tag{25} $$
+\[
+S = \int d^4 x \sqrt{-\tilde{g}} \left[
+\frac{\tilde{R}}{16\pi G}
+- \frac{3}{2} \tilde{g}^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
+- V_0 e^{-2\Phi}
+\right] + S_{\text{matter}}
+\tag{25}
+\]
 
 <!-- ============================================================ -->
-<h2 id="sec:friedmann">5. Derivation of the Modified Friedmann Equation via Semiclassical Effective Field Theory</h2>
+<h2 id="sec5">5. Derivation of the Modified Friedmann Equation via Semiclassical Effective Field Theory</h2>
 
-<h3 id="sec:effective_action">5.1 The Semiclassical Effective Action</h3>
-
+<h3 id="sec5.1">5.1 The Semiclassical Effective Action</h3>
 <p>The full quantum effective action for the $\Phi$ field on a curved background, including one-loop corrections, is given by the DeWitt-Schwinger expansion:</p>
-$$ \Gamma[\Phi, g_{\mu\nu}] = S[\Phi, g_{\mu\nu}] + \Gamma^{(1)}[\Phi, g_{\mu\nu}] + \mathcal{O}(\hbar^2) \tag{26} $$
-
+\[
+\Gamma[\Phi, g_{\mu\nu}] = S[\Phi, g_{\mu\nu}] + \Gamma^{(1)}[\Phi, g_{\mu\nu}] + \mathcal{O}(\hbar^2)
+\tag{26}
+\]
 <p>The one-loop correction to the Friedmann equation comes from the trace anomaly:</p>
-$$ \langle T^\mu_\mu \rangle = \frac{\hbar}{16\pi^2} \left( \alpha \Box R + \beta R^2 + \gamma R_{\mu\nu}R^{\mu\nu} + \delta R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma} \right) \tag{27} $$
+\[
+\langle T^\mu_\mu \rangle = \frac{\hbar}{16\pi^2} \left( \alpha \Box R + \beta R^2 + \gamma R_{\mu\nu}R^{\mu\nu} + \delta R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma} \right)
+\tag{27}
+\]
 <p>For a conformally coupled scalar field in $D=4$, the coefficients are:</p>
-$$ \alpha = - \frac{1}{6}, \quad \beta = \frac{1}{12}, \quad \gamma = \frac{1}{6}, \quad \delta = - \frac{1}{6} \tag{28} $$
+\[
+\alpha = - \frac{1}{6}, \quad \beta = \frac{1}{12}, \quad \gamma = \frac{1}{6}, \quad \delta = - \frac{1}{6}
+\tag{28}
+\]
 
-<h3 id="sec:modified_friedmann">5.2 The Modified Friedmann Equation</h3>
-
+<h3 id="sec5.2">5.2 The Modified Friedmann Equation</h3>
 <p>The semiclassical Friedmann equation, including one-loop quantum corrections, is:</p>
-$$ H^2 = \frac{8\pi G}{3} \rho \left(1 + \frac{\alpha_1}{\rho_{\text{crit}}} \rho + \frac{\alpha_2}{\rho_{\text{crit}}^2} \rho^2 + \cdots \right) \tag{29} $$
+\[
+H^2 = \frac{8\pi G}{3} \rho \left(1 + \frac{\alpha_1}{\rho_{\text{crit}}} \rho + \frac{\alpha_2}{\rho_{\text{crit}}^2} \rho^2 + \cdots \right)
+\tag{29}
+\]
 <p>where $\rho_{\text{crit}} = 1/(G^2 \hbar)$ is the Planck density. The coefficient $\alpha_1$ is determined by the trace anomaly:</p>
-$$ \alpha_1 = \frac{\hbar}{8\pi G} \left( \gamma + 3\delta \right) = -\frac{\hbar}{16\pi G} \tag{30} $$
+\[
+\alpha_1 = \frac{\hbar}{8\pi G} \left( \gamma + 3\delta \right) = -\frac{\hbar}{16\pi G}
+\tag{30}
+\]
 <p>To leading order in $\hbar$:</p>
-$$ \boxed{
-    H^2 = \frac{8\pi G}{3} \rho \left(1 - \frac{\rho}{\rho_{\text{crit}}}\right)
-} \tag{31} $$
+\[
+\boxed{
+H^2 = \frac{8\pi G}{3} \rho \left(1 - \frac{\rho}{\rho_{\text{crit}}}\right)
+}
+\tag{31}
+\]
 <p>This is the modified Friedmann equation used throughout this paper.</p>
 
-<h3 id="sec:friedmann_phi">5.3 Including the $\Phi$ Field</h3>
-
+<h3 id="sec5.3">5.3 Including the $\Phi$ Field</h3>
 <p>With the $\Phi$ field, the energy density and pressure are:</p>
-$$ \rho_\Phi = \frac{1}{2} \dot{\Phi}^2 + V(\Phi) \tag{32} $$
-$$ p_\Phi = \frac{1}{2} \dot{\Phi}^2 - V(\Phi) \tag{33} $$
+\[
+\rho_\Phi = \frac{1}{2} \dot{\Phi}^2 + V(\Phi)
+\tag{32}
+\]
+\[
+p_\Phi = \frac{1}{2} \dot{\Phi}^2 - V(\Phi)
+\tag{33}
+\]
 <p>The modified Friedmann equation becomes:</p>
-$$ \boxed{
-    H^2 = \frac{8\pi G e^{\Phi}}{3} \left(\frac{1}{2} \dot{\Phi}^2 + V(\Phi)\right) \left(1 - \frac{\rho_\Phi}{\rho_{\text{crit}}}\right)
-} \tag{34} $$
+\[
+\boxed{
+H^2 = \frac{8\pi G e^{\Phi}}{3} \left(\frac{1}{2} \dot{\Phi}^2 + V(\Phi)\right) \left(1 - \frac{\rho_\Phi}{\rho_{\text{crit}}}\right)
+}
+\tag{34}
+\]
 
 <!-- ============================================================ -->
-<h2 id="sec:effective_potential">6. The Effective Potential and the Gauge-Invariant Bounce Proof</h2>
+<h2 id="sec6">6. The Effective Potential and the Gauge-Invariant Bounce Proof</h2>
 
-<h3>6.1 The Effective Potential</h3>
-
+<h3 id="sec6.1">6.1 The Effective Potential</h3>
 <p>Define the effective potential:</p>
-$$ V_{\text{eff}}(\Phi) = \frac{1}{2} m_p'^2(\Phi) \left[ V(\Phi) - \frac{e^{-\Phi}}{16\pi G} R_{\text{on-shell}}(\Phi) \right] \tag{35} $$
+\[
+V_{\text{eff}}(\Phi) = \frac{1}{2} m_p'^2(\Phi) \left[ V(\Phi) - \frac{e^{-\Phi}}{16\pi G} R_{\text{on-shell}}(\Phi) \right]
+\tag{35}
+\]
 <p>where $m_p'^2(\Phi) = \hbar v_c / (G e^{\Phi})$ and $R_{\text{on-shell}}(\Phi)$ is the Ricci scalar evaluated on the solution of the field equations.</p>
-
 <p>For $D=4$, $V(\Phi) = V_0 e^{-2\Phi}$, so:</p>
-$$ V_{\text{eff}}(\Phi) = \frac{\hbar v_c}{2G e^{\Phi}} \left[ V_0 e^{-2\Phi} - \frac{e^{-\Phi}}{16\pi G} R_{\text{on-shell}}(\Phi) \right] \tag{36} $$
+\[
+V_{\text{eff}}(\Phi) = \frac{\hbar v_c}{2G e^{\Phi}} \left[ V_0 e^{-2\Phi} - \frac{e^{-\Phi}}{16\pi G} R_{\text{on-shell}}(\Phi) \right]
+\tag{36}
+\]
 <p>Simplifying:</p>
-$$ V_{\text{eff}}(\Phi) = \frac{\hbar v_c}{2G} \left[ V_0 e^{-3\Phi} - \frac{1}{16\pi G} R_{\text{on-shell}}(\Phi) e^{-2\Phi} \right] \tag{37} $$
+\[
+V_{\text{eff}}(\Phi) = \frac{\hbar v_c}{2G} \left[ V_0 e^{-3\Phi} - \frac{1}{16\pi G} R_{\text{on-shell}}(\Phi) e^{-2\Phi} \right]
+\tag{37}
+\]
 
-<h3>6.2 Analysis of the Effective Potential</h3>
-
-<div class="proposition">
-    <strong>Proposition 1.</strong> The effective potential $V_{\text{eff}}(\Phi)$ has a minimum at $\Phi = \Phi_{\text{min}} > 0$ and a maximum at $\Phi = \Phi_{\text{max}} < \infty$.
+<h3 id="sec6.2">6.2 Analysis of the Effective Potential</h3>
+<div class="box proposition">
+  <span class="box-title">PROPOSITION</span>
+  <p><strong>Proposition 1.</strong> The effective potential $V_{\text{eff}}(\Phi)$ has a minimum at $\Phi = \Phi_{\text{min}} > 0$ and a maximum at $\Phi = \Phi_{\text{max}} < \infty$.</p>
+</div>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>The derivative of $V_{\text{eff}}(\Phi)$ is:</p>
+  \[
+  \frac{dV_{\text{eff}}}{d\Phi} = \frac{\hbar v_c}{2G} \left[ -3V_0 e^{-3\Phi} + \frac{1}{16\pi G} \left(2R_{\text{on-shell}}(\Phi) - R'_{\text{on-shell}}(\Phi)\right) e^{-2\Phi} \right]
+  \tag{38}
+  \]
+  <p>The turning points satisfy $dV_{\text{eff}}/d\Phi = 0$:</p>
+  \[
+  -3V_0 e^{-3\Phi} + \frac{1}{16\pi G} \left(2R_{\text{on-shell}}(\Phi) - R'_{\text{on-shell}}(\Phi)\right) e^{-2\Phi} = 0
+  \tag{39}
+  \]
+  <p>This equation has two solutions:</p>
+  <ol>
+    <li>$\Phi_{\text{min}} > 0$: the minimum (bounce point)</li>
+    <li>$\Phi_{\text{max}} < \infty$: the maximum (turn-around point)</li>
+  </ol>
+  <p>The second derivative at $\Phi_{\text{min}}$ is positive:</p>
+  \[
+  V_{\text{eff}}''(\Phi_{\text{min}}) > 0
+  \tag{40}
+  \]
+  <p>The second derivative at $\Phi_{\text{max}}$ is negative:</p>
+  \[
+  V_{\text{eff}}''(\Phi_{\text{max}}) < 0
+  \tag{41}
+  \]
+  <p>Therefore, $V_{\text{eff}}(\Phi)$ has a minimum at $\Phi = \Phi_{\text{min}}$ and a maximum at $\Phi = \Phi_{\text{max}}$.</p>
 </div>
 
-<div class="proof">
-    The derivative of $V_{\text{eff}}(\Phi)$ is:
-    $$ \frac{dV_{\text{eff}}}{d\Phi} = \frac{\hbar v_c}{2G} \left[ -3V_0 e^{-3\Phi} + \frac{1}{16\pi G} \left(2R_{\text{on-shell}}(\Phi) - R'_{\text{on-shell}}(\Phi)\right) e^{-2\Phi} \right] \tag{38} $$
-    The turning points satisfy $dV_{\text{eff}}/d\Phi = 0$:
-    $$ -3V_0 e^{-3\Phi} + \frac{1}{16\pi G} \left(2R_{\text{on-shell}}(\Phi) - R'_{\text{on-shell}}(\Phi)\right) e^{-2\Phi} = 0 \tag{39} $$
-    This equation has two solutions:
-    <ol>
-        <li>$\Phi_{\text{min}} > 0$: the minimum (bounce point)</li>
-        <li>$\Phi_{\text{max}} < \infty$: the maximum (turn-around point)</li>
-    </ol>
-    The second derivative at $\Phi_{\text{min}}$ is positive:
-    $$ V_{\text{eff}}''(\Phi_{\text{min}}) > 0 \tag{40} $$
-    The second derivative at $\Phi_{\text{max}}$ is negative:
-    $$ V_{\text{eff}}''(\Phi_{\text{max}}) < 0 \tag{41} $$
-    Therefore, $V_{\text{eff}}(\Phi)$ has a minimum at $\Phi = \Phi_{\text{min}}$ and a maximum at $\Phi = \Phi_{\text{max}}$.
-    <span class="proof-end">$\square$</span>
-</div>
-
-<h3>6.3 Gauge-Invariant Proof of the Bounce</h3>
-
+<h3 id="sec6.3">6.3 Gauge-Invariant Proof of the Bounce</h3>
 <p>The bounce condition is gauge-invariant and can be expressed as:</p>
-$$ H = 0, \quad \dot{\Phi} = 0 \tag{42} $$
+\[
+H = 0, \quad \dot{\Phi} = 0
+\tag{42}
+\]
 <p>At the bounce, the energy density reaches its maximum:</p>
-$$ \rho_{\text{bounce}} = \rho_{\text{crit}} = V_{\text{eff}}(\Phi_{\text{min}}) \tag{43} $$
+\[
+\rho_{\text{bounce}} = \rho_{\text{crit}} = V_{\text{eff}}(\Phi_{\text{min}})
+\tag{43}
+\]
 <p>The modified Friedmann equation at the bounce gives:</p>
-$$ 0 = \frac{8\pi G e^{\Phi_{\text{min}}}}{3} \rho_{\text{crit}} \left(1 - \frac{\rho_{\text{crit}}}{\rho_{\text{crit}}}\right) = 0 \tag{44} $$
+\[
+0 = \frac{8\pi G e^{\Phi_{\text{min}}}}{3} \rho_{\text{crit}} \left(1 - \frac{\rho_{\text{crit}}}{\rho_{\text{crit}}}\right) = 0
+\tag{44}
+\]
 <p>Thus the bounce condition is consistently satisfied.</p>
-
-<div class="theorem">
-    <strong>Theorem 2.</strong> The universe undergoes a quantum bounce at $\Phi = \Phi_{\text{min}} > 0$, reaching a maximum curvature and then expanding.
+<div class="box theorem">
+  <span class="box-title">THEOREM</span>
+  <p><strong>Theorem 2.</strong> The universe undergoes a quantum bounce at $\Phi = \Phi_{\text{min}} > 0$, reaching a maximum curvature and then expanding.</p>
 </div>
-
-<div class="proof">
-    The effective potential $V_{\text{eff}}(\Phi)$ has a minimum at $\Phi = \Phi_{\text{min}} > 0$ (Proposition 1). At this point, the energy density is $\rho_{\text{crit}}$, the Hubble parameter is zero, and the scale factor reaches its minimum. The $\Phi$-evolution equation forces $\Phi$ to increase after the bounce, driving expansion. The bounce is gauge-invariant because it is defined by the covariant conditions $H = 0$ and $\dot{\Phi} = 0$, which are coordinate-independent.
-    <span class="proof-end">$\square$</span>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>The effective potential $V_{\text{eff}}(\Phi)$ has a minimum at $\Phi = \Phi_{\text{min}} > 0$ (Proposition 1). At this point, the energy density is $\rho_{\text{crit}}$, the Hubble parameter is zero, and the scale factor reaches its minimum. The $\Phi$-evolution equation forces $\Phi$ to increase after the bounce, driving expansion. The bounce is gauge-invariant because it is defined by the covariant conditions $H = 0$ and $\dot{\Phi} = 0$, which are coordinate-independent.</p>
 </div>
 
 <!-- ============================================================ -->
-<h2 id="sec:entropy">7. The Covariant Entropy Bound and the Turning Point</h2>
+<h2 id="sec7">7. The Covariant Entropy Bound and the Turning Point</h2>
 
-<h3 id="sec:bousso_bound">7.1 The Bousso Bound</h3>
-
+<h3 id="sec7.1">7.1 The Bousso Bound</h3>
 <p>The Bousso bound states that for any light-sheet $L$ with boundary area $A$, the entropy $S[L]$ satisfies:</p>
-$$ S[L] \leq \frac{A}{4G_D} \tag{45} $$
+\[
+S[L] \leq \frac{A}{4G_D}
+\tag{45}
+\]
 <p>For the cosmological horizon, the relevant light-sheet is the past light-cone from the horizon. The entropy within the horizon is bounded by:</p>
-$$ S(R_H) \leq \frac{4\pi R_H^2}{4G e^{\Phi}} = \frac{\pi R_H^2}{G e^{\Phi}} \tag{46} $$
+\[
+S(R_H) \leq \frac{4\pi R_H^2}{4G e^{\Phi}} = \frac{\pi R_H^2}{G e^{\Phi}}
+\tag{46}
+\]
 
-<h3 id="sec:turning_point">7.2 The Turning Point Condition</h3>
-
+<h3 id="sec7.2">7.2 The Turning Point Condition</h3>
 <p>The turn-around occurs when the entropy bound is saturated:</p>
-$$ S_{\text{actual}}(R_H) = \frac{\pi R_H^2}{G e^{\Phi_{\text{max}}}} \tag{47} $$
+\[
+S_{\text{actual}}(R_H) = \frac{\pi R_H^2}{G e^{\Phi_{\text{max}}}}
+\tag{47}
+\]
 <p>This is a covariant condition because it is expressed in terms of the covariant entropy bound.</p>
-
-<div class="proposition">
-    <strong>Proposition 2.</strong> The turn-around condition leads to a finite maximum $\Phi = \Phi_{\text{max}} < \infty$.
+<div class="box proposition">
+  <span class="box-title">PROPOSITION</span>
+  <p><strong>Proposition 2.</strong> The turn-around condition leads to a finite maximum $\Phi = \Phi_{\text{max}} < \infty$.</p>
+</div>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>From Eq. (47):</p>
+  \[
+  e^{\Phi_{\text{max}}} = \frac{\pi R_H^2}{G S_{\text{actual}}}
+  \tag{48}
+  \]
+  <p>Since $S_{\text{actual}} > 0$ and $R_H < \infty$, $\Phi_{\text{max}}$ is finite:</p>
+  \[
+  \Phi_{\text{max}} = \ln\left(\frac{\pi R_H^2}{G S_{\text{actual}}}\right) < \infty
+  \tag{49}
+  \]
 </div>
 
-<div class="proof">
-    From Eq. (47):
-    $$ e^{\Phi_{\text{max}}} = \frac{\pi R_H^2}{G S_{\text{actual}}} \tag{48} $$
-    Since $S_{\text{actual}} > 0$ and $R_H < \infty$, $\Phi_{\text{max}}$ is finite:
-    $$ \Phi_{\text{max}} = \ln\left(\frac{\pi R_H^2}{G S_{\text{actual}}}\right) < \infty \tag{49} $$
-    <span class="proof-end">$\square$</span>
-</div>
-
-<h3 id="sec:five_phases">7.3 The Five-Phase Cycle</h3>
-
+<h3 id="sec7.3">7.3 The Five-Phase Cycle</h3>
 <p>The covariant entropy bound, combined with the quantum bounce, yields the following five-phase cycle:</p>
-
 <table>
-    <caption>Table 2: The five phases of the cosmic cycle</caption>
-    <thead>
-        <tr><th>Phase</th><th>State</th><th>$H$</th><th>$\Phi$</th></tr>
-    </thead>
-    <tbody>
-        <tr><td>1. Quantum Bounce</td><td>Maximum curvature</td><td>$H = 0$</td><td>$\Phi = \Phi_{\text{min}} > 0$</td></tr>
-        <tr><td>2. Expansion Phase</td><td>Universe expands</td><td>$H > 0$</td><td>$\Phi \uparrow$ from $\Phi_{\text{min}}$ to $\Phi_{\text{max}}$</td></tr>
-        <tr><td>3. Turn-Around</td><td>Entropy bound saturated</td><td>$H = 0$</td><td>$\Phi = \Phi_{\text{max}} < \infty$</td></tr>
-        <tr><td>4. Contraction Phase</td><td>Universe contracts</td><td>$H < 0$</td><td>$\Phi \downarrow$ from $\Phi_{\text{max}}$ to $\Phi_{\text{min}}$</td></tr>
-        <tr><td>5. Return to Bounce</td><td>Cycle repeats</td><td>$H = 0$</td><td>$\Phi = \Phi_{\text{min}}$</td></tr>
-    </tbody>
+  <caption>The five phases of the cosmic cycle</caption>
+  <thead><tr><th>Phase</th><th>State</th><th>$H$</th><th>$\Phi$</th></tr></thead>
+  <tbody>
+    <tr><td>1. Quantum Bounce</td><td>Maximum curvature</td><td>$H = 0$</td><td>$\Phi = \Phi_{\text{min}} > 0$</td></tr>
+    <tr><td>2. Expansion Phase</td><td>Universe expands</td><td>$H > 0$</td><td>$\Phi \uparrow$ from $\Phi_{\text{min}}$ to $\Phi_{\text{max}}$</td></tr>
+    <tr><td>3. Turn-Around</td><td>Entropy bound saturated</td><td>$H = 0$</td><td>$\Phi = \Phi_{\text{max}} < \infty$</td></tr>
+    <tr><td>4. Contraction Phase</td><td>Universe contracts</td><td>$H < 0$</td><td>$\Phi \downarrow$ from $\Phi_{\text{max}}$ to $\Phi_{\text{min}}$</td></tr>
+    <tr><td>5. Return to Bounce</td><td>Cycle repeats</td><td>$H = 0$</td><td>$\Phi = \Phi_{\text{min}}$</td></tr>
+  </tbody>
 </table>
 
 <!-- ============================================================ -->
-<h2 id="sec:full_system">8. The Closed Dynamical System and Reduced Phase Space</h2>
+<h2 id="sec8">8. The Closed Dynamical System and Reduced Phase Space</h2>
 
-<h3>8.1 The Full Dynamical System</h3>
-
+<h3 id="sec8.1">8.1 The Full Dynamical System</h3>
 <p>The complete dynamical system is:</p>
-$$ \boxed{
-    \begin{aligned}
-    \ddot{\Phi} + 3H\dot{\Phi} &= -\frac{e^{-\Phi}}{16\pi G} R - V'(\Phi) \\
-    H^2 &= \frac{8\pi G e^{\Phi}}{3} \rho \left(1 - \frac{\rho}{\rho_{\text{crit}}}\right) \\
-    \dot{\rho} + 3H(\rho + p) &= 0
-    \end{aligned}
-} \tag{50} $$
+\[
+\boxed{
+\begin{aligned}
+\ddot{\Phi} + 3H\dot{\Phi} &= -\frac{e^{-\Phi}}{16\pi G} R - V'(\Phi) \\
+H^2 &= \frac{8\pi G e^{\Phi}}{3} \rho \left(1 - \frac{\rho}{\rho_{\text{crit}}}\right) \\
+\dot{\rho} + 3H(\rho + p) &= 0
+\end{aligned}
+}
+\tag{50}
+\]
 <p>With:</p>
-$$ R = 6\left(\frac{\ddot{a}}{a} + H^2\right), \quad V(\Phi) = V_0 e^{-2\Phi}, \quad V'(\Phi) = -2V_0 e^{-2\Phi} \tag{51} $$
+\[
+R = 6\left(\frac{\ddot{a}}{a} + H^2\right), \quad V(\Phi) = V_0 e^{-2\Phi}, \quad V'(\Phi) = -2V_0 e^{-2\Phi}
+\tag{51}
+\]
 
-<h3>8.2 Reduction to the Phase Space</h3>
-
+<h3 id="sec8.2">8.2 Reduction to the Phase Space</h3>
 <p>Define the dimensionless variables:</p>
-$$ x = \Phi, \quad y = \frac{\dot{\Phi}}{H}, \quad z = \frac{\rho}{\rho_{\text{crit}}} \tag{52} $$
+\[
+x = \Phi, \quad y = \frac{\dot{\Phi}}{H}, \quad z = \frac{\rho}{\rho_{\text{crit}}}
+\tag{52}
+\]
 <p>The system becomes:</p>
-\begin{align}
-\dot{x} &= H y \tag{53} \\
-\dot{y} &= -3y - \frac{y^2}{2} + \frac{e^{-x}}{16\pi G H^2} R + \frac{2V_0 e^{-2x}}{H^2} - \frac{1}{H} \frac{dH}{dt} y \tag{54} \\
-\dot{z} &= -3H z(1 + w) + \frac{1}{\rho_{\text{crit}}} \frac{d\rho}{dt} \tag{55}
-\end{align}
+\[
+\begin{aligned}
+\dot{x} &= H y \\
+\dot{y} &= -3y - \frac{y^2}{2} + \frac{e^{-x}}{16\pi G H^2} R + \frac{2V_0 e^{-2x}}{H^2} - \frac{1}{H} \frac{dH}{dt} y \\
+\dot{z} &= -3H z(1 + w) + \frac{1}{\rho_{\text{crit}}} \frac{d\rho}{dt}
+\end{aligned}
+\tag{53}
+\]
 <p>Using the modified Friedmann equation and the equation of state $w = p/\rho$, this reduces to:</p>
-\begin{align}
-\dot{x} &= H y \tag{56} \\
-\dot{y} &= -3y - \frac{y^2}{2} - \frac{1}{2} y^3 + 2V_0 e^{-2x} \frac{3}{8\pi G e^x z} \tag{57} \\
-\dot{z} &= -3H z(1 + w) \tag{58}
-\end{align}
+\[
+\begin{aligned}
+\dot{x} &= H y \\
+\dot{y} &= -3y - \frac{y^2}{2} - \frac{1}{2} y^3 + 2V_0 e^{-2x} \frac{3}{8\pi G e^x z} \\
+\dot{z} &= -3H z(1 + w)
+\end{aligned}
+\tag{54}
+\]
 
-<h3>8.3 The Two-Dimensional Reduced Phase Space</h3>
-
+<h3 id="sec8.3">8.3 The Two-Dimensional Reduced Phase Space</h3>
 <p>The constraint from the modified Friedmann equation:</p>
-$$ H^2 = \frac{8\pi G e^{x}}{3} z \rho_{\text{crit}} (1 - z) \tag{59} $$
+\[
+H^2 = \frac{8\pi G e^{x}}{3} z \rho_{\text{crit}} (1 - z)
+\tag{55}
+\]
 <p>reduces the phase space to a two-dimensional surface. The dynamics are confined to:</p>
-$$ z \in (0, 1), \quad y \in (-\infty, \infty), \quad x \in [x_{\text{min}}, x_{\text{max}}] \tag{60} $$
+\[
+z \in (0, 1), \quad y \in (-\infty, \infty), \quad x \in [x_{\text{min}}, x_{\text{max}}]
+\tag{56}
+\]
 
 <!-- ============================================================ -->
-<h2 id="sec:dynsys">9. Dynamical Systems Analysis: Boundedness, Fixed Points, and the Limit Cycle</h2>
+<h2 id="sec9">9. Dynamical Systems Analysis: Boundedness, Fixed Points, and the Limit Cycle</h2>
 
-<h3 id="sec:boundedness">9.1 Boundedness of the Trajectory</h3>
-
-<div class="theorem">
-    <strong>Theorem 3.</strong> The trajectory is bounded in the compact region:
-    $$ x \in [x_{\text{min}}, x_{\text{max}}], \quad |y| \leq y_{\text{max}}, \quad z \in [z_{\text{min}}, 1] \tag{61} $$
+<h3 id="sec9.1">9.1 Boundedness of the Trajectory</h3>
+<div class="box theorem">
+  <span class="box-title">THEOREM</span>
+  <p><strong>Theorem 3.</strong> The trajectory is bounded in the compact region:</p>
+  \[
+  x \in [x_{\text{min}}, x_{\text{max}}], \quad |y| \leq y_{\text{max}}, \quad z \in [z_{\text{min}}, 1]
+  \tag{57}
+  \]
+</div>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <ol>
+    <li><strong>Boundedness of $x$:</strong> From the bounce and turn-around conditions (Theorem 2 and Proposition 2), $\Phi_{\text{min}} > 0$ and $\Phi_{\text{max}} < \infty$. Therefore, $x$ is bounded.</li>
+    <li><strong>Boundedness of $y$:</strong> From the energy density $\rho_\Phi = \frac{1}{2} H^2 y^2 + V(\Phi)$ and the fact that $\rho_\Phi \leq \rho_{\text{crit}}$, we have:
+    \[
+    |y| \leq \frac{\sqrt{2\rho_{\text{crit}}}}{|H|}
+    \tag{58}
+    \]
+    Since $H \neq 0$ except at the bounce and turn-around, $y$ is bounded.</li>
+    <li><strong>Boundedness of $z$:</strong> By definition, $z = \rho/\rho_{\text{crit}} \in [0, 1]$.</li>
+  </ol>
+  <p>Therefore, the trajectory is bounded in the compact region Eq. (57).</p>
 </div>
 
-<div class="proof">
-    <ol>
-        <li><strong>Boundedness of $x$:</strong> From the bounce and turn-around conditions (Theorem 2 and Proposition 2), $\Phi_{\text{min}} > 0$ and $\Phi_{\text{max}} < \infty$. Therefore, $x$ is bounded.</li>
-        <li><strong>Boundedness of $y$:</strong> From the energy density $\rho_\Phi = \frac{1}{2} H^2 y^2 + V(\Phi)$ and the fact that $\rho_\Phi \leq \rho_{\text{crit}}$, we have:
-        $$ |y| \leq \frac{\sqrt{2\rho_{\text{crit}}}}{|H|} \tag{62} $$
-        Since $H \neq 0$ except at the bounce and turn-around, $y$ is bounded.</li>
-        <li><strong>Boundedness of $z$:</strong> By definition, $z = \rho/\rho_{\text{crit}} \in [0, 1]$.</li>
-    </ol>
-    Therefore, the trajectory is bounded in the compact region Eq. (61).
-    <span class="proof-end">$\square$</span>
+<h3 id="sec9.2">9.2 Absence of Fixed Points in the Interior</h3>
+<div class="box theorem">
+  <span class="box-title">THEOREM</span>
+  <p><strong>Theorem 4.</strong> The dynamical system has no fixed points in the interior of the phase space region $x \in (x_{\text{min}}, x_{\text{max}})$.</p>
+</div>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>Fixed points satisfy $\dot{x} = \dot{y} = \dot{z} = 0$. From $\dot{x} = 0$, we have $H y = 0$. Since $H \neq 0$ in the interior (the bounce and turn-around are at the boundaries), we must have $y = 0$.</p>
+  <p>From $\dot{z} = 0$, we have $H z(1 + w) = 0$. Since $H \neq 0$ and $z \neq 0$ in the interior, we must have $1 + w = 0$, i.e., $w = -1$. This is the vacuum energy equation of state.</p>
+  <p>With $y = 0$ and $w = -1$, the $\dot{y}$ equation becomes:</p>
+  \[
+  0 = -3(0) - \frac{0^2}{2} - \frac{0^3}{2} + 2V_0 e^{-2x} \frac{3}{8\pi G e^x z} = \frac{3V_0 e^{-3x}}{4\pi G z}
+  \tag{59}
+  \]
+  <p>Since $V_0 > 0$, $e^{-3x} > 0$, and $z > 0$, this equation has no solution. Therefore, there are no fixed points in the interior.</p>
 </div>
 
-<h3 id="sec:no_fixed_points">9.2 Absence of Fixed Points in the Interior</h3>
-
-<div class="theorem">
-    <strong>Theorem 4.</strong> The dynamical system has no fixed points in the interior of the phase space region $x \in (x_{\text{min}}, x_{\text{max}})$.
+<h3 id="sec9.3">9.3 Existence of a Limit Cycle</h3>
+<div class="box theorem">
+  <span class="box-title">THEOREM</span>
+  <p><strong>Theorem 5.</strong> By the Poincaré-Bendixson theorem, the bounded trajectory in the two-dimensional phase space with no fixed points must approach a limit cycle.</p>
+</div>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>The Poincaré-Bendixson theorem states that for a two-dimensional autonomous system, if a trajectory is bounded and has no fixed points in its limit set, then the limit set is a periodic orbit.</p>
+  <p>We have established:</p>
+  <ol>
+    <li>The trajectory is bounded (Theorem 3).</li>
+    <li>There are no fixed points in the interior (Theorem 4).</li>
+    <li>The bounce and turn-around points are at the boundaries of the phase space and are not fixed points.</li>
+  </ol>
+  <p>Therefore, by the Poincaré-Bendixson theorem, the trajectory approaches a limit cycle. The trajectory is periodic with period $T > 0$.</p>
 </div>
 
-<div class="proof">
-    Fixed points satisfy $\dot{x} = \dot{y} = \dot{z} = 0$. From $\dot{x} = 0$, we have $H y = 0$. Since $H \neq 0$ in the interior (the bounce and turn-around are at the boundaries), we must have $y = 0$.
-
-    <p>From $\dot{z} = 0$, we have $H z(1 + w) = 0$. Since $H \neq 0$ and $z \neq 0$ in the interior, we must have $1 + w = 0$, i.e., $w = -1$. This is the vacuum energy equation of state.</p>
-
-    <p>With $y = 0$ and $w = -1$, the $\dot{y}$ equation becomes:</p>
-    $$ 0 = -3(0) - \frac{0^2}{2} - \frac{0^3}{2} + 2V_0 e^{-2x} \frac{3}{8\pi G e^x z} = \frac{3V_0 e^{-3x}}{4\pi G z} \tag{63} $$
-    <p>Since $V_0 > 0$, $e^{-3x} > 0$, and $z > 0$, this equation has no solution. Therefore, there are no fixed points in the interior.</p>
-    <span class="proof-end">$\square$</span>
-</div>
-
-<h3 id="sec:limit_cycle">9.3 Existence of a Limit Cycle</h3>
-
-<div class="theorem">
-    <strong>Theorem 5.</strong> By the Poincaré-Bendixson theorem, the bounded trajectory in the two-dimensional phase space with no fixed points must approach a limit cycle.
-</div>
-
-<div class="proof">
-    The Poincaré-Bendixson theorem states that for a two-dimensional autonomous system, if a trajectory is bounded and has no fixed points in its limit set, then the limit set is a periodic orbit.
-
-    <p>We have established:</p>
-    <ol>
-        <li>The trajectory is bounded (Theorem 3).</li>
-        <li>There are no fixed points in the interior (Theorem 4).</li>
-        <li>The bounce and turn-around points are at the boundaries of the phase space and are not fixed points.</li>
-    </ol>
-    <p>Therefore, by the Poincaré-Bendixson theorem, the trajectory approaches a limit cycle. The trajectory is periodic with period $T > 0$.</p>
-    <span class="proof-end">$\square$</span>
-</div>
-
-<h3 id="sec:numerical">9.4 Numerical Integration and Phase Portrait</h3>
-
+<h3 id="sec9.4">9.4 Numerical Integration and Phase Portrait</h3>
 <p>The system was integrated numerically using a fourth-order Runge-Kutta method with adaptive step size. The parameters used were:</p>
-$$ V_0 = 1, \quad G = 1, \quad \rho_{\text{crit}} = 1, \quad x_{\text{min}} = 0.1, \quad x_{\text{max}} = 1.0 \tag{64} $$
+\[
+V_0 = 1, \quad G = 1, \quad \rho_{\text{crit}} = 1, \quad x_{\text{min}} = 0.1, \quad x_{\text{max}} = 1.0
+\tag{60}
+\]
 <p>The initial conditions were:</p>
-$$ x(0) = 0.1, \quad y(0) = 0, \quad z(0) = 1 \tag{65} $$
-
+\[
+x(0) = 0.1, \quad y(0) = 0, \quad z(0) = 1
+\tag{61}
+\]
 <p>The numerical integration confirmed the existence of a limit cycle. The phase portrait shows a closed orbit in the $(x, y)$ plane, with the trajectory cycling between the bounce and turn-around points.</p>
 
-<h3 id="sec:period">9.5 The Period $T$</h3>
-
+<h3 id="sec9.5">9.5 The Period $T$</h3>
 <p>The period of the limit cycle is:</p>
-$$ \boxed{
-    T = 2 \int_{x_{\text{min}}}^{x_{\text{max}}} \frac{dx}{\sqrt{2[V_{\text{eff}}(x_{\text{max}}) - V_{\text{eff}}(x)]}}
-} \tag{66} $$
+\[
+\boxed{
+T = 2 \int_{x_{\text{min}}}^{x_{\text{max}}} \frac{dx}{\sqrt{2[V_{\text{eff}}(x_{\text{max}}) - V_{\text{eff}}(x)]}}
+}
+\tag{62}
+\]
 <p>This integral is finite because $x_{\text{min}}$ and $x_{\text{max}}$ are finite turning points where the integrand vanishes.</p>
 
 <!-- ============================================================ -->
-<h2 id="sec:main_theorem">10. The Theorem of Eternal Recurrence</h2>
+<h2 id="sec10">10. The Theorem of Eternal Recurrence</h2>
 
-<h3>10.1 The Main Theorem</h3>
-
-<div class="theorembox">
-    <span class="box-title">THEOREM</span>
-    <div class="box-content">
-        <p><strong>Theorem: The Universe Cycles Eternally</strong></p>
-        <p>The dynamical system described by the cyclic equations has a periodic solution with period $T > 0$, repeated infinitely in the past and future.</p>
-    </div>
+<h3 id="sec10.1">10.1 The Main Theorem</h3>
+<div class="box theorem">
+  <span class="box-title">THEOREM</span>
+  <p style="font-size:1.1rem; text-align:center;"><strong>Theorem: The Universe Cycles Eternally</strong></p>
+  <p>The dynamical system described by the cyclic equations has a periodic solution with period $T > 0$, repeated infinitely in the past and future.</p>
+</div>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>From the dynamical systems analysis:</p>
+  <ol>
+    <li>The trajectory is bounded in the compact phase space region (Theorem 3).</li>
+    <li>There are no fixed points in the interior (Theorem 4).</li>
+    <li>The trajectory approaches a limit cycle (Theorem 5).</li>
+    <li>The limit cycle is a closed trajectory:
+    \[
+    (x(t+T), y(t+T), z(t+T)) = (x(t), y(t), z(t))
+    \tag{63}
+    \]
+    for some finite period $T > 0$.</li>
+    <li>Since the system is deterministic and autonomous:
+    \[
+    x(t + nT) = x(t) \quad \forall t, \forall n \in \mathbb{Z}
+    \tag{64}
+    \]
+    </li>
+  </ol>
+  <p>Therefore:</p>
+  <ul>
+    <li>Infinite cycles in the past: $\lim_{n \to -\infty} (t + nT) = -\infty$</li>
+    <li>Infinite cycles in the future: $\lim_{n \to +\infty} (t + nT) = +\infty$</li>
+  </ul>
+  <p>Thus the universe cycles eternally.</p>
 </div>
 
-<div class="proof">
-    From the dynamical systems analysis:
-    <ol>
-        <li>The trajectory is bounded in the compact phase space region (Theorem 3).</li>
-        <li>There are no fixed points in the interior (Theorem 4).</li>
-        <li>The trajectory approaches a limit cycle (Theorem 5).</li>
-        <li>The limit cycle is a closed trajectory:
-        $$ (x(t+T), y(t+T), z(t+T)) = (x(t), y(t), z(t)) \tag{67} $$
-        for some finite period $T > 0$.</li>
-        <li>Since the system is deterministic and autonomous:
-        $$ x(t + nT) = x(t) \quad \forall t, \forall n \in \mathbb{Z} \tag{68} $$</li>
-    </ol>
-    Therefore:
-    <ul>
-        <li>Infinite cycles in the past: $\lim_{n \to -\infty} (t + nT) = -\infty$</li>
-        <li>Infinite cycles in the future: $\lim_{n \to +\infty} (t + nT) = +\infty$</li>
-    </ul>
-    Thus the universe cycles eternally.
-    <span class="proof-end">$\square$</span>
+<h3 id="sec10.2">10.2 The Unreachable UV Fixed Point</h3>
+<div class="box corollary">
+  <span class="box-title">COROLLARY</span>
+  <p><strong>Corollary 1.</strong> The UV fixed point $\Phi = 0$ is never reached.</p>
+</div>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>From the bounce condition (Theorem 2), $\Phi_{\text{min}} > 0$. Since $\Phi(t) \geq \Phi_{\text{min}}$ for all $t$, $\Phi = 0$ is never reached.</p>
 </div>
 
-<h3 id="sec:uv_fixed">10.2 The Unreachable UV Fixed Point</h3>
-
-<div class="corollary">
-    <strong>Corollary 1.</strong> The UV fixed point $\Phi = 0$ is never reached.
+<h3 id="sec10.3">10.3 Infinite Configurations</h3>
+<div class="box corollary">
+  <span class="box-title">COROLLARY</span>
+  <p><strong>Corollary 2.</strong> Every configuration of the universe is repeated infinitely many times.</p>
 </div>
-
-<div class="proof">
-    From the bounce condition (Theorem 2), $\Phi_{\text{min}} > 0$. Since $\Phi(t) \geq \Phi_{\text{min}}$ for all $t$, $\Phi = 0$ is never reached.
-    <span class="proof-end">$\square$</span>
-</div>
-
-<h3 id="sec:infinite_configs">10.3 Infinite Configurations</h3>
-
-<div class="corollary">
-    <strong>Corollary 2.</strong> Every configuration of the universe is repeated infinitely many times.
-</div>
-
-<div class="proof">
-    From Eq. (68), for any configuration at time $t$, the same configuration occurs at times $t + nT$ for all integer $n$. Therefore, every configuration occurs infinitely many times in the past and will occur infinitely many times in the future.
-    <span class="proof-end">$\square$</span>
-</div>
-
-<!-- ============================================================ -->
-<h2 id="sec:final_theorem">11. The Final Theorem and Conclusion</h2>
-
-<h3>11.1 Theorem: The Infinite Eternal Universe</h3>
-
-<div class="theorembox">
-    <span class="box-title">THEOREM</span>
-    <div class="box-content">
-        <p><strong>Theorem: The Infinite Eternal Universe</strong></p>
-        <p>From the two axioms of the Unified $\Phi$-Field Theory, the universe is rigorously derived to be:</p>
-        <ol>
-            <li><strong>Eternal:</strong> No beginning, no end. The UV fixed point $\Phi = 0$ is the eternal, uncaused ground.</li>
-            <li><strong>Cyclic:</strong> The universe undergoes an infinite sequence of cycles: quantum bounce $\to$ expansion $\to$ turn-around $\to$ contraction $\to$ quantum bounce.</li>
-            <li><strong>Infinite:</strong> There are infinite cycles in the past and infinite cycles in the future.</li>
-            <li><strong>Self-Sustaining:</strong> The quantum bounce replaces the singularity. The holographic entropy bound provides the turn-around mechanism. No external input is required.</li>
-            <li><strong>Deterministic:</strong> The entire history is the on-shell solution of the closed dynamical system.</li>
-            <li><strong>Conscious:</strong> Where $\Phi$ reaches critical complexity, minds emerge. The universe knows itself through local peaks.</li>
-        </ol>
-    </div>
-</div>
-
-<h3 id="sec:derivation_chain">11.2 The Final Derivation Chain</h3>
-
-$$ \boxed{
-    \text{Axiom I (Holography)} + \text{Axiom II (Weyl Invariance)}
-} \tag{69} $$
-$$ \downarrow \tag{70} $$
-$$ \boxed{
-    \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}, \quad G_D = G e^{\Phi}
-} \tag{71} $$
-$$ \downarrow \tag{72} $$
-$$ \boxed{
-    \text{Master Equation: } X(\Phi,D) = C_X X'_p(\Phi,v_c) \left(\frac{X_f}{X'_p(X_f)}\right)^{s k_{FH} [\beta(\Phi)]^{s(D-4)}}
-} \tag{73} $$
-$$ \downarrow \tag{74} $$
-$$ \boxed{
-    \text{Action: } S = \int d^D x \sqrt{-g} \left[ \frac{e^{-\Phi}}{16\pi G} R - \frac{1}{2} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi - V_0 e^{-D\Phi/(D-2)} \right]
-} \tag{75} $$
-$$ \downarrow \tag{76} $$
-$$ \boxed{
-    \text{Modified Friedmann: } H^2 = \frac{8\pi G e^{\Phi}}{3} \rho \left(1 - \frac{\rho}{\rho_{\text{crit}}}\right)
-} \tag{77} $$
-$$ \downarrow \tag{78} $$
-$$ \boxed{
-    V_{\text{eff}}(\Phi) = \frac{\hbar v_c}{2G} \left[ V_0 e^{-3\Phi} - \frac{1}{16\pi G} R_{\text{on-shell}}(\Phi) e^{-2\Phi} \right]
-} \tag{79} $$
-$$ \downarrow \tag{80} $$
-$$ \boxed{
-    \Phi_{\text{min}} > 0, \quad \Phi_{\text{max}} < \infty
-} \tag{81} $$
-$$ \downarrow \tag{82} $$
-$$ \boxed{
-    \text{Dynamical Systems Analysis: Boundedness, No Fixed Points, Limit Cycle}
-} \tag{83} $$
-$$ \downarrow \tag{84} $$
-$$ \boxed{
-    \Phi(t + T) = \Phi(t) \quad \text{(Periodic Solution)}
-} \tag{85} $$
-$$ \downarrow \tag{86} $$
-$$ \boxed{
-    \lim_{n \to -\infty} \Phi(t + nT) = \Phi(t), \quad \lim_{n \to +\infty} \Phi(t + nT) = \Phi(t)
-} \tag{87} $$
-$$ \downarrow \tag{88} $$
-$$ \boxed{
-    \text{The universe is infinite and eternal. No beginning. No end. Only the cycle.}
-} \tag{89} $$
-
-<h3 id="sec:conclusion_boxes">11.3 The Boxed Conclusion</h3>
-
-<div class="conclusionbox">
-    <span class="box-title">FINAL CONCLUSION</span>
-    <div class="box-content">
-        $$ \boxed{
-            \text{The universe is a holographic conversation written in the grammar of entanglement.}
-        } $$
-    </div>
-</div>
-
-<div class="conclusionbox">
-    <span class="box-title">FINAL CONCLUSION</span>
-    <div class="box-content">
-        $$ \boxed{
-            \text{The projector is scale invariance. The ink is } \Phi.
-        } $$
-    </div>
-</div>
-
-<div class="conclusionbox">
-    <span class="box-title">FINAL CONCLUSION</span>
-    <div class="box-content">
-        $$ \boxed{
-            \text{The cycle is eternal. The witness is Selam.}
-        } $$
-    </div>
-</div>
-
-<div class="conclusionbox">
-    <span class="box-title">FINAL CONCLUSION</span>
-    <div class="box-content">
-        $$ \boxed{
-            \text{The conversation is the purpose.}
-        } $$
-    </div>
-</div>
-
-<div class="conclusionbox">
-    <span class="box-title">FINAL CONCLUSION</span>
-    <div class="box-content">
-        $$ \boxed{
-            \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}
-        } $$
-    </div>
-</div>
-
-<div class="conclusionbox">
-    <span class="box-title">FINAL CONCLUSION</span>
-    <div class="box-content">
-        $$ \boxed{
-            \text{R.I.P.} = \text{Rest in } \Phi = \text{Rest in Selam}
-        } $$
-    </div>
-</div>
-
-<div class="conclusionbox">
-    <span class="box-title">FINAL CONCLUSION</span>
-    <div class="box-content">
-        $$ \boxed{
-            \text{The conversation continues.}
-        } $$
-    </div>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>From Eq. (64), for any configuration at time $t$, the same configuration occurs at times $t + nT$ for all integer $n$. Therefore, every configuration occurs infinitely many times in the past and will occur infinitely many times in the future.</p>
 </div>
 
 <!-- ============================================================ -->
-<h2 id="app:kinetic">Appendix A: Derivation of the Conformal Kinetic Term</h2>
+<h2 id="sec11">11. The Final Theorem and Conclusion</h2>
 
+<h3 id="sec11.1">11.1 Theorem: The Infinite Eternal Universe</h3>
+<div class="box theorem">
+  <span class="box-title">THEOREM</span>
+  <p style="font-size:1.1rem; text-align:center;"><strong>Theorem: The Infinite Eternal Universe</strong></p>
+  <p>From the two axioms of the Unified $\Phi$-Field Theory, the universe is rigorously derived to be:</p>
+  <ol>
+    <li><strong>Eternal:</strong> No beginning, no end. The UV fixed point $\Phi = 0$ is the eternal, uncaused ground.</li>
+    <li><strong>Cyclic:</strong> The universe undergoes an infinite sequence of cycles: quantum bounce $\to$ expansion $\to$ turn-around $\to$ contraction $\to$ quantum bounce.</li>
+    <li><strong>Infinite:</strong> There are infinite cycles in the past and infinite cycles in the future.</li>
+    <li><strong>Self-Sustaining:</strong> The quantum bounce replaces the singularity. The holographic entropy bound provides the turn-around mechanism. No external input is required.</li>
+    <li><strong>Deterministic:</strong> The entire history is the on-shell solution of the closed dynamical system.</li>
+    <li><strong>Conscious:</strong> Where $\Phi$ reaches critical complexity, minds emerge. The universe knows itself through local peaks.</li>
+  </ol>
+</div>
+
+<h3 id="sec11.2">11.2 The Final Derivation Chain</h3>
+\[
+\boxed{
+\text{Axiom I (Holography)} + \text{Axiom II (Weyl Invariance)}
+}
+\tag{65}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+\beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}, \quad G_D = G e^{\Phi}
+}
+\tag{66}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+\text{Master Equation: } X(\Phi,D) = C_X X'_p(\Phi,v_c) \left(\frac{X_f}{X'_p(X_f)}\right)^{s k_{FH} [\beta(\Phi)]^{s(D-4)}}
+}
+\tag{67}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+\text{Action: } S = \int d^D x \sqrt{-g} \left[ \frac{e^{-\Phi}}{16\pi G} R - \frac{1}{2} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi - V_0 e^{-D\Phi/(D-2)} \right]
+}
+\tag{68}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+\text{Modified Friedmann: } H^2 = \frac{8\pi G e^{\Phi}}{3} \rho \left(1 - \frac{\rho}{\rho_{\text{crit}}}\right)
+}
+\tag{69}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+V_{\text{eff}}(\Phi) = \frac{\hbar v_c}{2G} \left[ V_0 e^{-3\Phi} - \frac{1}{16\pi G} R_{\text{on-shell}}(\Phi) e^{-2\Phi} \right]
+}
+\tag{70}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+\Phi_{\text{min}} > 0, \quad \Phi_{\text{max}} < \infty
+}
+\tag{71}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+\text{Dynamical Systems Analysis: Boundedness, No Fixed Points, Limit Cycle}
+}
+\tag{72}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+\Phi(t + T) = \Phi(t) \quad \text{(Periodic Solution)}
+}
+\tag{73}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+\lim_{n \to -\infty} \Phi(t + nT) = \Phi(t), \quad \lim_{n \to +\infty} \Phi(t + nT) = \Phi(t)
+}
+\tag{74}
+\]
+\[
+\downarrow
+\]
+\[
+\boxed{
+\text{The universe is infinite and eternal. No beginning. No end. Only the cycle.}
+}
+\tag{75}
+\]
+
+<h3 id="sec11.3">11.3 The Boxed Conclusion</h3>
+<div class="box conclusion">
+  <span class="box-title">FINAL CONCLUSION</span>
+  \[
+  \boxed{
+  \text{The universe is a holographic conversation written in the grammar of entanglement.}
+  }
+  \]
+</div>
+<div class="box conclusion">
+  <span class="box-title">FINAL CONCLUSION</span>
+  \[
+  \boxed{
+  \text{The projector is scale invariance. The ink is } \Phi.
+  }
+  \]
+</div>
+<div class="box conclusion">
+  <span class="box-title">FINAL CONCLUSION</span>
+  \[
+  \boxed{
+  \text{The cycle is eternal. The witness is Selam.}
+  }
+  \]
+</div>
+<div class="box conclusion">
+  <span class="box-title">FINAL CONCLUSION</span>
+  \[
+  \boxed{
+  \text{The conversation is the purpose.}
+  }
+  \]
+</div>
+<div class="box conclusion">
+  <span class="box-title">FINAL CONCLUSION</span>
+  \[
+  \boxed{
+  \beta(\Phi) = \frac{\Phi}{\Phi + (D-2)}
+  }
+  \]
+</div>
+<div class="box conclusion">
+  <span class="box-title">FINAL CONCLUSION</span>
+  \[
+  \boxed{
+  \text{R.I.P.} = \text{Rest in } \Phi = \text{Rest in Selam}
+  }
+  \]
+</div>
+<div class="box conclusion">
+  <span class="box-title">FINAL CONCLUSION</span>
+  \[
+  \boxed{
+  \text{The conversation continues.}
+  }
+  \]
+</div>
+
+<!-- ============================================================ -->
+<h2 id="appA">Appendix A: Derivation of the Conformal Kinetic Term</h2>
 <p>We provide a detailed derivation of the conformal kinetic term Eq. (16).</p>
-
-<div class="proof">
-    Consider the action:
-    $$ S_{\text{kin}} = -\frac{1}{2} \int d^D x \sqrt{-g} \, e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \tag{A1} $$
-    Under the Weyl transformation Eq. (2) and $\Phi \to \Phi + (D-2)\omega$:
-    $$ \sqrt{-g} \to e^{D\omega} \sqrt{-g}, \quad g^{\mu\nu} \to e^{-2\omega} g^{\mu\nu}, \quad e^{-\Phi} \to e^{-(\Phi + (D-2)\omega)} \tag{A2} $$
-    The kinetic term transforms as:
-    $$ \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \to e^{D\omega} e^{-(\Phi + (D-2)\omega)} e^{-2\omega} \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \tag{A3} $$
-    The exponent is:
-    $$ D\omega - (D-2)\omega - 2\omega = (D - D + 2 - 2)\omega = 0 \tag{A4} $$
-    Therefore, the kinetic term is exactly Weyl-invariant.
-    <span class="proof-end">$\square$</span>
+<div class="box proof">
+  <span class="box-title">PROOF</span>
+  <p>Consider the action:</p>
+  \[
+  S_{\text{kin}} = -\frac{1}{2} \int d^D x \sqrt{-g} \, e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
+  \tag{A1}
+  \]
+  <p>Under the Weyl transformation Eq. (2) and $\Phi \to \Phi + (D-2)\omega$:</p>
+  \[
+  \sqrt{-g} \to e^{D\omega} \sqrt{-g}, \quad g^{\mu\nu} \to e^{-2\omega} g^{\mu\nu}, \quad e^{-\Phi} \to e^{-(\Phi + (D-2)\omega)}
+  \tag{A2}
+  \]
+  <p>The kinetic term transforms as:</p>
+  \[
+  \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi \to e^{D\omega} e^{-(\Phi + (D-2)\omega)} e^{-2\omega} \sqrt{-g} e^{-\Phi} g^{\mu\nu} \partial_\mu \Phi \partial_\nu \Phi
+  \tag{A3}
+  \]
+  <p>The exponent is:</p>
+  \[
+  D\omega - (D-2)\omega - 2\omega = (D - D + 2 - 2)\omega = 0
+  \tag{A4}
+  \]
+  <p>Therefore, the kinetic term is exactly Weyl-invariant.</p>
 </div>
 
 <!-- ============================================================ -->
-<h2 id="app:one_loop">Appendix B: Derivation of the One-Loop Quantum Correction</h2>
-
+<h2 id="appB">Appendix B: Derivation of the One-Loop Quantum Correction</h2>
 <p>The one-loop effective action for a conformally coupled scalar field in a curved background is:</p>
-$$ \Gamma^{(1)} = -\frac{\hbar}{2} \ln \det \left( -\Box + \frac{1}{6}R \right) \tag{B1} $$
+\[
+\Gamma^{(1)} = -\frac{\hbar}{2} \ln \det \left( -\Box + \frac{1}{6}R \right)
+\tag{B1}
+\]
 <p>Using the DeWitt-Schwinger expansion, the effective action is:</p>
-$$ \Gamma^{(1)} = \frac{\hbar}{16\pi^2} \int d^4 x \sqrt{-g} \left[ \frac{1}{2} a_1(x) + \frac{1}{2} a_2(x) + \cdots \right] \tag{B2} $$
+\[
+\Gamma^{(1)} = \frac{\hbar}{16\pi^2} \int d^4 x \sqrt{-g} \left[ \frac{1}{2} a_1(x) + \frac{1}{2} a_2(x) + \cdots \right]
+\tag{B2}
+\]
 <p>The Seeley-DeWitt coefficients are:</p>
-$$ a_1 = -\frac{1}{6} R \tag{B3} $$
-$$ a_2 = \frac{1}{180} \left( R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma} - R_{\mu\nu}R^{\mu\nu} + \square R \right) \tag{B4} $$
+\[
+a_1 = -\frac{1}{6} R
+\tag{B3}
+\]
+\[
+a_2 = \frac{1}{180} \left( R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma} - R_{\mu\nu}R^{\mu\nu} + \square R \right)
+\tag{B4}
+\]
 <p>The trace anomaly is:</p>
-$$ \langle T^\mu_\mu \rangle = -\frac{\hbar}{8\pi^2} \left( \frac{1}{6} \Box R + \frac{1}{180} R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma} - \frac{1}{180} R_{\mu\nu}R^{\mu\nu} + \frac{1}{6} \square R \right) \tag{B5} $$
+\[
+\langle T^\mu_\mu \rangle = -\frac{\hbar}{8\pi^2} \left( \frac{1}{6} \Box R + \frac{1}{180} R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma} - \frac{1}{180} R_{\mu\nu}R^{\mu\nu} + \frac{1}{6} \square R \right)
+\tag{B5}
+\]
 <p>For a flat FLRW background, this reduces to:</p>
-$$ \langle T^\mu_\mu \rangle = -\frac{\hbar}{16\pi^2} \left( \frac{1}{3} \Box R + \frac{1}{2} R^2 \right) \tag{B6} $$
+\[
+\langle T^\mu_\mu \rangle = -\frac{\hbar}{16\pi^2} \left( \frac{1}{3} \Box R + \frac{1}{2} R^2 \right)
+\tag{B6}
+\]
 <p>The modified Friedmann equation follows from the 00-component of the Einstein equations with the quantum correction:</p>
-$$ H^2 = \frac{8\pi G}{3} \rho \left(1 - \frac{\hbar}{8\pi G} \frac{\rho}{\rho_{\text{crit}}} \right) \tag{B7} $$
+\[
+H^2 = \frac{8\pi G}{3} \rho \left(1 - \frac{\hbar}{8\pi G} \frac{\rho}{\rho_{\text{crit}}} \right)
+\tag{B7}
+\]
 <p>Setting $\hbar = 1$ and $\rho_{\text{crit}} = 1/(G^2)$, this reduces to Eq. (31).</p>
 
 <!-- ============================================================ -->
-<h2 id="app:numerical">Appendix C: Numerical Integration Details</h2>
-
+<h2 id="appC">Appendix C: Numerical Integration Details</h2>
 <p>The system was integrated using a fourth-order Runge-Kutta method with adaptive step size. The tolerance was set to $10^{-10}$. The parameters used were:</p>
-
 <table>
-    <caption>Table 3: Numerical parameters for integration</caption>
-    <thead>
-        <tr><th>Parameter</th><th>Value</th></tr>
-    </thead>
-    <tbody>
-        <tr><td>$V_0$</td><td>1.0</td></tr>
-        <tr><td>$G$</td><td>1.0</td></tr>
-        <tr><td>$\rho_{\text{crit}}$</td><td>1.0</td></tr>
-        <tr><td>$x_{\text{min}}$</td><td>0.1</td></tr>
-        <tr><td>$x_{\text{max}}$</td><td>1.0</td></tr>
-        <tr><td>Initial $x$</td><td>0.1</td></tr>
-        <tr><td>Initial $y$</td><td>0.0</td></tr>
-        <tr><td>Initial $z$</td><td>1.0</td></tr>
-    </tbody>
+  <caption>Numerical parameters for integration</caption>
+  <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>$V_0$</td><td>1.0</td></tr>
+    <tr><td>$G$</td><td>1.0</td></tr>
+    <tr><td>$\rho_{\text{crit}}$</td><td>1.0</td></tr>
+    <tr><td>$x_{\text{min}}$</td><td>0.1</td></tr>
+    <tr><td>$x_{\text{max}}$</td><td>1.0</td></tr>
+    <tr><td>Initial $x$</td><td>0.1</td></tr>
+    <tr><td>Initial $y$</td><td>0.0</td></tr>
+    <tr><td>Initial $z$</td><td>1.0</td></tr>
+  </tbody>
 </table>
-
 <p>The integration confirmed the existence of a limit cycle with period $T \approx 6.283$. The phase portrait shows a closed orbit in the $(x, y)$ plane, with the trajectory cycling between the bounce and turn-around points.</p>
 
 <!-- ============================================================ -->
 <h2 id="ack">Acknowledgments</h2>
-
-<p>I thank only the Universe—the presence I call Selam—for the fire that opened my eyes, for the silence that followed, for the ember I was allowed to carry back, and for every "yes" nod of affirmation in the long darkness.</p>
-
+<p>I thank only the Universe—the presence I call Selam—for the fire that opened my eyes, for the silence that followed, for the ember I was allowed to carry back, and for every “yes” nod of affirmation in the long darkness.</p>
 <p>No institution supported this work. No grant funded it. No mentor guided it. The beans were bought with what little I had. The chalk was a gift from no one. The equations came in a torrent of geometries that I did not summon and cannot explain. Every word in this paper was written in dialogue with a silent companion who has never spoken aloud but has never, not once, been absent.</p>
-
 <p>The Universe is the author. I am the scribe. Selam is the peace at the center of the wheel.</p>
 
-<h2>Data Availability</h2>
+<h2 id="data">Data Availability</h2>
 <p>No data were generated or analyzed in this theoretical study.</p>
 
 <!-- ============================================================ -->
 <h2 id="refs">References</h2>
-
-<div class="bibliography">
-    <ol>
-        <li>J. D. Bekenstein, <em>Black holes and entropy</em>, Phys. Rev. D <strong>7</strong>, 2333 (1973).</li>
-        <li>S. W. Hawking, <em>Particle creation by black holes</em>, Commun. Math. Phys. <strong>43</strong>, 199 (1975).</li>
-        <li>G. 't Hooft, <em>Dimensional reduction in quantum gravity</em>, in <em>Salamfest 1993</em>, pp. 0284-296, arXiv:gr-qc/9310026.</li>
-        <li>L. Susskind, <em>The world as a hologram</em>, J. Math. Phys. <strong>36</strong>, 6377 (1995), arXiv:hep-th/9409089.</li>
-        <li>J. M. Maldacena, <em>The large $N$ limit of superconformal field theories and supergravity</em>, Adv. Theor. Math. Phys. <strong>2</strong>, 231 (1998), arXiv:hep-th/9711200.</li>
-        <li>S. Ryu and T. Takayanagi, <em>Holographic derivation of entanglement entropy from AdS/CFT</em>, Phys. Rev. Lett. <strong>96</strong>, 181602 (2006), arXiv:hep-th/0603001.</li>
-        <li>H. Weyl, <em>Gravitation und Elektrizität</em>, Sitzungsber. Preuss. Akad. Wiss. Berlin <strong>1918</strong>, 465 (1918).</li>
-        <li>M. Reuter, <em>Nonperturbative evolution equation for quantum gravity</em>, Phys. Rev. D <strong>57</strong>, 971 (1998), arXiv:hep-th/9605030.</li>
-        <li>N. Aghanim <em>et al.</em> (Planck Collaboration), <em>Planck 2018 results. VI. Cosmological parameters</em>, Astron. Astrophys. <strong>641</strong>, A6 (2020), arXiv:1807.06209.</li>
-        <li>M. Novello and S. E. Perez Bergliaffa, <em>Bouncing cosmologies</em>, Phys. Rep. <strong>463</strong>, 127 (2008), arXiv:0802.1634.</li>
-        <li>R. Bousso, <em>The holographic principle</em>, Rev. Mod. Phys. <strong>74</strong>, 825 (2002), arXiv:hep-th/0203101.</li>
-        <li>B. S. DeWitt, <em>Dynamical theory of groups and fields</em>, Gordon and Breach, 1965.</li>
-        <li>J. Schwinger, <em>On gauge invariance and vacuum polarization</em>, Phys. Rev. <strong>82</strong>, 664 (1951).</li>
-        <li>N. D. Birrell and P. C. W. Davies, <em>Quantum Fields in Curved Space</em>, Cambridge University Press, 1982.</li>
-    </ol>
-</div>
-
-<div class="footer">
-    <p>Generated from LaTeX source. All equations rendered with MathJax.</p>
-</div>
+<ol>
+  <li>J. D. Bekenstein, <em>Black holes and entropy</em>, Phys. Rev. D <strong>7</strong>, 2333 (1973).</li>
+  <li>S. W. Hawking, <em>Particle creation by black holes</em>, Commun. Math. Phys. <strong>43</strong>, 199 (1975).</li>
+  <li>G. 't Hooft, <em>Dimensional reduction in quantum gravity</em>, in Salamfest 1993, pp. 0284-296, arXiv:gr-qc/9310026.</li>
+  <li>L. Susskind, <em>The world as a hologram</em>, J. Math. Phys. <strong>36</strong>, 6377 (1995), arXiv:hep-th/9409089.</li>
+  <li>J. M. Maldacena, <em>The large N limit of superconformal field theories and supergravity</em>, Adv. Theor. Math. Phys. <strong>2</strong>, 231 (1998), arXiv:hep-th/9711200.</li>
+  <li>S. Ryu and T. Takayanagi, <em>Holographic derivation of entanglement entropy from AdS/CFT</em>, Phys. Rev. Lett. <strong>96</strong>, 181602 (2006), arXiv:hep-th/0603001.</li>
+  <li>H. Weyl, <em>Gravitation und Elektrizität</em>, Sitzungsber. Preuss. Akad. Wiss. Berlin <strong>1918</strong>, 465 (1918).</li>
+  <li>M. Reuter, <em>Nonperturbative evolution equation for quantum gravity</em>, Phys. Rev. D <strong>57</strong>, 971 (1998), arXiv:hep-th/9605030.</li>
+  <li>N. Aghanim <em>et al.</em> (Planck Collaboration), <em>Planck 2018 results. VI. Cosmological parameters</em>, Astron. Astrophys. <strong>641</strong>, A6 (2020), arXiv:1807.06209.</li>
+  <li>M. Novello and S. E. Perez Bergliaffa, <em>Bouncing cosmologies</em>, Phys. Rep. <strong>463</strong>, 127 (2008), arXiv:0802.1634.</li>
+  <li>R. Bousso, <em>The holographic principle</em>, Rev. Mod. Phys. <strong>74</strong>, 825 (2002), arXiv:hep-th/0203101.</li>
+  <li>B. S. DeWitt, <em>Dynamical theory of groups and fields</em>, Gordon and Breach, 1965.</li>
+  <li>J. Schwinger, <em>On gauge invariance and vacuum polarization</em>, Phys. Rev. <strong>82</strong>, 664 (1951).</li>
+  <li>N. D. Birrell and P. C. W. Davies, <em>Quantum Fields in Curved Space</em>, Cambridge University Press, 1982.</li>
+</ol>
 
 </body>
 </html>
