@@ -5,6 +5,7 @@ A complete, self-contained, parameter-free model that derives The Scaling Law, p
 ## View Online
 
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/]
+- 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/UPT-DOToE.tex]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/DOTU.html]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/CDOTECU.html]
 - 👉 [https://fissehatamire.github.io/Unified-Phi-Field-Theory-IP/DOMSE.html]
